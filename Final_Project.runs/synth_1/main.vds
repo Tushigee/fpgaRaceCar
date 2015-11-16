@@ -1,0 +1,614 @@
+#-----------------------------------------------------------
+# Vivado v2014.4.1 (64-bit)
+# SW Build 1149489 on Thu Feb 19 16:01:47 MST 2015
+# IP Build 1147552 on Wed Feb 18 14:25:16 MST 2015
+# Start of session at: Sun Nov 15 20:54:09 2015
+# Process ID: 17417
+# Log file: /afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.runs/synth_1/main.vds
+# Journal file: /afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
+source main.tcl
+# set_param gui.test TreeTableDev
+# set_param xicom.use_bs_reader 1
+# debug::add_scope template.lib 1
+# set_msg_config -id {HDL 9-1061} -limit 100000
+# set_msg_config -id {HDL 9-1654} -limit 100000
+# create_project -in_memory -part xc7a100tcsg324-3
+# set_param project.compositeFile.enableAutoGeneration 0
+# set_param synth.vivado.isSynthRun true
+# set_msg_config -id {IP_Flow 19-2162} -severity warning -new_severity info
+# set_property webtalk.parent_dir /afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.cache/wt [current_project]
+# set_property parent.project_path /afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.xpr [current_project]
+# set_property default_lib xil_defaultlib [current_project]
+# set_property target_language Verilog [current_project]
+# read_ip /afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/mit/6.111/xilinx-vivado/Vivado/2014.4/data/ip'.
+# set_property used_in_implementation false [get_files -all /afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0_ooc.xdc]
+# set_property used_in_implementation false [get_files -all /afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.dcp]
+# set_property is_locked true [get_files /afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci]
+# read_verilog -library xil_defaultlib {
+#   /afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/sources_1/imports/sources_1/imports/src/SCCB_interface.v
+#   /afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/sources_1/imports/sources_1/imports/src/OV7670_config_rom.v
+#   /afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/sources_1/imports/sources_1/imports/src/OV7670_config.v
+#   /afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/sources_1/imports/sources_1/imports/src/camera_read.v
+#   /afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/sources_1/imports/sources_1/imports/src/camera_configure.v
+#   /afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/sources_1/imports/sources_1/new/main.v
+# }
+# read_xdc /afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/constrs_1/imports/Sources/Nexys4DDR_Master_lab4.xdc
+# set_property used_in_implementation false [get_files /afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/constrs_1/imports/Sources/Nexys4DDR_Master_lab4.xdc]
+# read_xdc dont_touch.xdc
+# set_property used_in_implementation false [get_files dont_touch.xdc]
+# catch { write_hwdef -file main.hwdef }
+INFO: [Vivado_Tcl 4-279] hardware handoff file cannot be generated as there is no block diagram instance in the design
+# synth_design -top main -part xc7a100tcsg324-3
+Command: synth_design -top main -part xc7a100tcsg324-3
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 914.113 ; gain = 149.738 ; free physical = 1840 ; free virtual = 13030
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'main' [/afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/sources_1/imports/sources_1/new/main.v:23]
+	Parameter WAITING bound to: 0 - type: integer 
+	Parameter READING bound to: 1 - type: integer 
+	Parameter DISPLAYING bound to: 2 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'clock_quarter_divider' [/afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/sources_1/imports/sources_1/new/main.v:192]
+INFO: [Synth 8-256] done synthesizing module 'clock_quarter_divider' (1#1) [/afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/sources_1/imports/sources_1/new/main.v:192]
+INFO: [Synth 8-638] synthesizing module 'display_8hex' [/afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/sources_1/imports/sources_1/new/main.v:203]
+	Parameter bits bound to: 13 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'display_8hex' (2#1) [/afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/sources_1/imports/sources_1/new/main.v:203]
+INFO: [Synth 8-638] synthesizing module 'camera_configure' [/afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/sources_1/imports/sources_1/imports/src/camera_configure.v:23]
+	Parameter CLK_FREQ bound to: 25000000 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'OV7670_config_rom' [/afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/sources_1/imports/sources_1/imports/src/OV7670_config_rom.v:23]
+INFO: [Synth 8-256] done synthesizing module 'OV7670_config_rom' (3#1) [/afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/sources_1/imports/sources_1/imports/src/OV7670_config_rom.v:23]
+INFO: [Synth 8-638] synthesizing module 'OV7670_config' [/afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/sources_1/imports/sources_1/imports/src/OV7670_config.v:23]
+	Parameter CLK_FREQ bound to: 25000000 - type: integer 
+	Parameter FSM_IDLE bound to: 0 - type: integer 
+	Parameter FSM_SEND_CMD bound to: 1 - type: integer 
+	Parameter FSM_DONE bound to: 2 - type: integer 
+	Parameter FSM_TIMER bound to: 3 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [/afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/sources_1/imports/sources_1/imports/src/OV7670_config.v:58]
+INFO: [Synth 8-256] done synthesizing module 'OV7670_config' (4#1) [/afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/sources_1/imports/sources_1/imports/src/OV7670_config.v:23]
+INFO: [Synth 8-638] synthesizing module 'SCCB_interface' [/afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/sources_1/imports/sources_1/imports/src/SCCB_interface.v:23]
+	Parameter CLK_FREQ bound to: 25000000 - type: integer 
+	Parameter SCCB_FREQ bound to: 100000 - type: integer 
+	Parameter CAMERA_ADDR bound to: 8'b01000010 
+	Parameter FSM_IDLE bound to: 0 - type: integer 
+	Parameter FSM_START_SIGNAL bound to: 1 - type: integer 
+	Parameter FSM_LOAD_BYTE bound to: 2 - type: integer 
+	Parameter FSM_TX_BYTE_1 bound to: 3 - type: integer 
+	Parameter FSM_TX_BYTE_2 bound to: 4 - type: integer 
+	Parameter FSM_TX_BYTE_3 bound to: 5 - type: integer 
+	Parameter FSM_TX_BYTE_4 bound to: 6 - type: integer 
+	Parameter FSM_END_SIGNAL_1 bound to: 7 - type: integer 
+	Parameter FSM_END_SIGNAL_2 bound to: 8 - type: integer 
+	Parameter FSM_END_SIGNAL_3 bound to: 9 - type: integer 
+	Parameter FSM_END_SIGNAL_4 bound to: 10 - type: integer 
+	Parameter FSM_DONE bound to: 11 - type: integer 
+	Parameter FSM_TIMER bound to: 12 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [/afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/sources_1/imports/sources_1/imports/src/SCCB_interface.v:72]
+INFO: [Synth 8-256] done synthesizing module 'SCCB_interface' (5#1) [/afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/sources_1/imports/sources_1/imports/src/SCCB_interface.v:23]
+INFO: [Synth 8-256] done synthesizing module 'camera_configure' (6#1) [/afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/sources_1/imports/sources_1/imports/src/camera_configure.v:23]
+INFO: [Synth 8-638] synthesizing module 'camera_read' [/afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/sources_1/imports/sources_1/imports/src/camera_read.v:21]
+	Parameter WAIT_FRAME_START bound to: 0 - type: integer 
+	Parameter ROW_CAPTURE bound to: 1 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [/afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/sources_1/imports/sources_1/imports/src/camera_read.v:42]
+INFO: [Synth 8-256] done synthesizing module 'camera_read' (7#1) [/afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/sources_1/imports/sources_1/imports/src/camera_read.v:21]
+INFO: [Synth 8-638] synthesizing module 'vga' [/afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/sources_1/imports/sources_1/new/main.v:167]
+INFO: [Synth 8-256] done synthesizing module 'vga' (8#1) [/afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/sources_1/imports/sources_1/new/main.v:167]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_0' [/afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.runs/synth_1/.Xil/Vivado-17417-eecs-digital-19/realtime/blk_mem_gen_0_stub.v:7]
+INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_0' (9#1) [/afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.runs/synth_1/.Xil/Vivado-17417-eecs-digital-19/realtime/blk_mem_gen_0_stub.v:7]
+INFO: [Synth 8-155] case statement is not full and has no default [/afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/sources_1/imports/sources_1/new/main.v:124]
+INFO: [Synth 8-256] done synthesizing module 'main' (10#1) [/afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/sources_1/imports/sources_1/new/main.v:23]
+WARNING: [Synth 8-3917] design main has port SEG[7] driven by constant 1
+WARNING: [Synth 8-3331] design main has unconnected port JD[6]
+WARNING: [Synth 8-3331] design main has unconnected port JD[5]
+WARNING: [Synth 8-3331] design main has unconnected port JD[4]
+WARNING: [Synth 8-3331] design main has unconnected port JD[3]
+WARNING: [Synth 8-3331] design main has unconnected port JD[2]
+WARNING: [Synth 8-3331] design main has unconnected port JD[1]
+WARNING: [Synth 8-3331] design main has unconnected port JD[0]
+WARNING: [Synth 8-3331] design main has unconnected port JC[7]
+WARNING: [Synth 8-3331] design main has unconnected port JC[6]
+WARNING: [Synth 8-3331] design main has unconnected port JC[5]
+WARNING: [Synth 8-3331] design main has unconnected port JC[4]
+WARNING: [Synth 8-3331] design main has unconnected port JC[3]
+WARNING: [Synth 8-3331] design main has unconnected port JC[2]
+WARNING: [Synth 8-3331] design main has unconnected port JC[1]
+WARNING: [Synth 8-3917] design main has port JB[7] driven by constant 0
+WARNING: [Synth 8-3917] design main has port JB[6] driven by constant 1
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 950.355 ; gain = 185.980 ; free physical = 1802 ; free virtual = 12993
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 950.355 ; gain = 185.980 ; free physical = 1802 ; free virtual = 12992
+---------------------------------------------------------------------------------
+Loading clock regions from /mit/6.111/xilinx-vivado/Vivado/2014.4/data/parts/xilinx/artix7/artix7/xc7a100t/ClockRegion.xml
+Loading clock buffers from /mit/6.111/xilinx-vivado/Vivado/2014.4/data/parts/xilinx/artix7/artix7/xc7a100t/ClockBuffers.xml
+Loading clock placement rules from /mit/6.111/xilinx-vivado/Vivado/2014.4/data/parts/xilinx/artix7/ClockPlacerRules.xml
+Loading package pin functions from /mit/6.111/xilinx-vivado/Vivado/2014.4/data/parts/xilinx/artix7/PinFunctions.xml...
+Loading package from /mit/6.111/xilinx-vivado/Vivado/2014.4/data/parts/xilinx/artix7/artix7/xc7a100t/csg324/Package.xml
+Loading io standards from /mit/6.111/xilinx-vivado/Vivado/2014.4/data/./parts/xilinx/artix7/IOStandards.xml
+Loading device configuration modes from /mit/6.111/xilinx-vivado/Vivado/2014.4/data/parts/xilinx/artix7/ConfigModes.xml
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/constrs_1/imports/Sources/Nexys4DDR_Master_lab4.xdc]
+WARNING: [Vivado 12-507] No nets matched 'n_1_n_0_322_BUFG_inst'. [/afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/constrs_1/imports/Sources/Nexys4DDR_Master_lab4.xdc:6]
+WARNING: [Vivado 12-584] No ports matched 'LED16_B'. [/afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/constrs_1/imports/Sources/Nexys4DDR_Master_lab4.xdc:52]
+WARNING: [Vivado 12-584] No ports matched 'LED16_G'. [/afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/constrs_1/imports/Sources/Nexys4DDR_Master_lab4.xdc:53]
+WARNING: [Vivado 12-584] No ports matched 'LED16_R'. [/afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/constrs_1/imports/Sources/Nexys4DDR_Master_lab4.xdc:54]
+WARNING: [Vivado 12-584] No ports matched 'LED17_B'. [/afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/constrs_1/imports/Sources/Nexys4DDR_Master_lab4.xdc:55]
+WARNING: [Vivado 12-584] No ports matched 'LED17_G'. [/afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/constrs_1/imports/Sources/Nexys4DDR_Master_lab4.xdc:56]
+WARNING: [Vivado 12-584] No ports matched 'LED17_R'. [/afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/constrs_1/imports/Sources/Nexys4DDR_Master_lab4.xdc:57]
+WARNING: [Vivado 12-584] No ports matched 'BTNU'. [/afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/constrs_1/imports/Sources/Nexys4DDR_Master_lab4.xdc:87]
+WARNING: [Vivado 12-584] No ports matched 'BTNL'. [/afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/constrs_1/imports/Sources/Nexys4DDR_Master_lab4.xdc:88]
+WARNING: [Vivado 12-584] No ports matched 'BTNR'. [/afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/constrs_1/imports/Sources/Nexys4DDR_Master_lab4.xdc:89]
+WARNING: [Vivado 12-584] No ports matched 'BTND'. [/afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/constrs_1/imports/Sources/Nexys4DDR_Master_lab4.xdc:90]
+Finished Parsing XDC File [/afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/constrs_1/imports/Sources/Nexys4DDR_Master_lab4.xdc]
+WARNING: [Project 1-498] One or more constraints failed evaluation while reading constraint file [/afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/constrs_1/imports/Sources/Nexys4DDR_Master_lab4.xdc] and the design contains unresolved black boxes. These constraints will be read post-synthesis (as long as their source constraint file is marked as used_in_implementation) and should be applied correctly then. You should review the constraints listed in the file [.Xil/main_propImpl.xdc] and check the run log file to verify that these constraints were correctly applied.
+Parsing XDC File [/afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.runs/synth_1/dont_touch.xdc]
+Finished Parsing XDC File [/afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.runs/synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1270.594 ; gain = 0.000 ; free physical = 1611 ; free virtual = 12802
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 1270.594 ; gain = 506.219 ; free physical = 1611 ; free virtual = 12801
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-3
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 1270.594 ; gain = 506.219 ; free physical = 1611 ; free virtual = 12801
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property DONT_TOUCH = true for bram. (constraint file  /afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.runs/synth_1/dont_touch.xdc, line 7).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 1270.594 ; gain = 506.219 ; free physical = 1611 ; free virtual = 12802
+---------------------------------------------------------------------------------
+ROM "FSM_state" won't be mapped to RAM because it is too sparse.
+ROM "timer0" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "FSM_state0" won't be mapped to Block RAM because address size (2) smaller than threshold (5) 
+ROM "FSM_state0" won't be mapped to Block RAM because address size (4) smaller than threshold (5) 
+ROM "timer0" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "vcount" won't be mapped to RAM because it is too sparse.
+INFO: [Synth 8-4471] merging register 'display_b_reg[3:0]' into 'display_r_reg[3:0]' [/afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/sources_1/imports/sources_1/new/main.v:99]
+INFO: [Synth 8-3537] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the inputs of the operator [/afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/sources_1/imports/sources_1/new/main.v:110]
+INFO: [Synth 8-3537] HDL ADVISOR - The operator resource <multiplier> is shared. To prevent sharing consider applying a KEEP on the inputs of the operator [/afs/athena.mit.edu/user/b/t/btushig/Desktop/6.111/Final_Project/Final_Project.srcs/sources_1/imports/sources_1/new/main.v:110]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:18 ; elapsed = 00:00:21 . Memory (MB): peak = 1270.594 ; gain = 506.219 ; free physical = 1596 ; free virtual = 12786
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 2     
+	   2 Input     17 Bit       Adders := 1     
+	   2 Input     10 Bit       Adders := 2     
+	   2 Input      8 Bit       Adders := 1     
+	   2 Input      4 Bit       Adders := 1     
+	   2 Input      2 Bit       Adders := 1     
+	   2 Input      1 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 2     
+	               17 Bit    Registers := 1     
+	               16 Bit    Registers := 4     
+	               10 Bit    Registers := 2     
+	                8 Bit    Registers := 7     
+	                7 Bit    Registers := 1     
+	                4 Bit    Registers := 4     
+	                3 Bit    Registers := 2     
+	                2 Bit    Registers := 3     
+	                1 Bit    Registers := 13    
++---ROMs : 
+	                              ROMs := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 4     
+	   4 Input     32 Bit        Muxes := 1     
+	   3 Input     32 Bit        Muxes := 1     
+	  14 Input     32 Bit        Muxes := 1     
+	   4 Input     17 Bit        Muxes := 2     
+	   2 Input     16 Bit        Muxes := 4     
+	   2 Input     10 Bit        Muxes := 2     
+	   4 Input     10 Bit        Muxes := 1     
+	   4 Input      9 Bit        Muxes := 1     
+	   8 Input      8 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 1     
+	   4 Input      8 Bit        Muxes := 2     
+	  14 Input      8 Bit        Muxes := 1     
+	  16 Input      7 Bit        Muxes := 8     
+	   2 Input      4 Bit        Muxes := 3     
+	  14 Input      4 Bit        Muxes := 2     
+	   2 Input      3 Bit        Muxes := 1     
+	   4 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 6     
+	   3 Input      2 Bit        Muxes := 1     
+	  14 Input      2 Bit        Muxes := 1     
+	   4 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 31    
+	   4 Input      1 Bit        Muxes := 14    
+	   3 Input      1 Bit        Muxes := 4     
+	  14 Input      1 Bit        Muxes := 11    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module main 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     17 Bit       Adders := 1     
++---Registers : 
+	               17 Bit    Registers := 1     
+	               16 Bit    Registers := 2     
+	                4 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   4 Input     17 Bit        Muxes := 2     
+	   4 Input     10 Bit        Muxes := 1     
+	   4 Input      9 Bit        Muxes := 1     
+	   4 Input      2 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 6     
+	   2 Input      1 Bit        Muxes := 6     
+Module clock_quarter_divider 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      1 Bit       Adders := 1     
++---Registers : 
+	                1 Bit    Registers := 2     
+Module display_8hex 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 1     
+	                7 Bit    Registers := 1     
++---Muxes : 
+	   8 Input      8 Bit        Muxes := 1     
+	  16 Input      7 Bit        Muxes := 8     
+Module OV7670_config_rom 
+Detailed RTL Component Info : 
++---Registers : 
+	               16 Bit    Registers := 1     
++---ROMs : 
+	                              ROMs := 1     
+Module OV7670_config 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
+	   2 Input      8 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
+	                8 Bit    Registers := 3     
+	                3 Bit    Registers := 2     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 3     
+	   4 Input     32 Bit        Muxes := 1     
+	   3 Input     32 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 1     
+	   4 Input      8 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 1     
+	   4 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   3 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 12    
+	   4 Input      1 Bit        Muxes := 8     
+	   3 Input      1 Bit        Muxes := 4     
+Module SCCB_interface 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
+	   2 Input      4 Bit       Adders := 1     
+	   2 Input      2 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
+	                8 Bit    Registers := 3     
+	                4 Bit    Registers := 3     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	  14 Input     32 Bit        Muxes := 1     
+	  14 Input      8 Bit        Muxes := 1     
+	   4 Input      8 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 3     
+	  14 Input      4 Bit        Muxes := 2     
+	  14 Input      2 Bit        Muxes := 1     
+	  14 Input      1 Bit        Muxes := 11    
+	   2 Input      1 Bit        Muxes := 1     
+Module camera_configure 
+Detailed RTL Component Info : 
+Module camera_read 
+Detailed RTL Component Info : 
++---Registers : 
+	               16 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 4     
+	   2 Input      2 Bit        Muxes := 5     
+	   2 Input      1 Bit        Muxes := 10    
+Module vga 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 2     
++---Registers : 
+	               10 Bit    Registers := 2     
++---Muxes : 
+	   2 Input     10 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 2     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:18 ; elapsed = 00:00:21 . Memory (MB): peak = 1270.594 ; gain = 506.219 ; free physical = 1595 ; free virtual = 12786
+---------------------------------------------------------------------------------
+Start Cross Boundary Optimization
+---------------------------------------------------------------------------------
+ROM "OV7670_config/config_1/timer0" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "OV7670_config/SCCB1/timer0" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+DSP Report: Generating DSP p_1_out, operation Mode is: C+A*B.
+DSP Report: operator p_1_out is absorbed into DSP p_1_out.
+DSP Report: operator p_0_out is absorbed into DSP p_1_out.
+WARNING: [Synth 8-3917] design main has port VGA_HS driven by constant 0
+WARNING: [Synth 8-3917] design main has port VGA_VS driven by constant 0
+WARNING: [Synth 8-3917] design main has port SEG[7] driven by constant 1
+WARNING: [Synth 8-3331] design main has unconnected port JD[6]
+WARNING: [Synth 8-3331] design main has unconnected port JD[5]
+WARNING: [Synth 8-3331] design main has unconnected port JD[4]
+WARNING: [Synth 8-3331] design main has unconnected port JD[3]
+WARNING: [Synth 8-3331] design main has unconnected port JD[2]
+WARNING: [Synth 8-3331] design main has unconnected port JD[1]
+WARNING: [Synth 8-3331] design main has unconnected port JD[0]
+WARNING: [Synth 8-3331] design main has unconnected port JC[7]
+WARNING: [Synth 8-3331] design main has unconnected port JC[6]
+WARNING: [Synth 8-3331] design main has unconnected port JC[5]
+WARNING: [Synth 8-3331] design main has unconnected port JC[4]
+WARNING: [Synth 8-3331] design main has unconnected port JC[3]
+WARNING: [Synth 8-3331] design main has unconnected port JC[2]
+WARNING: [Synth 8-3331] design main has unconnected port JC[1]
+WARNING: [Synth 8-3917] design main has port JB[7] driven by constant 0
+WARNING: [Synth 8-3917] design main has port JB[6] driven by constant 1
+---------------------------------------------------------------------------------
+Finished Cross Boundary Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:21 . Memory (MB): peak = 1270.594 ; gain = 506.219 ; free physical = 1595 ; free virtual = 12786
+---------------------------------------------------------------------------------
+Finished Parallel Reinference  : Time (s): cpu = 00:00:18 ; elapsed = 00:00:21 . Memory (MB): peak = 1270.594 ; gain = 506.219 ; free physical = 1595 ; free virtual = 12786
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+ Sort Area is null p_1_out_0 : 0 0 : 1001 1001 : Used 1 time 0
+---------------------------------------------------------------------------------
+Start RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+DSP:
++------------+-------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping | Neg Edge Clk | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+-------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|main        | C+A*B       | No           | 17     | 9      | 10     | 25     | 17     | 0    | 0    | 0    | 1    | 1     | 0    | 0    | 
++------------+-------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table shows DSPs generated at current stage. Some DSP generation could be reversed due to later optimizations. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\OV7670_reading/FSM_state_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\OV7670_config/config_1/FSM_return_state_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\OV7670_config/config_1/FSM_return_state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\display_r_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\OV7670_config/config_1/FSM_state_reg[2] )
+WARNING: [Synth 8-3332] Sequential element (\OV7670_config/config_1/FSM_state_reg[2] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\OV7670_config/config_1/FSM_return_state_reg[2] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\OV7670_config/config_1/FSM_return_state_reg[1] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\OV7670_config/config_1/FSM_return_state_reg[0] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\OV7670_reading/FSM_state_reg[1] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\display_r_reg[3] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\display_r_reg[2] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\display_r_reg[1] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\display_r_reg[0] ) is unused and will be removed from module main.
+---------------------------------------------------------------------------------
+Start Area Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Area Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 1270.598 ; gain = 506.223 ; free physical = 1579 ; free virtual = 12770
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Area Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 1270.598 ; gain = 506.223 ; free physical = 1579 ; free virtual = 12770
+---------------------------------------------------------------------------------
+Finished Parallel Area Optimization  : Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 1270.598 ; gain = 506.223 ; free physical = 1579 ; free virtual = 12770
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 1270.598 ; gain = 506.223 ; free physical = 1579 ; free virtual = 12770
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:36 ; elapsed = 00:00:40 . Memory (MB): peak = 1277.590 ; gain = 513.215 ; free physical = 1480 ; free virtual = 12683
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:36 ; elapsed = 00:00:40 . Memory (MB): peak = 1277.590 ; gain = 513.215 ; free physical = 1481 ; free virtual = 12684
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-4480] The timing for the instance \OV7670_config/rom1/dout_reg  (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:37 ; elapsed = 00:00:40 . Memory (MB): peak = 1290.605 ; gain = 526.230 ; free physical = 1474 ; free virtual = 12678
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:37 ; elapsed = 00:00:40 . Memory (MB): peak = 1290.605 ; gain = 526.230 ; free physical = 1474 ; free virtual = 12678
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:37 ; elapsed = 00:00:40 . Memory (MB): peak = 1290.605 ; gain = 526.230 ; free physical = 1474 ; free virtual = 12678
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:37 ; elapsed = 00:00:40 . Memory (MB): peak = 1290.605 ; gain = 526.230 ; free physical = 1474 ; free virtual = 12678
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+--------------+----------+
+|      |BlackBox name |Instances |
++------+--------------+----------+
+|1     |blk_mem_gen_0 |         1|
++------+--------------+----------+
+
+Report Cell Usage: 
++------+--------------+------+
+|      |Cell          |Count |
++------+--------------+------+
+|1     |blk_mem_gen_0 |     1|
+|2     |BUFG          |     3|
+|3     |CARRY4        |    20|
+|4     |DSP48E1       |     1|
+|5     |INV           |     4|
+|6     |LUT1          |    81|
+|7     |LUT2          |    33|
+|8     |LUT3          |    35|
+|9     |LUT4          |    47|
+|10    |LUT5          |    41|
+|11    |LUT6          |    64|
+|12    |RAMB18E1      |     1|
+|13    |FDRE          |   230|
+|14    |FDSE          |    15|
+|15    |IBUF          |    29|
+|16    |OBUF          |    51|
+|17    |OBUFT         |    16|
++------+--------------+------+
+
+Report Instance Areas: 
++------+-----------------+----------------------+------+
+|      |Instance         |Module                |Cells |
++------+-----------------+----------------------+------+
+|1     |top              |                      |   687|
+|2     |  OV7670_config  |camera_configure      |   359|
+|3     |    SCCB1        |SCCB_interface        |   195|
+|4     |    config_1     |OV7670_config         |   145|
+|5     |    rom1         |OV7670_config_rom     |    19|
+|6     |  OV7670_reading |camera_read           |    42|
+|7     |  clockgen       |clock_quarter_divider |     4|
+|8     |  display        |display_8hex          |    90|
++------+-----------------+----------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:37 ; elapsed = 00:00:40 . Memory (MB): peak = 1290.605 ; gain = 526.230 ; free physical = 1474 ; free virtual = 12678
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 28 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 1290.605 ; gain = 97.250 ; free physical = 1474 ; free virtual = 12678
+Synthesis Optimization Complete : Time (s): cpu = 00:00:37 ; elapsed = 00:00:41 . Memory (MB): peak = 1290.605 ; gain = 526.230 ; free physical = 1474 ; free virtual = 12678
+INFO: [Project 1-571] Translating synthesized netlist
+WARNING: [Netlist 29-345] The value of SIM_DEVICE on instance 'OV7670_config/rom1/dout_reg' of type 'RAMB18E1' is 'VIRTEX6'; it is being changed to match the current FPGA architecture, '7SERIES'. For functional simulation to match hardware behavior, the value of SIM_DEVICE should be changed in the source netlist or constraint file.
+INFO: [Netlist 29-17] Analyzing 51 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-140] Inserted 0 IBUFs to IO ports without IO buffers.
+INFO: [Opt 31-141] Inserted 0 OBUFs to IO ports without IO buffers.
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 4 instances were transformed.
+  INV => LUT1: 4 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+45 Infos, 58 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:36 ; elapsed = 00:00:39 . Memory (MB): peak = 1290.609 ; gain = 421.492 ; free physical = 1473 ; free virtual = 12676
+# write_checkpoint -noxdef main.dcp
+# catch { report_utilization -file main_utilization_synth.rpt -pb main_utilization_synth.pb }
+report_utilization: Time (s): cpu = 00:00:00.17 ; elapsed = 00:00:00.25 . Memory (MB): peak = 1290.609 ; gain = 0.000 ; free physical = 1472 ; free virtual = 12675
+INFO: [Common 17-206] Exiting Vivado at Sun Nov 15 20:54:57 2015...
