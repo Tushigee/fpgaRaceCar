@@ -1,0 +1,74 @@
+Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2014.4.1 (lin64) Build 1149489 Thu Feb 19 16:01:47 MST 2015
+| Date         : Wed Nov 18 22:54:18 2015
+| Host         : eecs-digital-25 running 64-bit Ubuntu 12.04.5 LTS
+| Command      : report_control_sets -verbose -file main_control_sets_placed.rpt
+| Design       : main
+| Device       : xc7a100t
+--------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Flip-Flop Distribution
+3. Detailed Control Set Information
+
+1. Summary
+----------
+
++-------------------------------------------------------------------+-------+
+|                               Status                              | Count |
++-------------------------------------------------------------------+-------+
+| Number of unique control sets                                     |    21 |
+| Minimum Number of register sites lost to control set restrictions |    56 |
++-------------------------------------------------------------------+-------+
+
+
+2. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              75 |           41 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |               0 |            0 |
+| Yes          | No                    | No                     |             115 |           42 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |             106 |           28 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+3. Detailed Control Set Information
+-----------------------------------
+
++----------------------+-------------------------------------------------------+------------------------------------------+------------------+----------------+
+|     Clock Signal     |                     Enable Signal                     |             Set/Reset Signal             | Slice Load Count | Bel Load Count |
++----------------------+-------------------------------------------------------+------------------------------------------+------------------+----------------+
+|  CLK100MHZ_IBUF_BUFG |                                                       |                                          |                1 |              2 |
+|  JB_IBUF_BUFG[3]     | OV7670_config/SCCB1/n_0_FSM_state[3]_i_1              |                                          |                2 |              4 |
+|  JB_IBUF_BUFG[3]     | OV7670_config/SCCB1/n_0_byte_index[3]_i_1             |                                          |                1 |              4 |
+|  JB_IBUF_BUFG[3]     | OV7670_config/SCCB1/n_0_FSM_return_state[3]_i_1       |                                          |                3 |              4 |
+|  JD_OBUF_BUFG[0]     |                                                       |                                          |                4 |              6 |
+|  JB_IBUF_BUFG[3]     | OV7670_config/rom1/O7                                 | OV7670_config/config_1/n_0_timer[17]_i_1 |                2 |              7 |
+|  JD_OBUF_BUFG[0]     | n_0_intense_byte1[7]_i_1                              |                                          |                2 |              8 |
+|  JB_IBUF_BUFG[3]     | OV7670_config/SCCB1/n_0_tx_byte[7]_i_1                |                                          |                4 |              8 |
+|  JD_OBUF_BUFG[0]     | n_0_intense_byte[7]_i_1                               |                                          |                3 |              8 |
+|  JB_IBUF_BUFG[3]     | OV7670_config/SCCB1/n_0_timer[8]_i_1                  |                                          |                5 |              9 |
+|  JB_IBUF_BUFG[3]     | vga1/n_0_vcount[9]_i_1                                |                                          |                4 |             10 |
+|  JB_IBUF_BUFG[3]     | n_0_disp_r[3]_i_1                                     |                                          |                5 |             12 |
+|  JD_OBUF_BUFG[0]     | n_0_din[15]_i_2                                       | n_0_din[15]_i_1                          |                5 |             16 |
+|  JB_IBUF_BUFG[3]     | OV7670_config/rom1/E[0]                               |                                          |                4 |             16 |
+|  JB_IBUF_BUFG[3]     | OV7670_config/SCCB1/n_0_latched_data[7]_i_1           |                                          |                5 |             16 |
+|  JB_IBUF_BUFG[3]     | OV7670_config/config_1/n_0_SCCB_interface_data[7]_i_1 |                                          |                4 |             16 |
+|  JB_IBUF_BUFG[3]     | n_0_addrb[17]_i_2                                     | vga1/SR[0]                               |                4 |             18 |
+|  JD_OBUF_BUFG[0]     | n_0_addra[17]_i_2                                     | n_0_addra[17]_i_1                        |                3 |             18 |
+|  JB_IBUF_BUFG[3]     | OV7670_config/SCCB1/n_0_timer[8]_i_1                  | OV7670_config/SCCB1/n_0_timer[31]_i_1__0 |                6 |             23 |
+|  JB_IBUF_BUFG[3]     | OV7670_config/rom1/O7                                 | OV7670_config/config_1/n_0_timer[31]_i_1 |                8 |             24 |
+|  JB_IBUF_BUFG[3]     |                                                       |                                          |               36 |             67 |
++----------------------+-------------------------------------------------------+------------------------------------------+------------------+----------------+
+
+
