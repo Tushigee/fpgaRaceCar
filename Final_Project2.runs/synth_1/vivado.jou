@@ -2,9 +2,9 @@
 # Vivado v2014.4.1 (64-bit)
 # SW Build 1149489 on Thu Feb 19 16:01:47 MST 2015
 # IP Build 1147552 on Wed Feb 18 14:25:16 MST 2015
-# Start of session at: Wed Nov 18 22:52:35 2015
-# Process ID: 14158
-# Log file: /afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.runs/synth_1/main.vds
-# Journal file: /afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.runs/synth_1/vivado.jou
+# Start of session at: Sun Nov 22 16:24:56 2015
+# Process ID: 25615
+# Log file: /afs/athena.mit.edu/user/b/t/btushig/Desktop/fpgaRaceCar/Final_Project2.runs/synth_1/main.vds
+# Journal file: /afs/athena.mit.edu/user/b/t/btushig/Desktop/fpgaRaceCar/Final_Project2.runs/synth_1/vivado.jou
 #-----------------------------------------------------------
 source main.tcl

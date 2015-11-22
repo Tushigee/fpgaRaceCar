@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:/afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/constrs_1/imports/Sources/Nexys4DDR_Master_lab4.xdc rfile:../../../Final_Project2.srcs/constrs_1/imports/Sources/Nexys4DDR_Master_lab4.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:/afs/athena.mit.edu/user/b/t/btushig/Desktop/fpgaRaceCar/Final_Project2.srcs/constrs_1/imports/Sources/Nexys4DDR_Master_lab4.xdc rfile:../../../Final_Project2.srcs/constrs_1/imports/Sources/Nexys4DDR_Master_lab4.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:50 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN R12   IOSTANDARD LVCMOS33 } [get_ports { LED16_B }]; #IO_L5P_T0_D06_14 Sch=led16_b
 set_property src_info {type:XDC file:1 line:51 export:INPUT save:INPUT read:READ} [current_design]
