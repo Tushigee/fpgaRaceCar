@@ -1,8 +1,8 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2014.4.1 (lin64) Build 1149489 Thu Feb 19 16:01:47 MST 2015
-| Date             : Wed Nov 18 22:54:59 2015
-| Host             : eecs-digital-25 running 64-bit Ubuntu 12.04.5 LTS
+| Date             : Mon Nov 23 21:16:24 2015
+| Host             : eecs-digital-26 running 64-bit Ubuntu 12.04.5 LTS
 | Command          : report_power -file main_power_routed.rpt -pb main_power_summary_routed.pb
 | Design           : main
 | Device           : xc7a100tcsg324-3
@@ -50,17 +50,17 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |    <0.001 |        3 |       --- |             --- |
-| Slice Logic    |     0.002 |     1266 |       --- |             --- |
-|   LUT as Logic |     0.002 |      617 |     63400 |            0.97 |
+| Slice Logic    |     0.002 |     1280 |       --- |             --- |
+|   LUT as Logic |     0.002 |      630 |     63400 |            0.99 |
 |   CARRY4       |    <0.001 |       25 |     15850 |            0.15 |
 |   Register     |    <0.001 |      296 |    126800 |            0.23 |
 |   BUFG         |    <0.001 |        2 |        32 |            6.25 |
-|   F7/F8 Muxes  |    <0.001 |       65 |     63400 |            0.10 |
+|   F7/F8 Muxes  |    <0.001 |       63 |     63400 |            0.09 |
 |   Others       |     0.000 |      183 |       --- |             --- |
-| Signals        |     0.004 |     1367 |       --- |             --- |
+| Signals        |     0.004 |     1382 |       --- |             --- |
 | Block RAM      |     0.008 |     71.5 |       135 |           52.96 |
 | DSPs           |     0.001 |        4 |       240 |            1.66 |
-| I/O            |     0.031 |       82 |       210 |           39.04 |
+| I/O            |     0.032 |       82 |       210 |           39.04 |
 | Static Power   |     0.106 |          |           |                 |
 | Total          |     0.153 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
@@ -72,7 +72,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.031 |       0.015 |      0.016 |
+| Vccint    |       1.000 |     0.030 |       0.014 |      0.016 |
 | Vccaux    |       1.800 |     0.019 |       0.001 |      0.018 |
 | Vcco33    |       3.300 |     0.013 |       0.009 |      0.004 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -151,7 +151,7 @@ Table of Contents
 |       inst_blk_mem_gen                |     0.010 |
 |         gnativebmg.native_blk_mem_gen |     0.010 |
 |           valid.cstr                  |     0.010 |
-|             has_mux_b.B               |     0.002 |
+|             has_mux_b.B               |     0.001 |
 |             ramloop[0].ram.r          |     0.001 |
 |               prim_noinit.ram         |     0.001 |
 |             ramloop[10].ram.r         |    <0.001 |

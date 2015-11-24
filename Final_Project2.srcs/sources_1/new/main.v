@@ -53,8 +53,8 @@ module main(
     
     reg [15:0] status_y;
     
-//    assign data = {u, v, intense_byte, intense_byte1};
-    assign data = {6'h0, hcount, 6'h0, vcount};    
+    assign data = {JA, intense_byte, intense_byte1};
+//    assign data = {6'h0, hcount, 6'h0, vcount};    
     wire SIOD;
     wire SIOC;
     wire PCLK;
@@ -119,6 +119,9 @@ module main(
     reg red_done;
     wire displaying;
     assign displaying = SW[15];
+    
+    localparam BW_THRESHOLD = 8'hC0;
+    
     always @ (posedge PCLK) begin
         vsync_prev <= VSYNC;
         // Write all Blue to BRAM
@@ -164,14 +167,18 @@ module main(
                                         din <= {intense_byte, intense_byte1};
                                     end
                                     1: begin
-                                        intense_byte <= JA;
+                                        if (SW[5] == 1) intense_byte <= JA;
+                                        else if(JA>BW_THRESHOLD) intense_byte <= 8'hFF;
+                                        else intense_byte <= 0;
                                         we <= 0;
                                     end 
                                     2: begin
                                         v <= JA;
                                     end
-                                    3: begin 
-                                        intense_byte1 <= JA;
+                                    3: begin
+                                        if (SW[5] == 1) intense_byte1 <= JA; 
+                                        else if(JA>BW_THRESHOLD) intense_byte1 <= 8'hFF;
+                                        else intense_byte1 <= 0;
                                     end
                                 endcase
                             end

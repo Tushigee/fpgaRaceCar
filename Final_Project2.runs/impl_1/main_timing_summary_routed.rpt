@@ -1,8 +1,8 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version      : Vivado v.2014.4.1 (lin64) Build 1149489 Thu Feb 19 16:01:47 MST 2015
-| Date              : Wed Nov 18 22:54:58 2015
-| Host              : eecs-digital-25 running 64-bit Ubuntu 12.04.5 LTS
+| Date              : Mon Nov 23 21:16:23 2015
+| Host              : eecs-digital-26 running 64-bit Ubuntu 12.04.5 LTS
 | Command           : report_timing_summary -warn_on_violation -max_paths 10 -file main_timing_summary_routed.rpt -rpx main_timing_summary_routed.rpx
 | Design            : main
 | Device            : 7a100t-csg324
@@ -71,7 +71,7 @@ Table of Contents
 
 4. checking unconstrained_internal_endpoints
 --------------------------------------------
- There are 3305 pins that are not constrained for maximum delay. (HIGH)
+ There are 3309 pins that are not constrained for maximum delay. (HIGH)
 
  There are 0 pins that are not constrained for maximum delay due to constant clock.
 
