@@ -22,6 +22,7 @@ read_verilog -library xil_defaultlib {
   /afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/imports/src/OV7670_config_rom.v
   /afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/imports/src/OV7670_config.v
   /afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/imports/src/camera_configure.v
+  /afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/new/camera_read.v
   /afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/new/main.v
 }
 read_xdc /afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/constrs_1/imports/Sources/Nexys4DDR_Master_lab4.xdc

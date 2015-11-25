@@ -23,9 +23,8 @@
 module main(
     input CLK100MHZ,
     input BTNC,
-    input BTNU,
     input [7:0] JA,
-    input[15:0] SW, 
+    input [15:0] SW, 
     inout [7:0] JB,
     output [3:0] VGA_R, 
     output [3:0] VGA_B,
@@ -35,7 +34,8 @@ module main(
     output[7:0] SEG,  // segments A-G (0-6), DP (7)
     output[15:0] LED,
     output[7:0] AN,    // Display 0-7
-    output [7:0] JD, JC
+    input [7:0] JD,
+    inout [7:0] JC
     );
     
     assign LED[13:0] = SW[13:0];  
@@ -50,182 +50,144 @@ module main(
     display_8hex display(.clk(clock_25mhz), .data(data), .seg(segments), .strobe(AN));    
     assign SEG[6:0] = segments;
     assign SEG[7] = 1'b1;
-    
-    reg [15:0] status_y;
-    
-    assign data = {JA, intense_byte, intense_byte1};
-//    assign data = {6'h0, hcount, 6'h0, vcount};    
+    assign data = {6'h0, last_com_x2, 6'h0, last_com_y2};
+
     wire SIOD;
     wire SIOC;
     wire PCLK;
-//    wire XCLK;
     wire VSYNC;
     wire HREF;
     wire RESET;
     wire PWDN;
-    
-    // For debug purpose
-    
-    assign JD[0] =  PCLK;
-    assign JD[1] =  HREF;
-    assign JD[2] = VSYNC;
-    assign JD[3] = status;
-    
-    assign PCLK = JB[7];
-    assign VSYNC = JB[4];
-    assign HREF = JB[5];
 
-    assign JB[0] = SIOD;
+    wire [7:0] camera_data;
+
+    assign PCLK = JB[7];
+    assign JB[3] = clock_25mhz;	//XCLK
+    assign JC[4] = clock_25mhz;	//XCLK
+    
+    //Camera1
     assign JB[2] = SIOC;
-    assign JB[3] = clock_25mhz;
-    assign JB[6] = RESET;
-    assign JB[1] = PWDN;
-    assign RESET = 1;
-    assign PWDN = 0;
+    assign JB[0] = SIOD;
     
-    // Camera Module
-    wire config_done;
-    camera_configure OV7670_config(.clk(clock_25mhz), .start(BTNC), .sioc(SIOC), .siod(SIOD), .done(config_done));
-    assign LED[15] = config_done;
-    reg [1:0] byte_counter = 0;
-    reg [7:0] intense_byte, intense_byte1, u, v;
-    reg vsync_prev;
-    
-    // FSM/BRAM
-    localparam WAITING = 0;
-    localparam RECORD = 1;
-    reg status = WAITING;
-    
+    //Camera2
+    assign JC[0] = SIOC;
+    assign JC[1] = SIOD;
+    assign VSYNC = (SW[1]) ? JB[4]:JC[2];
+    assign HREF = (SW[1]) ? JB[5]:JC[3];
+    assign camera_data = (SW[1]) ? JA:JD;
+
     // BRAM - Write side - PORTA  
-    reg [17:0] addra = 0;
-    reg [15:0] din = 0;
-    reg we = 0;
-    reg write_done = 0;
+    wire [17:0] camera_addra;
+    wire [7:0] camera_din;
+    wire camera_we;
     // Read side
-    reg [17:0] addrb = 0;
-    wire [15:0] dout;
+    reg [17:0] camera_addrb = 0;
+    wire [7:0] camera_dout;
     
     // Instiniating BRAM
     
-    blk_mem_gen_0 bram(
+    blk_mem_gen_0 camera_bram(
                     // Port A - Write
-                    .addra(addra), .clka(PCLK), .dina(din), .ena(1'b1), .wea(we),
+                    .addra(camera_addra), .clka(PCLK), .dina(camera_din), .ena(1'b1), .wea(camera_we),
                     // Port B - Read
-                    .addrb(addrb), .clkb(clock_25mhz), .enb(1'b1), .doutb(dout)
+                    .addrb(camera_addrb), .clkb(clock_25mhz), .enb(1'b1), .doutb(camera_dout)
                     );
     
     // VGA
     reg [3:0] disp_r, disp_g, disp_b; 
     reg red_done;
     wire displaying;
-    assign displaying = SW[15];
     
-    localparam BW_THRESHOLD = 8'hC0;
+    wire [7:0] BW_THRESHOLD = 8'hC0;
     
-    always @ (posedge PCLK) begin
-        vsync_prev <= VSYNC;
-        // Write all Blue to BRAM
-        if (SW[4]) begin 
-            addra <= addra + 1;
-            if(addra == 153600) begin
-                red_done <= 1;
-                we <= 0;
-                if (SW[5] == 1) addra <= 0;
-            end
-            
-            else begin
-                we <= 1;
-                // All blue s 
-                din <= 16'h000F;
-            end
-        end 
-        else if (SW[2]) begin
-            if (SW[3]) begin 
-                addra <= 0;
-                write_done <= 0;
-            end else begin
-                if (addra == 153600) begin
-                    write_done <= 1;
-                    addra <= 0;
-                    status <= WAITING;
-                end else begin
-                    write_done <= 0;
-                    case(status)
-                        WAITING: begin
-                            if (VSYNC == 0 & vsync_prev == 1) status <= RECORD;
-                        end
-                        // Made BRAM to hold two pixels at the same time
-                        RECORD: begin
-                            if (VSYNC == 1) status <= WAITING;
-                            else if (HREF == 1) begin    // possible issues with byte_counter not resetting
-                                byte_counter <= byte_counter + 1;
-                                case(byte_counter)
-                                    0: begin    // Write two values we stored
-                                        we <= 1;
-                                        u <= JA;
-                                        addra <= addra + 1;
-                                        din <= {intense_byte, intense_byte1};
-                                    end
-                                    1: begin
-                                        if (SW[5] == 1) intense_byte <= JA;
-                                        else if(JA>BW_THRESHOLD) intense_byte <= 8'hFF;
-                                        else intense_byte <= 0;
-                                        we <= 0;
-                                    end 
-                                    2: begin
-                                        v <= JA;
-                                    end
-                                    3: begin
-                                        if (SW[5] == 1) intense_byte1 <= JA; 
-                                        else if(JA>BW_THRESHOLD) intense_byte1 <= 8'hFF;
-                                        else intense_byte1 <= 0;
-                                    end
-                                endcase
-                            end
-                        end
-                    endcase
-                end
-            end
-        end 
-    end
-    assign LED[14] = write_done;
+    camera_read camera1(.clock_25mhz(clock_25mhz), .start(BTNC), .camera_data(camera_data),
+                        .PCLK(PCLK), .VSYNC(VSYNC), .HREF(HREF), .bram_addr(camera_addra),
+                        .bram_din(camera_din), .bram_we(camera_we), .threshold_on(SW[5]),
+                        .threshold(BW_THRESHOLD), .SIOC(SIOC), .SIOD(SIOD));
+    
     wire [9:0] hcount;
     wire [9:0] vcount;
     wire hsync_disp, vsync_disp, at_display_area;
+    reg last_vsync_disp;
     
     vga vga1(.vga_clock(clock_25mhz),.hcount(hcount),.vcount(vcount),
           .hsync(hsync_disp),.vsync(vsync_disp),.at_display_area(at_display_area));
 
     reg first_byte = 1;
-
+    
+    reg [9:0] com_x1, com_x2 = 10'h0;
+    reg [9:0] com_y1, com_y2 = 10'h0;
+    reg [9:0] last_com_x1, last_com_x2 = 10'h0;
+    reg [9:0] last_com_y1, last_com_y2 = 10'h0;
+    
     always @(posedge clock_25mhz) begin
         // Display VGA module if software switch is turned on
+        last_vsync_disp <= vsync_disp;
         if (SW[0]) begin 
             disp_r <= {4{hcount[7]}};
             disp_g <= {4{hcount[6]}};
             disp_b <= {4{hcount[5]}};
-        end else if (SW[4] & red_done) begin 
-            // Read from BRAM should display red
-            addrb <= ((vcount-35)*480 + hcount-144)>>2;
-            disp_r <= dout[3:0]; 
-            disp_g <= dout[7:4];
-            disp_b <= dout[11:8];
-        end else if (SW[2]) begin
-            status_y <= dout;
+        end else if (SW[2] & ~SW[3]) begin
             first_byte <= ~first_byte;
-            if(at_display_area) addrb <= ((vcount-35)*640 + hcount-144)>>1;
-            else addrb <= 0;
+            if(at_display_area) camera_addrb <= ((vcount-35)*640 + hcount-144)>>1;
+            else camera_addrb <= 0;
             
-            if (first_byte == 0) begin
-                disp_r <= dout[7:4]; 
-                disp_g <= dout[7:4];
-                disp_b <= dout[7:4];
-            end else if (first_byte == 1) begin
-                disp_r <= dout[15:12]; 
-                disp_g <= dout[15:12];
-                disp_b <= dout[15:12];
+            if (first_byte == 1) begin
+                disp_r <= camera_dout[7:4]; 
+                disp_g <= camera_dout[7:4];
+                disp_b <= camera_dout[7:4];
+            end else if (first_byte == 0) begin
+                disp_r <= camera_dout[3:0]; 
+                disp_g <= camera_dout[3:0];
+                disp_b <= camera_dout[3:0];
             end
-//            if (hcount == 784 & vcount == 515) displaying <= 0;
+        end else if (SW[3]) begin
+            first_byte <= ~first_byte;
+            if(at_display_area) camera_addrb <= ((vcount-35)*640 + hcount-144)>>1;
+            else camera_addrb <= 0;
+            
+            if(vsync_disp == 0 & last_vsync_disp == 1) begin
+                last_com_x1 <= com_x1;
+                last_com_y1 <= com_y1;
+                com_x1 <= 0;
+                com_y1 <= 0;
+                
+                last_com_x2 <= com_x2;
+                last_com_y2 <= com_y2;
+                com_x2 <= 0;
+                com_y2 <= 0;
+            end else if (first_byte) begin
+                if (camera_dout[7:4] == 4'hF & ((vcount>(com_y1 + 50))|(vcount<com_y1)|(hcount<(com_x1-25))|(hcount>(com_x1+25)))
+                    & ((vcount>(com_y2+50))|(vcount<com_y2)|(hcount<(com_x2-25))|(hcount>(com_x2+25)))) begin  //white pixel and far enough away from previous com
+                    if (com_x1 == 0) begin
+                        com_x1 <= hcount;
+                        com_y1 <= vcount;
+                    end else if (com_x2 == 0) begin
+                        com_x2 <= hcount;
+                        com_y2 <= vcount;
+                    end
+                end
+                disp_r <= ((hcount == last_com_x1 & vcount == last_com_y1)|(hcount == last_com_x2 & vcount == last_com_y2)) ? 4'hF:0; 
+                disp_g <= ((hcount == last_com_x1 & vcount == last_com_y1)|(hcount == last_com_x2 & vcount == last_com_y2)) ? 4'hF:0;
+                disp_b <= ((hcount == last_com_x1 & vcount == last_com_y1)|(hcount == last_com_x2 & vcount == last_com_y2)) ? 4'hF:0;
+
+            end else if (~first_byte) begin
+                if (camera_dout[3:0] == 4'hF & ((vcount>(com_y1 + 50))|(vcount<com_y1)|(hcount<(com_x1-25))|(hcount>(com_x1+25)))
+                    & ((vcount>(com_y2+50))|(vcount<com_y2)|(hcount<(com_x2-25))|(hcount>(com_x2+25)))) begin  //white pixel and far enough away from previous com
+                    if (com_x1 == 0) begin
+                        com_x1 <= hcount;
+                        com_y1 <= vcount;
+                    end else if (com_x2 == 0) begin
+                        com_x2 <= hcount;
+                        com_y2 <= vcount;
+                    end
+                end
+                disp_r <= ((hcount == last_com_x1 & vcount == last_com_y1)|(hcount == last_com_x2 & vcount == last_com_y2)) ? 4'hF:0; 
+                disp_g <= ((hcount == last_com_x1 & vcount == last_com_y1)|(hcount == last_com_x2 & vcount == last_com_y2)) ? 4'hF:0;
+                disp_b <= ((hcount == last_com_x1 & vcount == last_com_y1)|(hcount == last_com_x2 & vcount == last_com_y2)) ? 4'hF:0;
+
+            end  
         end
     end
         

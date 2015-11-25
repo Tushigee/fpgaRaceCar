@@ -1,8 +1,8 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2014.4.1 (lin64) Build 1149489 Thu Feb 19 16:01:47 MST 2015
-| Date         : Mon Nov 23 21:15:40 2015
-| Host         : eecs-digital-26 running 64-bit Ubuntu 12.04.5 LTS
+| Date         : Tue Nov 24 23:09:08 2015
+| Host         : eecs-digital-34 running 64-bit Ubuntu 12.04.5 LTS
 | Command      : report_clock_utilization -file main_clock_utilization_placed.rpt
 | Design       : main
 | Device       : xc7a100t
@@ -19,12 +19,10 @@ Table of Contents
 5. Details of I/O Clocks
 6. Details of Local Clocks
 7. Clock Regions : Key Resource Utilization
-8. Net wise resources used in clock region X0Y0
-9. Net wise resources used in clock region X1Y0
-10. Net wise resources used in clock region X0Y1
-11. Net wise resources used in clock region X1Y1
-12. Net wise resources used in clock region X0Y2
-13. Net wise resources used in clock region X1Y2
+8. Net wise resources used in clock region X0Y1
+9. Net wise resources used in clock region X1Y1
+10. Net wise resources used in clock region X0Y2
+11. Net wise resources used in clock region X1Y2
 
 1. Clock Primitive Utilization
 ------------------------------
@@ -51,8 +49,8 @@ Table of Contents
 | Index | BUFG Cell                | Net Name            | BELs | Sites | Fixed | MaxDelay (ns) | Skew (ns) |
 +-------+--------------------------+---------------------+------+-------+-------+---------------+-----------+
 |     1 | CLK100MHZ_IBUF_BUFG_inst | CLK100MHZ_IBUF_BUFG |    2 |     1 |    no |         1.324 |     0.078 |
-|     2 | JD_OBUF_BUFG[0]_inst     | JD_OBUF_BUFG[0]     |  130 |    94 |    no |         2.130 |     0.954 |
-|     3 | JB_IBUF_BUFG[3]_inst     | JB_IBUF_BUFG[3]     |  313 |   172 |    no |         2.111 |     0.935 |
+|     2 | n_0_619_BUFG_inst        | n_0_619_BUFG        |   77 |    53 |    no |         1.356 |     0.168 |
+|     3 | JC_IBUF_BUFG[4]_inst     | JC_IBUF_BUFG[4]     |  357 |   166 |    no |         2.127 |     0.936 |
 +-------+--------------------------+---------------------+------+-------+-------+---------------+-----------+
 
 
@@ -76,89 +74,68 @@ Table of Contents
 +-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
 | Clock Region Name | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail |
 +-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
-| X0Y0              |    2 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 | 20800 |    0 |  2400 |    0 |    20 |    1 |    10 |    0 |    20 |
-| X1Y0              |    2 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     5 |    0 |     0 |    0 |     0 |    0 |     0 |    0 | 12000 |    0 |  2200 |    0 |    40 |   14 |    20 |    0 |    40 |
-| X0Y1              |    2 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |   54 | 16000 |    0 |  2400 |    0 |    20 |    7 |    10 |    0 |    20 |
-| X1Y1              |    3 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |   96 | 15200 |    0 |  2600 |    2 |    60 |   27 |    30 |    4 |    40 |
-| X0Y2              |    1 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |  144 | 16000 |    0 |  2400 |    1 |    20 |    0 |    10 |    0 |    20 |
-| X1Y2              |    2 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    2 | 15200 |    0 |  2600 |    2 |    60 |   20 |    30 |    0 |    40 |
+| X0Y0              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 | 20800 |    0 |  2400 |    0 |    20 |    0 |    10 |    0 |    20 |
+| X1Y0              |    0 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     5 |    0 |     0 |    0 |     0 |    0 |     0 |    0 | 12000 |    0 |  2200 |    0 |    40 |    0 |    20 |    0 |    40 |
+| X0Y1              |    2 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |  211 | 16000 |    0 |  2400 |    2 |    20 |    1 |    10 |    0 |    20 |
+| X1Y1              |    3 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    2 | 15200 |    0 |  2600 |    0 |    60 |   22 |    30 |    0 |    40 |
+| X0Y2              |    2 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |  123 | 16000 |    0 |  2400 |    0 |    20 |    4 |    10 |    2 |    20 |
+| X1Y2              |    2 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |   21 | 15200 |    0 |  2600 |    0 |    60 |   10 |    30 |    0 |    40 |
 | X0Y3              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 | 20800 |    0 |  2400 |    0 |    20 |    0 |    10 |    0 |    20 |
 | X1Y3              |    0 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     5 |    0 |     1 |    0 |     0 |    0 |     0 |    0 | 10800 |    0 |  2000 |    0 |    30 |    0 |    15 |    0 |    40 |
 +-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
 * RAMB36 site can be used as two RAMB18/FIFO18 sites
 
 
-8. Net wise resources used in clock region X0Y0
+8. Net wise resources used in clock region X0Y1
 -----------------------------------------------
 
 +-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+-----------------+
 | Source Type | BUFHCE Site | Fixed | MMCM Pins | PLL Pins | GT Pins | BRAM Pins | ILOGICs | OLOGICs | FFs | LUTMs | DSP48E1s |  Clock Net Name |
 +-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+-----------------+
-| BUFG        |     ---     |   no  |         0 |        0 |       0 |         1 |       0 |       0 |   0 |     0 |        0 | JB_IBUF_BUFG[3] |
-| BUFG        |     ---     |   no  |         0 |        0 |       0 |         1 |       0 |       0 |   0 |     0 |        0 | JD_OBUF_BUFG[0] |
+| BUFG        |     ---     |   no  |         0 |        0 |       0 |         2 |       0 |       0 |   0 |     0 |        0 | n_0_619_BUFG    |
+| BUFG        |     ---     |   no  |         0 |        0 |       0 |         3 |       0 |       0 | 211 |     0 |        0 | JC_IBUF_BUFG[4] |
 +-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+-----------------+
 
 
-9. Net wise resources used in clock region X1Y0
+9. Net wise resources used in clock region X1Y1
 -----------------------------------------------
-
-+-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+-----------------+
-| Source Type | BUFHCE Site | Fixed | MMCM Pins | PLL Pins | GT Pins | BRAM Pins | ILOGICs | OLOGICs | FFs | LUTMs | DSP48E1s |  Clock Net Name |
-+-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+-----------------+
-| BUFG        |     ---     |   no  |         0 |        0 |       0 |        14 |       0 |       0 |   0 |     0 |        0 | JB_IBUF_BUFG[3] |
-| BUFG        |     ---     |   no  |         0 |        0 |       0 |        14 |       0 |       0 |   0 |     0 |        0 | JD_OBUF_BUFG[0] |
-+-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+-----------------+
-
-
-10. Net wise resources used in clock region X0Y1
-------------------------------------------------
-
-+-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+-----------------+
-| Source Type | BUFHCE Site | Fixed | MMCM Pins | PLL Pins | GT Pins | BRAM Pins | ILOGICs | OLOGICs | FFs | LUTMs | DSP48E1s |  Clock Net Name |
-+-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+-----------------+
-| BUFG        |     ---     |   no  |         0 |        0 |       0 |         7 |       0 |       0 |  27 |     0 |        0 | JB_IBUF_BUFG[3] |
-| BUFG        |     ---     |   no  |         0 |        0 |       0 |         7 |       0 |       0 |  27 |     0 |        0 | JD_OBUF_BUFG[0] |
-+-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+-----------------+
-
-
-11. Net wise resources used in clock region X1Y1
-------------------------------------------------
 
 +-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+---------------------+
 | Source Type | BUFHCE Site | Fixed | MMCM Pins | PLL Pins | GT Pins | BRAM Pins | ILOGICs | OLOGICs | FFs | LUTMs | DSP48E1s |    Clock Net Name   |
 +-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+---------------------+
+| BUFG        |     ---     |   no  |         0 |        0 |       0 |        22 |       0 |       0 |   0 |     0 |        0 | JC_IBUF_BUFG[4]     |
+| BUFG        |     ---     |   no  |         0 |        0 |       0 |        22 |       0 |       0 |   0 |     0 |        0 | n_0_619_BUFG        |
 | BUFG        |     ---     |   no  |         0 |        0 |       0 |         0 |       0 |       0 |   2 |     0 |        0 | CLK100MHZ_IBUF_BUFG |
-| BUFG        |     ---     |   no  |         0 |        0 |       0 |        29 |       0 |       0 |  29 |     0 |        0 | JD_OBUF_BUFG[0]     |
-| BUFG        |     ---     |   no  |         0 |        0 |       0 |        29 |       0 |       0 |  65 |     0 |        0 | JB_IBUF_BUFG[3]     |
 +-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+---------------------+
 
 
-12. Net wise resources used in clock region X0Y2
+10. Net wise resources used in clock region X0Y2
 ------------------------------------------------
 
 +-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+-----------------+
 | Source Type | BUFHCE Site | Fixed | MMCM Pins | PLL Pins | GT Pins | BRAM Pins | ILOGICs | OLOGICs | FFs | LUTMs | DSP48E1s |  Clock Net Name |
 +-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+-----------------+
-| BUFG        |     ---     |   no  |         0 |        0 |       0 |         1 |       0 |       0 | 144 |     0 |        0 | JB_IBUF_BUFG[3] |
+| BUFG        |     ---     |   no  |         0 |        0 |       0 |         4 |       0 |       0 |  39 |     0 |        0 | n_0_619_BUFG    |
+| BUFG        |     ---     |   no  |         0 |        0 |       0 |         4 |       0 |       0 |  84 |     0 |        0 | JC_IBUF_BUFG[4] |
 +-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+-----------------+
 
 
-13. Net wise resources used in clock region X1Y2
+11. Net wise resources used in clock region X1Y2
 ------------------------------------------------
 
 +-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+-----------------+
 | Source Type | BUFHCE Site | Fixed | MMCM Pins | PLL Pins | GT Pins | BRAM Pins | ILOGICs | OLOGICs | FFs | LUTMs | DSP48E1s |  Clock Net Name |
 +-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+-----------------+
-| BUFG        |     ---     |   no  |         0 |        0 |       0 |        22 |       0 |       0 |   0 |     0 |        0 | JD_OBUF_BUFG[0] |
-| BUFG        |     ---     |   no  |         0 |        0 |       0 |        22 |       0 |       0 |   2 |     0 |        0 | JB_IBUF_BUFG[3] |
+| BUFG        |     ---     |   no  |         0 |        0 |       0 |        10 |       0 |       0 |   0 |     0 |        0 | n_0_619_BUFG    |
+| BUFG        |     ---     |   no  |         0 |        0 |       0 |        10 |       0 |       0 |  21 |     0 |        0 | JC_IBUF_BUFG[4] |
 +-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+-----------------+
 
 
 
 # Location of BUFG Primitives 
 set_property LOC BUFGCTRL_X0Y17 [get_cells CLK100MHZ_IBUF_BUFG_inst]
-set_property LOC BUFGCTRL_X0Y0 [get_cells JB_IBUF_BUFG[3]_inst]
-set_property LOC BUFGCTRL_X0Y16 [get_cells JD_OBUF_BUFG[0]_inst]
+set_property LOC BUFGCTRL_X0Y0 [get_cells JC_IBUF_BUFG[4]_inst]
+set_property LOC BUFGCTRL_X0Y16 [get_cells n_0_619_BUFG_inst]
 
 # Location of IO Clock Primitives
 
@@ -173,8 +150,8 @@ set_property LOC BUFGCTRL_X0Y16 [get_cells JD_OBUF_BUFG[0]_inst]
 # Location of PLL Clock Primitives
 
 # Location of IO Primitives which is load of clock spine
+set_property LOC IOB_X1Y138 [get_cells JC_OBUF[4]_inst]
 set_property LOC IOB_X0Y120 [get_cells JB_OBUF[3]_inst]
-set_property LOC IOB_X1Y107 [get_cells JD_OBUF[0]_inst]
 
 # Location of clock ports
 set_property LOC IOB_X1Y126 [get_ports CLK100MHZ]
@@ -186,16 +163,16 @@ add_cells_to_pblock [get_pblocks  CLKAG_CLK100MHZ_IBUF_BUFG] [get_cells  -filter
 resize_pblock [get_pblocks CLKAG_CLK100MHZ_IBUF_BUFG] -add {CLOCKREGION_X1Y1:CLOCKREGION_X1Y1}
 #endgroup
 
-# Clock net "JB_IBUF_BUFG[3]" driven by instance "JB_IBUF_BUFG[3]_inst" located at site "BUFGCTRL_X0Y0"
+# Clock net "JC_IBUF_BUFG[4]" driven by instance "JC_IBUF_BUFG[4]_inst" located at site "BUFGCTRL_X0Y0"
 #startgroup
-create_pblock CLKAG_JB_IBUF_BUFG[3]
-add_cells_to_pblock [get_pblocks  CLKAG_JB_IBUF_BUFG[3]] [get_cells  -filter { IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL && NAME!=JB_OBUF[3]_inst} -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="JB_IBUF_BUFG[3]"}]]]
-resize_pblock [get_pblocks CLKAG_JB_IBUF_BUFG[3]] -add {CLOCKREGION_X0Y0:CLOCKREGION_X0Y0 CLOCKREGION_X0Y1:CLOCKREGION_X0Y1 CLOCKREGION_X0Y2:CLOCKREGION_X0Y2 CLOCKREGION_X1Y0:CLOCKREGION_X1Y0 CLOCKREGION_X1Y1:CLOCKREGION_X1Y1 CLOCKREGION_X1Y2:CLOCKREGION_X1Y2}
+create_pblock CLKAG_JC_IBUF_BUFG[4]
+add_cells_to_pblock [get_pblocks  CLKAG_JC_IBUF_BUFG[4]] [get_cells  -filter { IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL && NAME!=JB_OBUF[3]_inst && NAME!=JC_OBUF[4]_inst} -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="JC_IBUF_BUFG[4]"}]]]
+resize_pblock [get_pblocks CLKAG_JC_IBUF_BUFG[4]] -add {CLOCKREGION_X0Y1:CLOCKREGION_X0Y1 CLOCKREGION_X0Y2:CLOCKREGION_X0Y2 CLOCKREGION_X1Y1:CLOCKREGION_X1Y1 CLOCKREGION_X1Y2:CLOCKREGION_X1Y2}
 #endgroup
 
-# Clock net "JD_OBUF_BUFG[0]" driven by instance "JD_OBUF_BUFG[0]_inst" located at site "BUFGCTRL_X0Y16"
+# Clock net "n_0_619_BUFG" driven by instance "n_0_619_BUFG_inst" located at site "BUFGCTRL_X0Y16"
 #startgroup
-create_pblock CLKAG_JD_OBUF_BUFG[0]
-add_cells_to_pblock [get_pblocks  CLKAG_JD_OBUF_BUFG[0]] [get_cells  -filter { IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL && NAME!=JD_OBUF[0]_inst} -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="JD_OBUF_BUFG[0]"}]]]
-resize_pblock [get_pblocks CLKAG_JD_OBUF_BUFG[0]] -add {CLOCKREGION_X0Y0:CLOCKREGION_X0Y0 CLOCKREGION_X0Y1:CLOCKREGION_X0Y1 CLOCKREGION_X1Y0:CLOCKREGION_X1Y0 CLOCKREGION_X1Y1:CLOCKREGION_X1Y1 CLOCKREGION_X1Y2:CLOCKREGION_X1Y2}
+create_pblock CLKAG_n_0_619_BUFG
+add_cells_to_pblock [get_pblocks  CLKAG_n_0_619_BUFG] [get_cells  -filter { IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL } -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="n_0_619_BUFG"}]]]
+resize_pblock [get_pblocks CLKAG_n_0_619_BUFG] -add {CLOCKREGION_X0Y1:CLOCKREGION_X0Y1 CLOCKREGION_X0Y2:CLOCKREGION_X0Y2 CLOCKREGION_X1Y1:CLOCKREGION_X1Y1 CLOCKREGION_X1Y2:CLOCKREGION_X1Y2}
 #endgroup

@@ -1,0 +1,9 @@
+#
+# An unexpected error has occurred (11)
+#
+Stack:
+/mit/6.111/xilinx-vivado/Vivado/2014.4/tps/lnx64/jre/lib/amd64/server/libjvm.so(+0x89e6d9) [0x7f8e846766d9]
+/mit/6.111/xilinx-vivado/Vivado/2014.4/tps/lnx64/jre/lib/amd64/server/libjvm.so(JVM_handle_linux_signal+0xad) [0x7f8e8467c4cd]
+/mit/6.111/xilinx-vivado/Vivado/2014.4/tps/lnx64/jre/lib/amd64/server/libjvm.so(+0x89b4f3) [0x7f8e846734f3]
+/lib/x86_64-linux-gnu/libc.so.6(+0x36150) [0x7f8eb2a73150]
+[0x7540840]

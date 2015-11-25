@@ -1,8 +1,8 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version      : Vivado v.2014.4.1 (lin64) Build 1149489 Thu Feb 19 16:01:47 MST 2015
-| Date              : Mon Nov 23 21:16:23 2015
-| Host              : eecs-digital-26 running 64-bit Ubuntu 12.04.5 LTS
+| Date              : Tue Nov 24 23:09:27 2015
+| Host              : eecs-digital-34 running 64-bit Ubuntu 12.04.5 LTS
 | Command           : report_timing_summary -warn_on_violation -max_paths 10 -file main_timing_summary_routed.rpt -rpx main_timing_summary_routed.rpx
 | Design            : main
 | Device            : 7a100t-csg324
@@ -52,11 +52,11 @@ Table of Contents
 
 1. checking no_clock
 --------------------
- There are 70 register/latch pins with no clock driven by root clock pin: JB[7] (HIGH)
+ There are 39 register/latch pins with no clock driven by root clock pin: JB[7] (HIGH)
 
- There are 312 register/latch pins with no clock driven by root clock pin: clockgen/clock_25mhz_reg/C (HIGH)
+ There are 355 register/latch pins with no clock driven by root clock pin: clockgen/clock_25mhz_reg/C (HIGH)
 
- There are 59 register/latch pins with no clock (HIGH)
+ There are 38 register/latch pins with no clock (HIGH)
 
 
 2. checking constant_clock
@@ -71,14 +71,14 @@ Table of Contents
 
 4. checking unconstrained_internal_endpoints
 --------------------------------------------
- There are 3309 pins that are not constrained for maximum delay. (HIGH)
+ There are 2117 pins that are not constrained for maximum delay. (HIGH)
 
  There are 0 pins that are not constrained for maximum delay due to constant clock.
 
 
 5. checking no_input_delay
 --------------------------
- There are 17 input ports with no input delay specified. (HIGH)
+ There are 27 input ports with no input delay specified. (HIGH)
 
  There are 0 input ports with no input delay but user has a false path constraint.
 
@@ -232,7 +232,7 @@ Slack (MET) :             8.860ns  (required time - arrival time)
     SLICE_X52Y96         FDRE (Prop_fdre_C_Q)         0.313     4.291 r  clockgen/counter_reg/Q
                          net (fo=2, routed)           0.606     4.897    clockgen/counter
     SLICE_X52Y96         LUT2 (Prop_lut2_I0_O)        0.215     5.112 r  clockgen/clock_25mhz_i_1/O
-                         net (fo=1, routed)           0.000     5.112    clockgen/n_0_clock_25mhz_i_1
+                         net (fo=1, routed)           0.000     5.112    clockgen/n_2_clock_25mhz_i_1
     SLICE_X52Y96         FDRE                                         r  clockgen/clock_25mhz_reg/D
   -------------------------------------------------------------------    -------------------
 
@@ -289,7 +289,7 @@ Slack (MET) :             8.894ns  (required time - arrival time)
     SLICE_X52Y96         FDRE (Prop_fdre_C_Q)         0.313     4.291 f  clockgen/counter_reg/Q
                          net (fo=2, routed)           0.606     4.897    clockgen/counter
     SLICE_X52Y96         LUT1 (Prop_lut1_I0_O)        0.215     5.112 r  clockgen/counter_i_1/O
-                         net (fo=1, routed)           0.000     5.112    clockgen/n_0_counter_i_1
+                         net (fo=1, routed)           0.000     5.112    clockgen/n_2_counter_i_1
     SLICE_X52Y96         FDRE                                         r  clockgen/counter_reg/D
   -------------------------------------------------------------------    -------------------
 
@@ -345,9 +345,9 @@ Slack (MET) :             0.266ns  (arrival time - required time)
     SLICE_X52Y96                                                      r  clockgen/clock_25mhz_reg/C
   -------------------------------------------------------------------    -------------------
     SLICE_X52Y96         FDRE (Prop_fdre_C_Q)         0.141     1.538 r  clockgen/clock_25mhz_reg/Q
-                         net (fo=2, routed)           0.171     1.710    clockgen/JB_IBUF[3]
+                         net (fo=2, routed)           0.171     1.710    clockgen/JC_IBUF[4]
     SLICE_X52Y96         LUT2 (Prop_lut2_I1_O)        0.045     1.755 r  clockgen/clock_25mhz_i_1/O
-                         net (fo=1, routed)           0.000     1.755    clockgen/n_0_clock_25mhz_i_1
+                         net (fo=1, routed)           0.000     1.755    clockgen/n_2_clock_25mhz_i_1
     SLICE_X52Y96         FDRE                                         r  clockgen/clock_25mhz_reg/D
   -------------------------------------------------------------------    -------------------
 
@@ -398,7 +398,7 @@ Slack (MET) :             0.395ns  (arrival time - required time)
     SLICE_X52Y96         FDRE (Prop_fdre_C_Q)         0.128     1.525 f  clockgen/counter_reg/Q
                          net (fo=2, routed)           0.276     1.802    clockgen/counter
     SLICE_X52Y96         LUT1 (Prop_lut1_I0_O)        0.098     1.900 r  clockgen/counter_i_1/O
-                         net (fo=1, routed)           0.000     1.900    clockgen/n_0_counter_i_1
+                         net (fo=1, routed)           0.000     1.900    clockgen/n_2_counter_i_1
     SLICE_X52Y96         FDRE                                         r  clockgen/counter_reg/D
   -------------------------------------------------------------------    -------------------
 

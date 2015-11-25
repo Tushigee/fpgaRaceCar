@@ -1,0 +1,102 @@
+/*
+
+Vivado v2014.4.1 (64-bit)
+SW Build 1149489 on Thu Feb 19 16:01:47 MST 2015
+Process ID: 23652
+
+Current time: 	11/23/15 10:00:50 PM
+Time zone: 	Eastern Standard Time (America/New_York)
+
+OS: NAME="Ubuntu"
+Version: 3.2.0-94-generic
+Architecture: amd64
+Available processors (cores): 4
+
+DISPLAY: :1
+Screen size: 1280x1024
+Screen resolution (DPI): 96
+Available screens: 1
+
+Java version: 	1.8.0_05 64-bit
+Java home: 	/afs/athena.mit.edu/course/6/6.111/xilinx-vivado/Vivado/2014.4/tps/lnx64/jre
+
+User name: 	kschan
+User directory: /afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Git
+User country: 	US
+User language: 	en
+User locale: 	en_US
+Vivado preferences path: /afs/athena.mit.edu/user/k/s/kschan/.Xilinx/Vivado/2014.4/vivado.ini
+Vivado layouts directory: /afs/athena.mit.edu/user/k/s/kschan/.Xilinx/Vivado/2014.4/layouts/application
+
+GUI allocated memory:	140 MB
+GUI max memory:		3,052 MB
+Engine allocated memory: 4,798 MB
+
+*/
+
+// TclEventType: START_GUI
+// HColorUtils.generateUniqueColorPalette (num colors: 56) elapsed time: 0.8s
+// Tcl Message: start_gui 
+// [GUI Memory]: 37 MB (+36789kb) [00:00:06]
+// [Engine Memory]: 4,795 MB (+4876159kb) [00:00:06]
+selectList(PAResourceEtoH.GettingStartedView_RECENT_PROJECTS, "/afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.xpr", 0); // s:v (JViewport:JComponent, ch:JFrame)
+// cm:N (ch:JFrame):  Open Project : addNotify
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_CURRENT
+// Tcl Message: open_project /afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.xpr 
+// HMemoryUtils.trashcanNow. Engine heap size: 4,840 MB. GUI used memory: 24 MB. Current time: 11/23/15 10:00:52 PM
+// [Engine Memory]: 4,840 MB (+47693kb) [00:00:11]
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PROJECT_NEW
+// [Engine Memory]: 4,858 MB (+18878kb) [00:00:12]
+// [GUI Memory]: 48 MB (+10918kb) [00:00:13]
+// [Engine Memory]: 4,881 MB (+24309kb) [00:00:13]
+// [Engine Memory]: 4,903 MB (+22568kb) [00:00:15]
+// [Engine Memory]: 4,919 MB (+16687kb) [00:00:16]
+// Tcl Message: open_project /afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.xpr 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/mit/6.111/xilinx-vivado/Vivado/2014.4/data/ip'. 
+// [Engine Memory]: 4,921 MB (+2498kb) [00:00:16]
+// [Engine Memory]: 4,930 MB (+9441kb) [00:00:17]
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// [GUI Memory]: 49 MB (+816kb) [00:00:18]
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// [GUI Memory]: 49 MB (+521kb) [00:00:18]
+// [Engine Memory]: 4,932 MB (+2097kb) [00:00:18]
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// [GUI Memory]: 50 MB (+992kb) [00:00:18]
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// [GUI Memory]: 51 MB (+521kb) [00:00:18]
+// [GUI Memory]: 52 MB (+990kb) [00:00:18]
+// [GUI Memory]: 52 MB (+523kb) [00:00:18]
+// [GUI Memory]: 53 MB (+992kb) [00:00:18]
+// [GUI Memory]: 53 MB (+525kb) [00:00:18]
+// [GUI Memory]: 54 MB (+992kb) [00:00:18]
+// [GUI Memory]: 55 MB (+496kb) [00:00:18]
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// [GUI Memory]: 56 MB (+688kb) [00:00:19]
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Project name: Final_Project2; location: /afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2; part: xc7a100tcsg324-3
+// Tcl Message: open_project: Time (s): cpu = 00:00:16 ; elapsed = 00:00:10 . Memory (MB): peak = 5742.742 ; gain = 107.328 ; free physical = 2043 ; free virtual = 12950 
+// Elapsed time: 10 seconds
+dismissDialog("Open Project"); // cm:N (ch:JFrame)
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// [GUI Memory]: 57 MB (+1629kb) [00:00:22]
+// Tcl Message: update_compile_order -fileset sources_1 
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Open Hardware Manager]", 25, true); // w:Y (v:I, ch:JFrame) - Node
+// Run Command: PAResourceCommand.PACommandNames_OPEN_HARDWARE_MANAGER
+// TclEventType: LOAD_FEATURE
+// TclEventType: HW_SESSION_OPEN
+// [Engine Memory]: 4,932 MB (+16kb) [00:00:25]
+// Tcl Message: open_hw 
