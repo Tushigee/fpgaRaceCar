@@ -2,8 +2,8 @@
 # Vivado v2014.4.1 (64-bit)
 # SW Build 1149489 on Thu Feb 19 16:01:47 MST 2015
 # IP Build 1147552 on Wed Feb 18 14:25:16 MST 2015
-# Start of session at: Mon Nov 30 16:21:05 2015
-# Process ID: 16178
+# Start of session at: Mon Nov 30 15:43:28 2015
+# Process ID: 12921
 # Log file: /afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.runs/synth_1/main.vds
 # Journal file: /afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.runs/synth_1/vivado.jou
 #-----------------------------------------------------------
@@ -41,7 +41,7 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 909.109 ; gain = 144.738 ; free physical = 4321 ; free virtual = 14407
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 908.105 ; gain = 143.738 ; free physical = 4338 ; free virtual = 14416
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'main' [/afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/new/main.v:23]
 INFO: [Synth 8-638] synthesizing module 'clock_quarter_divider' [/afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/new/main.v:207]
@@ -49,8 +49,8 @@ INFO: [Synth 8-256] done synthesizing module 'clock_quarter_divider' (1#1) [/afs
 INFO: [Synth 8-638] synthesizing module 'display_8hex' [/afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/new/main.v:243]
 	Parameter bits bound to: 13 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'display_8hex' (2#1) [/afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/new/main.v:243]
-INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_0' [/afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.runs/synth_1/.Xil/Vivado-16178-eecs-digital-34/realtime/blk_mem_gen_0_stub.v:7]
-INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_0' (3#1) [/afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.runs/synth_1/.Xil/Vivado-16178-eecs-digital-34/realtime/blk_mem_gen_0_stub.v:7]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_0' [/afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.runs/synth_1/.Xil/Vivado-12921-eecs-digital-34/realtime/blk_mem_gen_0_stub.v:7]
+INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_0' (3#1) [/afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.runs/synth_1/.Xil/Vivado-12921-eecs-digital-34/realtime/blk_mem_gen_0_stub.v:7]
 INFO: [Synth 8-638] synthesizing module 'camera_read' [/afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/new/camera_read.v:23]
 	Parameter WAITING bound to: 0 - type: integer 
 	Parameter RECORD bound to: 1 - type: integer 
@@ -91,6 +91,12 @@ INFO: [Synth 8-638] synthesizing module 'vga' [/afs/athena.mit.edu/user/k/s/ksch
 INFO: [Synth 8-256] done synthesizing module 'vga' (9#1) [/afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/new/main.v:218]
 INFO: [Synth 8-638] synthesizing module 'com_finder' [/afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/new/com_finder.v:23]
 INFO: [Synth 8-256] done synthesizing module 'com_finder' (10#1) [/afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/new/com_finder.v:23]
+WARNING: [Synth 8-689] width (10) of port connection 'hcount' does not match port width (1) of module 'com_finder' [/afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/new/main.v:124]
+WARNING: [Synth 8-689] width (10) of port connection 'vcount' does not match port width (1) of module 'com_finder' [/afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/new/main.v:124]
+WARNING: [Synth 8-689] width (1) of port connection 'last_com_x1' does not match port width (10) of module 'com_finder' [/afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/new/main.v:125]
+WARNING: [Synth 8-689] width (1) of port connection 'last_com_y1' does not match port width (10) of module 'com_finder' [/afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/new/main.v:126]
+WARNING: [Synth 8-689] width (1) of port connection 'last_com_x2' does not match port width (10) of module 'com_finder' [/afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/new/main.v:126]
+WARNING: [Synth 8-689] width (1) of port connection 'last_com_y2' does not match port width (10) of module 'com_finder' [/afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/new/main.v:126]
 INFO: [Synth 8-256] done synthesizing module 'main' (11#1) [/afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/new/main.v:23]
 WARNING: [Synth 8-3917] design main has port SEG[7] driven by constant 1
 WARNING: [Synth 8-3331] design main has unconnected port LED[15]
@@ -103,7 +109,7 @@ WARNING: [Synth 8-3331] design main has unconnected port JC[5]
 WARNING: [Synth 8-3331] design main has unconnected port SW[15]
 WARNING: [Synth 8-3331] design main has unconnected port SW[14]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 944.352 ; gain = 179.980 ; free physical = 4283 ; free virtual = 14370
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 944.348 ; gain = 179.980 ; free physical = 4307 ; free virtual = 14382
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -113,7 +119,7 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 944.352 ; gain = 179.980 ; free physical = 4283 ; free virtual = 14370
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 944.348 ; gain = 179.980 ; free physical = 4307 ; free virtual = 14383
 ---------------------------------------------------------------------------------
 Loading clock regions from /mit/6.111/xilinx-vivado/Vivado/2014.4/data/parts/xilinx/artix7/artix7/xc7a100t/ClockRegion.xml
 Loading clock buffers from /mit/6.111/xilinx-vivado/Vivado/2014.4/data/parts/xilinx/artix7/artix7/xc7a100t/ClockBuffers.xml
@@ -144,22 +150,22 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.02 . Memory (MB): peak = 1268.590 ; gain = 0.000 ; free physical = 4088 ; free virtual = 14175
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1268.586 ; gain = 0.000 ; free physical = 4113 ; free virtual = 14188
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:12 . Memory (MB): peak = 1268.590 ; gain = 504.219 ; free physical = 4087 ; free virtual = 14174
+Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:12 . Memory (MB): peak = 1268.586 ; gain = 504.219 ; free physical = 4112 ; free virtual = 14188
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-3
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:12 . Memory (MB): peak = 1268.590 ; gain = 504.219 ; free physical = 4087 ; free virtual = 14174
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:12 . Memory (MB): peak = 1268.586 ; gain = 504.219 ; free physical = 4112 ; free virtual = 14188
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:12 . Memory (MB): peak = 1268.590 ; gain = 504.219 ; free physical = 4087 ; free virtual = 14174
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:13 . Memory (MB): peak = 1268.586 ; gain = 504.219 ; free physical = 4112 ; free virtual = 14188
 ---------------------------------------------------------------------------------
 ROM "FSM_state" won't be mapped to RAM because it is too sparse.
 ROM "timer0" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
@@ -171,7 +177,7 @@ ROM "vcount" won't be mapped to RAM because it is too sparse.
 ROM "com_x1" won't be mapped to RAM because it is too sparse.
 ROM "com_x2" won't be mapped to RAM because it is too sparse.
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 1268.590 ; gain = 504.219 ; free physical = 4072 ; free virtual = 14159
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 1268.586 ; gain = 504.219 ; free physical = 4097 ; free virtual = 14173
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -368,7 +374,7 @@ BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
-Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 1268.590 ; gain = 504.219 ; free physical = 4072 ; free virtual = 14159
+Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 1268.586 ; gain = 504.219 ; free physical = 4097 ; free virtual = 14173
 ---------------------------------------------------------------------------------
 Start Cross Boundary Optimization
 ---------------------------------------------------------------------------------
@@ -393,9 +399,9 @@ WARNING: [Synth 8-3331] design main has unconnected port JC[5]
 WARNING: [Synth 8-3331] design main has unconnected port SW[15]
 WARNING: [Synth 8-3331] design main has unconnected port SW[14]
 ---------------------------------------------------------------------------------
-Finished Cross Boundary Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 1268.590 ; gain = 504.219 ; free physical = 4072 ; free virtual = 14159
+Finished Cross Boundary Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:14 . Memory (MB): peak = 1268.586 ; gain = 504.219 ; free physical = 4097 ; free virtual = 14173
 ---------------------------------------------------------------------------------
-Finished Parallel Reinference  : Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 1268.590 ; gain = 504.219 ; free physical = 4072 ; free virtual = 14159
+Finished Parallel Reinference  : Time (s): cpu = 00:00:10 ; elapsed = 00:00:14 . Memory (MB): peak = 1268.586 ; gain = 504.219 ; free physical = 4097 ; free virtual = 14173
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -422,182 +428,108 @@ Finished RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-3333] propagating constant 1 across sequential element (\camera1/OV7670_config/config_1/FSM_return_state_reg[0] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\camera1/OV7670_config/config_1/FSM_return_state_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\dot_tracker/com_y2_reg[9] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\dot_tracker/com_y1_reg[9] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\display/seg_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\camera1/OV7670_config/config_1/FSM_state_reg[2] )
+WARNING: [Synth 8-3332] Sequential element (\display/seg_reg[4] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\display/seg_reg[3] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\display/seg_reg[2] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\display/seg_reg[1] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\display/seg_reg[0] ) is unused and will be removed from module main.
 WARNING: [Synth 8-3332] Sequential element (\camera1/OV7670_config/config_1/FSM_state_reg[2] ) is unused and will be removed from module main.
 WARNING: [Synth 8-3332] Sequential element (\camera1/OV7670_config/config_1/FSM_return_state_reg[2] ) is unused and will be removed from module main.
 WARNING: [Synth 8-3332] Sequential element (\camera1/OV7670_config/config_1/FSM_return_state_reg[1] ) is unused and will be removed from module main.
 WARNING: [Synth 8-3332] Sequential element (\camera1/OV7670_config/config_1/FSM_return_state_reg[0] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/last_com_x1_reg[9] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/last_com_x1_reg[8] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/last_com_x1_reg[7] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/last_com_x1_reg[6] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/last_com_x1_reg[5] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/last_com_x1_reg[4] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/last_com_x1_reg[3] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/last_com_x1_reg[2] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/last_com_x1_reg[1] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/last_com_y1_reg[9] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/last_com_y1_reg[8] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/last_com_y1_reg[7] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/last_com_y1_reg[6] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/last_com_y1_reg[5] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/last_com_y1_reg[4] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/last_com_y1_reg[3] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/last_com_y1_reg[2] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/last_com_y1_reg[1] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/last_com_x2_reg[9] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/last_com_x2_reg[8] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/last_com_x2_reg[7] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/last_com_x2_reg[6] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/last_com_x2_reg[5] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/last_com_x2_reg[4] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/last_com_x2_reg[3] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/last_com_x2_reg[2] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/last_com_x2_reg[1] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/last_com_y2_reg[9] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/last_com_y2_reg[8] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/last_com_y2_reg[7] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/last_com_y2_reg[6] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/last_com_y2_reg[5] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/last_com_y2_reg[4] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/last_com_y2_reg[3] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/last_com_y2_reg[2] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/last_com_y2_reg[1] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/com_y2_reg[1] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/com_x2_reg[4] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/com_x2_reg[3] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/com_x2_reg[1] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/com_x2_reg[2] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/com_x2_reg[5] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/com_x2_reg[6] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/com_x2_reg[7] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/com_x2_reg[8] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/com_x2_reg[9] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/com_y2_reg[2] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/com_y2_reg[3] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/com_y2_reg[4] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/com_y2_reg[5] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/com_y2_reg[6] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/com_y2_reg[7] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/com_y2_reg[8] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/com_y2_reg[9] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/com_y1_reg[1] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/com_x1_reg[4] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/com_x1_reg[3] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/com_x1_reg[1] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/com_x1_reg[2] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/com_x1_reg[5] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/com_x1_reg[6] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/com_x1_reg[7] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/com_x1_reg[8] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/com_x1_reg[9] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/com_y1_reg[2] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/com_y1_reg[3] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/com_y1_reg[4] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/com_y1_reg[5] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/com_y1_reg[6] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/com_y1_reg[7] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/com_y1_reg[8] ) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (\dot_tracker/com_y1_reg[9] ) is unused and will be removed from module main.
 ---------------------------------------------------------------------------------
 Start Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Area Optimization : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 1268.594 ; gain = 504.223 ; free physical = 4056 ; free virtual = 14143
+Finished Area Optimization : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 1268.590 ; gain = 504.223 ; free physical = 4082 ; free virtual = 14157
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Area Optimization : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 1268.594 ; gain = 504.223 ; free physical = 4056 ; free virtual = 14143
+Finished Area Optimization : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 1268.590 ; gain = 504.223 ; free physical = 4082 ; free virtual = 14157
 ---------------------------------------------------------------------------------
-Finished Parallel Area Optimization  : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 1268.594 ; gain = 504.223 ; free physical = 4056 ; free virtual = 14143
+Finished Parallel Area Optimization  : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 1268.590 ; gain = 504.223 ; free physical = 4082 ; free virtual = 14157
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
 | |RTL Partition |Replication |Instances |
 +-+--------------+------------+----------+
 +-+--------------+------------+----------+
-Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 1268.594 ; gain = 504.223 ; free physical = 4056 ; free virtual = 14143
+Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 1268.590 ; gain = 504.223 ; free physical = 4082 ; free virtual = 14157
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Applying XDC Timing Constraints
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 1284.586 ; gain = 520.215 ; free physical = 3975 ; free virtual = 14062
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 1284.586 ; gain = 520.215 ; free physical = 3974 ; free virtual = 14061
----------------------------------------------------------------------------------
-
-Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
----------------------------------------------------------------------------------
-Start Technology Mapping
----------------------------------------------------------------------------------
-INFO: [Synth 8-4480] The timing for the instance \camera1/OV7670_config/rom1/dout_reg  (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
----------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 1299.602 ; gain = 535.230 ; free physical = 3960 ; free virtual = 14047
----------------------------------------------------------------------------------
-
-Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
----------------------------------------------------------------------------------
-Start IO Insertion
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Flattening Before IO Insertion
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Flattening Before IO Insertion
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Final Netlist Cleanup
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Final Netlist Cleanup
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 1299.602 ; gain = 535.230 ; free physical = 3960 ; free virtual = 14047
----------------------------------------------------------------------------------
-
-Report Check Netlist: 
-+------+------------------+-------+---------+-------+------------------+
-|      |Item              |Errors |Warnings |Status |Description       |
-+------+------------------+-------+---------+-------+------------------+
-|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
-+------+------------------+-------+---------+-------+------------------+
----------------------------------------------------------------------------------
-Start Renaming Generated Instances
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 1299.602 ; gain = 535.230 ; free physical = 3960 ; free virtual = 14047
----------------------------------------------------------------------------------
-
-Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
----------------------------------------------------------------------------------
-Start Rebuilding User Hierarchy
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 1299.602 ; gain = 535.230 ; free physical = 3960 ; free virtual = 14047
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start RAM, DSP and Shift Register Reporting
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished RAM, DSP and Shift Register Reporting
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Writing Synthesis Report
----------------------------------------------------------------------------------
-
-Report BlackBoxes: 
-+------+--------------+----------+
-|      |BlackBox name |Instances |
-+------+--------------+----------+
-|1     |blk_mem_gen_0 |         1|
-+------+--------------+----------+
-
-Report Cell Usage: 
-+------+--------------+------+
-|      |Cell          |Count |
-+------+--------------+------+
-|1     |blk_mem_gen_0 |     1|
-|2     |BUFG          |     3|
-|3     |CARRY4        |    54|
-|4     |DSP48E1       |     1|
-|5     |DSP48E1_1     |     1|
-|6     |INV           |     4|
-|7     |LUT1          |   100|
-|8     |LUT2          |    75|
-|9     |LUT3          |    58|
-|10    |LUT4          |   108|
-|11    |LUT5          |    57|
-|12    |LUT6          |   163|
-|13    |MUXF7         |     4|
-|14    |RAMB18E1      |     1|
-|15    |FDRE          |   323|
-|16    |FDSE          |    19|
-|17    |IBUF          |    37|
-|18    |OBUF          |    46|
-|19    |OBUFT         |     6|
-+------+--------------+------+
-
-Report Instance Areas: 
-+------+------------------+----------------------+------+
-|      |Instance          |Module                |Cells |
-+------+------------------+----------------------+------+
-|1     |top               |                      |  1068|
-|2     |  camera1         |camera_read           |   442|
-|3     |    OV7670_config |camera_configure      |   351|
-|4     |      SCCB1       |SCCB_interface        |   195|
-|5     |      config_1    |OV7670_config         |   138|
-|6     |      rom1        |OV7670_config_rom     |    18|
-|7     |  clockgen        |clock_quarter_divider |     4|
-|8     |  display         |display_8hex          |    58|
-|9     |  dot_tracker     |com_finder            |   271|
-|10    |  vga1            |vga                   |   152|
-+------+------------------+----------------------+------+
----------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 1299.602 ; gain = 535.230 ; free physical = 3960 ; free virtual = 14047
----------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 14 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1299.602 ; gain = 107.250 ; free physical = 3959 ; free virtual = 14046
-Synthesis Optimization Complete : Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 1299.602 ; gain = 535.230 ; free physical = 3959 ; free virtual = 14046
-INFO: [Project 1-571] Translating synthesized netlist
-WARNING: [Netlist 29-345] The value of SIM_DEVICE on instance 'camera1/OV7670_config/rom1/dout_reg' of type 'RAMB18E1' is 'VIRTEX6'; it is being changed to match the current FPGA architecture, '7SERIES'. For functional simulation to match hardware behavior, the value of SIM_DEVICE should be changed in the source netlist or constraint file.
-INFO: [Netlist 29-17] Analyzing 94 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
-INFO: [Project 1-570] Preparing netlist for logic optimization
-INFO: [Opt 31-140] Inserted 0 IBUFs to IO ports without IO buffers.
-INFO: [Opt 31-141] Inserted 0 OBUFs to IO ports without IO buffers.
-INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 4 instances were transformed.
-  INV => LUT1: 4 instances
-
-INFO: [Common 17-83] Releasing license: Synthesis
-40 Infos, 36 Warnings, 0 Critical Warnings and 0 Errors encountered.
-synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 1299.605 ; gain = 435.492 ; free physical = 3959 ; free virtual = 14046
-# write_checkpoint -noxdef main.dcp
-# catch { report_utilization -file main_utilization_synth.rpt -pb main_utilization_synth.pb }
-report_utilization: Time (s): cpu = 00:00:00.16 ; elapsed = 00:00:00.22 . Memory (MB): peak = 1299.605 ; gain = 0.000 ; free physical = 3958 ; free virtual = 14045
-INFO: [Common 17-206] Exiting Vivado at Mon Nov 30 16:21:33 2015...

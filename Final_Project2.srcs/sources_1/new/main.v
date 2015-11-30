@@ -50,7 +50,7 @@ module main(
     display_8hex display(.clk(clock_25mhz), .data(data), .seg(segments), .strobe(AN));    
     assign SEG[6:0] = segments;
     assign SEG[7] = 1'b1;
-    assign data = {6'h0, last_com_x2, 6'h0, last_com_y2};
+    assign data = {6'h0, last_com_x1, 6'h0, last_com_y1};
 
     wire SIOD;
     wire SIOC;
@@ -85,7 +85,7 @@ module main(
     reg [17:0] camera_addrb = 0;
     wire [7:0] camera_dout;
     
-    // Instiniating BRAM
+    // Instantiating BRAM
     
     blk_mem_gen_0 camera_bram(
                     // Port A - Write
@@ -109,25 +109,26 @@ module main(
     wire [9:0] hcount;
     wire [9:0] vcount;
     wire hsync_disp, vsync_disp, at_display_area;
-    reg last_vsync_disp;
     
     vga vga1(.vga_clock(clock_25mhz),.hcount(hcount),.vcount(vcount),
           .hsync(hsync_disp),.vsync(vsync_disp),.at_display_area(at_display_area));
 
     reg first_byte = 1;
     
-    reg [9:0] com_x1, com_x2 = 10'h0;
-    reg [9:0] com_y1, com_y2 = 10'h0;
-    reg [9:0] last_com_x1, last_com_x2 = 10'h0;
-    reg [9:0] last_com_y1, last_com_y2 = 10'h0;
+    wire [9:0] last_com_x1, last_com_x2;
+    wire [9:0] last_com_y1, last_com_y2;
+
+    com_finder dot_tracker(.clock(clock_25mhz), .first_byte(first_byte), .hcount(hcount), .vcount(vcount),
+                            .vsync_disp(vsync_disp), .camera_dout(camera_dout), .last_com_x1(last_com_x1),
+                            .last_com_y1(last_com_y1), .last_com_x2(last_com_x2), .last_com_y2(last_com_y2));
     
     always @(posedge clock_25mhz) begin
         // Display VGA module if software switch is turned on
-        last_vsync_disp <= vsync_disp;
         if (SW[0]) begin 
             disp_r <= {4{hcount[7]}};
             disp_g <= {4{hcount[6]}};
             disp_b <= {4{hcount[5]}};
+            
         end else if (SW[2] & ~SW[3]) begin
             first_byte <= ~first_byte;
             if(at_display_area) camera_addrb <= ((vcount-35)*640 + hcount-144)>>1;
@@ -142,52 +143,15 @@ module main(
                 disp_g <= camera_dout[3:0];
                 disp_b <= camera_dout[3:0];
             end
+            
         end else if (SW[3]) begin
             first_byte <= ~first_byte;
             if(at_display_area) camera_addrb <= ((vcount-35)*640 + hcount-144)>>1;
             else camera_addrb <= 0;
             
-            if(vsync_disp == 0 & last_vsync_disp == 1) begin
-                last_com_x1 <= com_x1;
-                last_com_y1 <= com_y1;
-                com_x1 <= 0;
-                com_y1 <= 0;
-                
-                last_com_x2 <= com_x2;
-                last_com_y2 <= com_y2;
-                com_x2 <= 0;
-                com_y2 <= 0;
-            end else if (first_byte) begin
-                if (camera_dout[7:4] == 4'hF & ((vcount>(com_y1 + 50))|(vcount<com_y1)|(hcount<(com_x1-25))|(hcount>(com_x1+25)))
-                    & ((vcount>(com_y2+50))|(vcount<com_y2)|(hcount<(com_x2-25))|(hcount>(com_x2+25)))) begin  //white pixel and far enough away from previous com
-                    if (com_x1 == 0) begin
-                        com_x1 <= hcount;
-                        com_y1 <= vcount;
-                    end else if (com_x2 == 0) begin
-                        com_x2 <= hcount;
-                        com_y2 <= vcount;
-                    end
-                end
-                disp_r <= ((hcount == last_com_x1 & vcount == last_com_y1)|(hcount == last_com_x2 & vcount == last_com_y2)) ? 4'hF:0; 
-                disp_g <= ((hcount == last_com_x1 & vcount == last_com_y1)|(hcount == last_com_x2 & vcount == last_com_y2)) ? 4'hF:0;
-                disp_b <= ((hcount == last_com_x1 & vcount == last_com_y1)|(hcount == last_com_x2 & vcount == last_com_y2)) ? 4'hF:0;
-
-            end else if (~first_byte) begin
-                if (camera_dout[3:0] == 4'hF & ((vcount>(com_y1 + 50))|(vcount<com_y1)|(hcount<(com_x1-25))|(hcount>(com_x1+25)))
-                    & ((vcount>(com_y2+50))|(vcount<com_y2)|(hcount<(com_x2-25))|(hcount>(com_x2+25)))) begin  //white pixel and far enough away from previous com
-                    if (com_x1 == 0) begin
-                        com_x1 <= hcount;
-                        com_y1 <= vcount;
-                    end else if (com_x2 == 0) begin
-                        com_x2 <= hcount;
-                        com_y2 <= vcount;
-                    end
-                end
-                disp_r <= ((hcount == last_com_x1 & vcount == last_com_y1)|(hcount == last_com_x2 & vcount == last_com_y2)) ? 4'hF:0; 
-                disp_g <= ((hcount == last_com_x1 & vcount == last_com_y1)|(hcount == last_com_x2 & vcount == last_com_y2)) ? 4'hF:0;
-                disp_b <= ((hcount == last_com_x1 & vcount == last_com_y1)|(hcount == last_com_x2 & vcount == last_com_y2)) ? 4'hF:0;
-
-            end  
+            disp_r <= ((hcount == last_com_x1 & vcount == last_com_y1)|(hcount == last_com_x2 & vcount == last_com_y2)) ? 4'hF:0; 
+            disp_g <= ((hcount == last_com_x1 & vcount == last_com_y1)|(hcount == last_com_x2 & vcount == last_com_y2)) ? 4'hF:0;
+            disp_b <= ((hcount == last_com_x1 & vcount == last_com_y1)|(hcount == last_com_x2 & vcount == last_com_y2)) ? 4'hF:0;
         end
     end
         
