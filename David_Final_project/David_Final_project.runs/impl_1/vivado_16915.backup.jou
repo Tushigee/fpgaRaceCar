@@ -1,0 +1,10 @@
+#-----------------------------------------------------------
+# Vivado v2014.4.1 (64-bit)
+# SW Build 1149489 on Thu Feb 19 16:01:47 MST 2015
+# IP Build 1147552 on Wed Feb 18 14:25:16 MST 2015
+# Start of session at: Tue Oct 13 13:21:15 2015
+# Process ID: 16562
+# Log file: /afs/athena.mit.edu/user/d/j/djgomez/Lab4/Lab4.runs/impl_1/debounce.vdi
+# Journal file: /afs/athena.mit.edu/user/d/j/djgomez/Lab4/Lab4.runs/impl_1/vivado.jou
+#-----------------------------------------------------------
+source debounce.tcl -notrace

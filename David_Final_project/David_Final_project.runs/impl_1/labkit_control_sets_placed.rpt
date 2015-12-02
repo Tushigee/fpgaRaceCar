@@ -1,0 +1,64 @@
+Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2014.4.1 (lin64) Build 1149489 Thu Feb 19 16:01:47 MST 2015
+| Date         : Tue Nov 24 16:01:23 2015
+| Host         : eecs-digital-35 running 64-bit Ubuntu 12.04.5 LTS
+| Command      : report_control_sets -verbose -file labkit_control_sets_placed.rpt
+| Design       : labkit
+| Device       : xc7a100t
+--------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Flip-Flop Distribution
+3. Detailed Control Set Information
+
+1. Summary
+----------
+
++-------------------------------------------------------------------+-------+
+|                               Status                              | Count |
++-------------------------------------------------------------------+-------+
+| Number of unique control sets                                     |    11 |
+| Minimum Number of register sites lost to control set restrictions |    56 |
++-------------------------------------------------------------------+-------+
+
+
+2. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              67 |           27 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |               5 |            2 |
+| Yes          | No                    | No                     |              24 |            8 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |             120 |           30 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+3. Detailed Control Set Information
+-----------------------------------
+
++----------------------+---------------------------------------------+---------------------------------------------+------------------+----------------+
+|     Clock Signal     |                Enable Signal                |               Set/Reset Signal              | Slice Load Count | Bel Load Count |
++----------------------+---------------------------------------------+---------------------------------------------+------------------+----------------+
+|  CLK100MHZ_IBUF_BUFG |                                             |                                             |                1 |              2 |
+|  clock_BUFG          |                                             | display/n_0_seg[5]_i_1                      |                2 |              5 |
+|  clock_BUFG          | vga1/n_0_vcount[9]_i_1                      |                                             |                4 |             10 |
+|  clock_BUFG          | car_controller/n_0_pulse_length[22]_i_1     |                                             |                4 |             14 |
+|  clock_BUFG          | hidden_switch_debounce/n_0_count[0]_i_2__0  | hidden_switch_debounce/n_0_count[0]_i_1__0  |                5 |             19 |
+|  clock_BUFG          | passenger_door_debounce/n_0_count[0]_i_2__3 | passenger_door_debounce/n_0_count[0]_i_1__3 |                5 |             19 |
+|  clock_BUFG          | reprogram_debounce/n_0_count[0]_i_2__1      | reprogram_debounce/n_0_count[0]_i_1__1      |                5 |             19 |
+|  clock_BUFG          | brake_debounce/n_0_count[0]_i_2             | brake_debounce/n_0_count[0]_i_1             |                5 |             19 |
+|  clock_BUFG          | driver_door_debounce/n_0_count[0]_i_2__2    | driver_door_debounce/n_0_count[0]_i_1__2    |                5 |             19 |
+|  clock_BUFG          | car_controller/n_0_pulse_count[24]_i_2      | car_controller/n_0_pulse_count[24]_i_1      |                5 |             25 |
+|  clock_BUFG          |                                             |                                             |               26 |             65 |
++----------------------+---------------------------------------------+---------------------------------------------+------------------+----------------+
+
+
