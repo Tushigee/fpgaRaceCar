@@ -122,6 +122,14 @@ module main(
                             .vsync_disp(vsync_disp), .camera_dout(camera_dout), .last_com_x1(last_com_x1),
                             .last_com_y1(last_com_y1), .last_com_x2(last_com_x2), .last_com_y2(last_com_y2));
     
+    wire [9:0] current_x, current_y;
+    wire [10:0] next_x, next_y;
+    
+    location_heading_calculator location_heading(.clock(clock_25mhz), .vsync_disp(vsync_disp),
+            .last_com_x1(last_com_x1), .last_com_y1(last_com_y1), .last_com_x2(last_com_x2),
+            .last_com_y2(last_com_y2), .current_x(current_x), .current_y(current_y),
+            .next_x(next_x), .next_y(next_y));
+    
     always @(posedge clock_25mhz) begin
         // Display VGA module if software switch is turned on
         if (SW[0]) begin 
@@ -149,9 +157,23 @@ module main(
             if(at_display_area) camera_addrb <= ((vcount-35)*640 + hcount-144)>>1;
             else camera_addrb <= 0;
             
-            disp_r <= ((hcount == last_com_x1 & vcount == last_com_y1)|(hcount == last_com_x2 & vcount == last_com_y2)) ? 4'hF:0; 
-            disp_g <= ((hcount == last_com_x1 & vcount == last_com_y1)|(hcount == last_com_x2 & vcount == last_com_y2)) ? 4'hF:0;
-            disp_b <= ((hcount == last_com_x1 & vcount == last_com_y1)|(hcount == last_com_x2 & vcount == last_com_y2)) ? 4'hF:0;
+            if ((hcount == last_com_x1+144 & vcount == last_com_y1+35)|(hcount == last_com_x2+144 & vcount == last_com_y2+35)) begin
+                disp_r <= 4'hF;
+                disp_g <= 4'hF;
+                disp_b <= 4'hF;
+            end else if ((hcount == current_x + 144)|(vcount == current_y + 35)) begin
+                disp_r <= 0;
+                disp_g <= 4'hF;
+                disp_b <= 0;
+            end else if ((hcount == next_x+144)|(vcount == next_y + 35)) begin
+                disp_r <= 0;
+                disp_g <= 0;
+                disp_b <= 4'hF;     
+            end else begin
+                disp_r <= 0;
+                disp_g <= 0;
+                disp_b <= 0;
+            end
         end
     end
         

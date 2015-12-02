@@ -1,8 +1,8 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version      : Vivado v.2014.4.1 (lin64) Build 1149489 Thu Feb 19 16:01:47 MST 2015
-| Date              : Mon Nov 30 16:22:16 2015
-| Host              : eecs-digital-34 running 64-bit Ubuntu 12.04.5 LTS
+| Date              : Tue Dec  1 23:22:05 2015
+| Host              : eecs-digital-28 running 64-bit Ubuntu 12.04.5 LTS
 | Command           : report_timing_summary -warn_on_violation -max_paths 10 -file main_timing_summary_routed.rpt -rpx main_timing_summary_routed.rpx
 | Design            : main
 | Device            : 7a100t-csg324
@@ -54,7 +54,7 @@ Table of Contents
 --------------------
  There are 39 register/latch pins with no clock driven by root clock pin: JB[7] (HIGH)
 
- There are 355 register/latch pins with no clock driven by root clock pin: clockgen/clock_25mhz_reg/C (HIGH)
+ There are 436 register/latch pins with no clock driven by root clock pin: clockgen/clock_25mhz_reg/C (HIGH)
 
  There are 38 register/latch pins with no clock (HIGH)
 
@@ -71,7 +71,7 @@ Table of Contents
 
 4. checking unconstrained_internal_endpoints
 --------------------------------------------
- There are 2121 pins that are not constrained for maximum delay. (HIGH)
+ There are 2281 pins that are not constrained for maximum delay. (HIGH)
 
  There are 0 pins that are not constrained for maximum delay due to constant clock.
 
