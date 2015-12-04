@@ -1,8 +1,8 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2014.4.1 (lin64) Build 1149489 Thu Feb 19 16:01:47 MST 2015
-| Date         : Tue Dec  1 23:22:05 2015
-| Host         : eecs-digital-28 running 64-bit Ubuntu 12.04.5 LTS
+| Date         : Fri Dec  4 00:09:46 2015
+| Host         : eecs-digital-35 running 64-bit Ubuntu 12.04.5 LTS
 | Command      : report_drc
 --------------------------------------------------------------------------------------
 
@@ -20,7 +20,7 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
            Max violations: <unlimited>
-         Violations found: 17
+         Violations found: 30
 
 2. REPORT DETAILS
 -----------------
@@ -37,6 +37,11 @@ Neither the CFGBVS nor CONFIG_VOLTAGE voltage property is set in the current_des
 Refer to the device configuration user guide for more information.
 Related violations: <none>
 
+CKLD-2#1 Warning
+Clock Net has direct IO Driver  
+Clock net n_1_n_0_1456_BUFG_inst is directly driven by an IO rather than a Clock Buffer. Driver(s): n_0_1456_BUFG_inst_i_1/O2000
+Related violations: <none>
+
 DPIP-1#1 Warning
 Input pipelining  
 DSP camera_addrb1 input B C is not pipelined. Pipelining DSP48 input will improve performance.
@@ -47,6 +52,31 @@ Input pipelining
 DSP camera_addrb3 input A B is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
+DPIP-1#3 Warning
+Input pipelining  
+DSP region_manager/region_addr1 input A B C is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#4 Warning
+Input pipelining  
+DSP region_manager/region_addr1__0 input A B C is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#5 Warning
+Input pipelining  
+DSP track_recognition/track_filter/bram_read_addr0 input A B C is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#6 Warning
+Input pipelining  
+DSP track_recognition/track_reg/bram_read_addr0 input A B C is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#7 Warning
+Input pipelining  
+DSP track_recognition/track_tagger0/bram_read_addr0 input A B C is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
 DPOP-1#1 Warning
 Output pipelining  
 DSP camera_addrb1 output P is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
@@ -55,6 +85,47 @@ Related violations: <none>
 DPOP-1#2 Warning
 Output pipelining  
 DSP camera_addrb3 output P is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
+Related violations: <none>
+
+DPOP-1#3 Warning
+Output pipelining  
+DSP region_manager/region_addr1 output P is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
+Related violations: <none>
+
+DPOP-1#4 Warning
+Output pipelining  
+DSP region_manager/region_addr1__0 output P is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
+Related violations: <none>
+
+DPOP-1#5 Warning
+Output pipelining  
+DSP track_recognition/track_filter/bram_read_addr0 output P is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
+Related violations: <none>
+
+DPOP-1#6 Warning
+Output pipelining  
+DSP track_recognition/track_reg/bram_read_addr0 output P is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
+Related violations: <none>
+
+DPOP-1#7 Warning
+Output pipelining  
+DSP track_recognition/track_tagger0/bram_read_addr0 output P is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
+Related violations: <none>
+
+PDRC-153#1 Warning
+Gated clock check  
+Net track_recognition/camera_track_recog/track_write_clock is a gated clock net sourced by a combinational pin track_recognition/camera_track_recog/track_bram_i_1/O, cell track_recognition/camera_track_recog/track_bram_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PLHOLDVIO-2#1 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT track_recognition/camera_track_recog/track_bram_i_1 is driving clock pin of 38 cells. This could lead to large hold time violations. First few involved cells are:
+    track_bram/U0/inst_blk_mem_gen/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram {RAMB36E1}
+    track_bram/U0/inst_blk_mem_gen/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram {RAMB36E1}
+    track_bram/U0/inst_blk_mem_gen/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram {RAMB36E1}
+    track_bram/U0/inst_blk_mem_gen/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[13].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram {RAMB36E1}
+    track_bram/U0/inst_blk_mem_gen/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[12].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram {RAMB36E1}
+
 Related violations: <none>
 
 PLIO-7#1 Warning

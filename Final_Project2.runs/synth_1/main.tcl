@@ -5,6 +5,7 @@
 set_param gui.test TreeTableDev
 set_param xicom.use_bs_reader 1
 debug::add_scope template.lib 1
+set_msg_config -id {Common-41} -limit 4294967295
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
 
@@ -22,6 +23,15 @@ read_verilog -library xil_defaultlib {
   /afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/imports/src/OV7670_config_rom.v
   /afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/imports/src/OV7670_config.v
   /afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/imports/src/camera_configure.v
+  /afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/new/car_controller.v
+  /afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/imports/sources_1/display_8hex.v
+  /afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/new/vga_from_bram.v
+  /afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/imports/sources_1/synchronize.v
+  /afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/imports/sources_1/final_project.v
+  /afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/imports/sources_1/debounce.v
+  /afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/new/coord_to_addr.v
+  /afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/new/track_rec.v
+  /afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/imports/sources_1/new/region_manager.v
   /afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/new/location_heading_calculator.v
   /afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/new/com_finder.v
   /afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/new/camera_read.v

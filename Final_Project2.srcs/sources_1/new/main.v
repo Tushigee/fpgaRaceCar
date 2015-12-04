@@ -22,10 +22,11 @@
 
 module main(
     input CLK100MHZ,
-    input BTNC,
+    input BTNC, BTNU, BTNL, BTNR, BTND, CPU_RESETN,
     input [7:0] JA,
     input [15:0] SW, 
     inout [7:0] JB,
+    inout [7:0] JC,
     output [3:0] VGA_R, 
     output [3:0] VGA_B,
     output [3:0] VGA_G,
@@ -34,8 +35,9 @@ module main(
     output[7:0] SEG,  // segments A-G (0-6), DP (7)
     output[15:0] LED,
     output[7:0] AN,    // Display 0-7
-    input [7:0] JD,
-    inout [7:0] JC
+    output [7:0] JD,
+    output LED16_B, LED16_G, LED16_R,
+    output LED17_B, LED17_G, LED17_R
     );
     
     assign LED[13:0] = SW[13:0];  
@@ -50,7 +52,7 @@ module main(
     display_8hex display(.clk(clock_25mhz), .data(data), .seg(segments), .strobe(AN));    
     assign SEG[6:0] = segments;
     assign SEG[7] = 1'b1;
-    assign data = {6'h0, last_com_x1, 6'h0, last_com_y1};
+    assign data = {26'b0 ,2'b0,next_region, 2'b0,car_region};
 
     wire SIOD;
     wire SIOC;
@@ -99,7 +101,8 @@ module main(
     reg red_done;
     wire displaying;
     
-    wire [7:0] BW_THRESHOLD = 8'hC0;
+    wire [7:0] BW_THRESHOLD = 8'h10;
+    wire [7:0] TRACK_CAMERA_THRESHOLD = SW[15:8];
     
     camera_read camera1(.clock_25mhz(clock_25mhz), .start(BTNC), .camera_data(camera_data),
                         .PCLK(PCLK), .VSYNC(VSYNC), .HREF(HREF), .bram_addr(camera_addra),
@@ -129,6 +132,112 @@ module main(
             .last_com_x1(last_com_x1), .last_com_y1(last_com_y1), .last_com_x2(last_com_x2),
             .last_com_y2(last_com_y2), .current_x(current_x), .current_y(current_y),
             .next_x(next_x), .next_y(next_y));
+            
+    //CAR CONTROLLER STUFF//
+    wire foward_ctrl = 0;
+    wire backward_ctrl = 0;
+    wire left_ctrl = 0;
+    wire right_ctrl = 0;
+    wire toggle_autonomous = BTND;
+    wire reset = ~CPU_RESETN;
+    wire new_region_request;
+    wire manual_control = 0;
+    wire [1:0] car_region;
+    wire [1:0] next_region;
+    wire [3:0] state;
+
+    car_controller car_controller(.clk(clock_25mhz), 
+                            .reset(reset), //FPGA reset
+                            .manual_control(manual_control), // enable manual control
+                            .foward_in(foward_ctrl), // button that controls foward motion
+                            .backward_in(backward_ctrl), // button that controls backward motion
+                            .left_in(left_ctrl), // button that controls left turns
+                            .right_in(right_ctrl), // button that controls right turns
+                            .toggle_autonomous(toggle_autonomous), // enables autonomous driving
+                            .car_region(car_region), //
+                            .next_region(next_region), //
+                            .foward_out(JD[0]), // output that controls foward motion
+                            .backward_out(JD[1]), // output that controls backward motion
+                            .left_out(JD[2]), // output that controls left turns
+                            .right_out(JD[3]), // output that controls right turns
+                            .new_region(new_region_request),
+                            .state(state));
+
+    assign LED16_B = new_region_request;
+    assign LED17_R = state[0];
+    assign LED17_G = state[1];
+    assign LED17_B = state[2];
+    
+    wire [17:0] track_read_addr_recog;
+    wire rec_track_done;
+    reg [17:0] track_read_addr_disp;
+    wire [17:0] track_read_addr = (rec_track_done) ? track_read_addr_disp : track_read_addr_recog; 
+    wire [7:0] track_data;
+    
+    wire [17:0] track_addra;
+    wire [7:0] track_din;
+    wire track_write_clock, track_we;
+    
+    blk_mem_gen_0 track_bram(
+                            // Port A - Write
+                            .addra(track_addra), .clka(track_write_clock), .dina(track_din), .ena(1'b1), .wea(track_we),
+                            // Port B - Read
+                            .addrb(track_read_addr), .clkb(clock_25mhz), .enb(1'b1), .doutb(track_data)
+                            );
+
+    wire [17:0] region_write_addr;
+    wire [17:0] region_read_addr;
+    wire [7:0]  region_din, region_dout;
+    wire region_we;
+    wire [7:0] region_dout;
+    
+    blk_mem_gen_0 region_bram(
+        // Port A - Write
+        .addra(region_write_addr), .clka(clock_25mhz), .dina(region_din), .ena(1'b1), .wea(region_we),
+        // Port B - Read
+        .addrb(region_read_addr), .clkb(clock_25mhz), .enb(1'b1), .doutb(region_dout)
+        );
+
+    //REGION REPORTING//
+    //INSERT BRAM HERE ALONG WITH RELEVANT BRAMSHIT//
+    
+    region_manager region_manager(.clk(clock_25mhz), .current_x(current_x), .current_y(current_y), .next_x(next_x),
+                                    .next_y(next_y), .region_data(region_dout), .new_region_request(new_region_request),
+                                    .reset(reset), .region_addr(region_read_addr), .out_car_region(car_region),
+                                    .out_next_region(next_region));
+
+    track_recognizer track_recognition(
+         .clock_25mhz(clock_25mhz), 
+         .start(BTNU),
+         .camera_data(camera_data),
+         .PCLK(PCLK),
+         .VSYNC(VSYNC),
+         .HREF(HREF),
+         .threshold(TRACK_CAMERA_THRESHOLD),
+         
+         // BRAM IOs - region bram
+         .region_write_addr(region_write_addr),
+         .region_din(region_din),
+         .region_we(region_we),
+         
+         // BRAM IOs
+         .bram_write_addr(track_addra),
+         .bram_write_clock(track_write_clock),
+         .bram_din(track_din),
+         .bram_we(track_we),
+         .bram_read_addr(track_read_addr_recog),
+         .bram_read_out(track_data),
+         
+         // Following is used for debug purpose
+         .hcount(hcount),
+         .vcount(vcount),
+         .disp_r(track_disp_r), 
+         .disp_g(track_disp_g), 
+         .disp_b(track_disp_b),
+         .disp_switch(SW[6]),
+         .stop_filter_switch(SW[7]),
+         .done(rec_track_done) 
+          );
     
     always @(posedge clock_25mhz) begin
         // Display VGA module if software switch is turned on
@@ -139,7 +248,7 @@ module main(
             
         end else if (SW[2] & ~SW[3]) begin
             first_byte <= ~first_byte;
-            if(at_display_area) camera_addrb <= ((vcount-35)*640 + hcount-144)>>1;
+            if(at_display_area) camera_addrb <= ((vcount-35)*640 + hcount-142)>>1;
             else camera_addrb <= 0;
             
             if (first_byte == 1) begin
@@ -154,8 +263,9 @@ module main(
             
         end else if (SW[3]) begin
             first_byte <= ~first_byte;
-            if(at_display_area) camera_addrb <= ((vcount-35)*640 + hcount-144)>>1;
+            if(at_display_area) camera_addrb <= ((vcount-35)*640 + hcount-142)>>1;
             else camera_addrb <= 0;
+            track_read_addr_disp <= ((vcount-35)*640 + hcount-142)>>1;
             
             if ((hcount == last_com_x1+144 & vcount == last_com_y1+35)|(hcount == last_com_x2+144 & vcount == last_com_y2+35)) begin
                 disp_r <= 4'hF;
@@ -170,10 +280,49 @@ module main(
                 disp_g <= 0;
                 disp_b <= 4'hF;     
             end else begin
-                disp_r <= 0;
-                disp_g <= 0;
-                disp_b <= 0;
+                disp_r <= track_data[7:4];
+                disp_g <= track_data[7:4];
+                disp_b <= track_data[7:4];
             end
+        end else if (SW[4]) begin
+            if (rec_track_done) begin
+                first_byte <= ~first_byte;
+                track_read_addr_disp <= ((vcount-35)*640 + hcount-142)>>1;
+//                if ((hcount == last_com_x1+144 & vcount == last_com_y1+35)|(hcount == last_com_x2+144 & vcount == last_com_y2+35)) begin
+//                    disp_r <= 4'hF;
+//                    disp_g <= 4'hF;
+//                    disp_b <= 4'hF;
+//                end else if ((hcount == current_x + 144)|(vcount == current_y + 35)) begin
+//                    disp_r <= 0;
+//                    disp_g <= 4'hF;
+//                    disp_b <= 0;
+//                end else if ((hcount == next_x+144)|(vcount == next_y + 35)) begin
+//                    disp_r <= 0;
+//                    disp_g <= 0;
+//                    disp_b <= 4'hF;     
+//                if (track_data[7:4] == 4'b1010) begin
+//                    disp_r <= 4'hF; 
+//                    disp_g <= 0;
+//                    disp_b <= 0;
+//                end else if (track_data[7:4] == 4'b0000) begin
+//                    disp_r <= 0; 
+//                    disp_g <= 4'hF;
+//                    disp_b <= 0;
+//                end else if (track_data[7:4] == 4'b1111) begin
+//                    disp_r <= 0; 
+//                    disp_g <= 0;
+//                    disp_b <= 4'hF;
+//                end
+//            end
+//            // Show Recognized track
+                disp_r <= track_data[7:4];
+                disp_g <= track_data[7:4];
+                disp_b <= track_data[7:4];
+            end else begin
+                disp_r <= 0;
+                disp_g <= 4'hF;
+                disp_b <= 0;
+            end 
         end
     end
         
@@ -220,81 +369,4 @@ module vga(input vga_clock,
     assign hsync = (hcount < 96);
     assign vsync = (vcount < 2);
     assign at_display_area = (hcount >= 144 && hcount < 784 && vcount >= 35 && vcount < 515);
-endmodule
-
-module display_8hex(
-    input clk,                 // system clock
-    input [31:0] data,         // 8 hex numbers, msb first
-    output reg [6:0] seg,      // seven segment display output
-    output reg [7:0] strobe    // digit strobe
-    );
-
-    localparam bits = 13;
-     
-    reg [bits:0] counter = 0;  // clear on power up
-     
-    wire [6:0] segments[15:0]; // 16 7 bit memorys
-    assign segments[0]  = 7'b100_0000;
-    assign segments[1]  = 7'b111_1001;
-    assign segments[2]  = 7'b010_0100;
-    assign segments[3]  = 7'b011_0000;
-    assign segments[4]  = 7'b001_1001;
-    assign segments[5]  = 7'b001_0010;
-    assign segments[6]  = 7'b000_0010;
-    assign segments[7]  = 7'b111_1000;
-    assign segments[8]  = 7'b000_0000;
-    assign segments[9]  = 7'b001_1000;
-    assign segments[10] = 7'b000_1000;
-    assign segments[11] = 7'b000_0011;
-    assign segments[12] = 7'b010_0111;
-    assign segments[13] = 7'b010_0001;
-    assign segments[14] = 7'b000_0110;
-    assign segments[15] = 7'b000_1110;
-     
-    always @(posedge clk) begin
-      counter <= counter + 1;
-      case (counter[bits:bits-2])
-          3'b000: begin
-                  seg <= segments[data[31:28]];
-                  strobe <= 8'b0111_1111 ;
-                 end
-
-          3'b001: begin
-                  seg <= segments[data[27:24]];
-                  strobe <= 8'b1011_1111 ;
-                 end
-
-          3'b010: begin
-                   seg <= segments[data[23:20]];
-                   strobe <= 8'b1101_1111 ;
-                  end
-          3'b011: begin
-                  seg <= segments[data[19:16]];
-                  strobe <= 8'b1110_1111;        
-                 end
-          3'b100: begin
-                  seg <= segments[data[15:12]];
-                  strobe <= 8'b1111_0111;
-                 end
-
-          3'b101: begin
-                  seg <= segments[data[11:8]];
-                  strobe <= 8'b1111_1011;
-                 end
-
-          3'b110: begin
-                   seg <= segments[data[7:4]];
-                   strobe <= 8'b1111_1101;
-                  end
-          3'b111: begin
-                  seg <= segments[data[3:0]];
-                  strobe <= 8'b1111_1110;
-                 end
-
-
-
-
-       endcase
-      end
-
 endmodule

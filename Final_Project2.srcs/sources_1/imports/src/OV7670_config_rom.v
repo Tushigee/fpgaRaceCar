@@ -68,6 +68,7 @@ module OV7670_config_rom(
     38: dout <= 16'hA2_02; // SCALING_PCLK_DELAY
     39: dout <= 16'h67_11;
     40: dout <= 16'h68_33;
+    41: dout <= 16'h13_E5;  //Disabling auto-whitebalancing
     default: dout <= 16'hFF_FF;         //mark end of ROM
     endcase
     

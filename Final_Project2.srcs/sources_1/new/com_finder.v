@@ -41,13 +41,13 @@ module com_finder(
     always @(posedge clock) begin
         last_vsync_disp <= vsync_disp;
         if(vsync_disp == 0 & last_vsync_disp == 1) begin
-            last_com_x1 <= com_x1;
-            last_com_y1 <= com_y1;
+            last_com_x1 <= com_x1-144;
+            last_com_y1 <= com_y1-35;
             com_x1 <= 0;
             com_y1 <= 0;
             
-            last_com_x2 <= com_x2;
-            last_com_y2 <= com_y2;
+            last_com_x2 <= com_x2-144;
+            last_com_y2 <= com_y2-35;
             com_x2 <= 0;
             com_y2 <= 0;
         end else if (first_byte) begin

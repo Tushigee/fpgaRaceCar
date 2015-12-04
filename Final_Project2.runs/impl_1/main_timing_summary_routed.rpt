@@ -1,8 +1,8 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version      : Vivado v.2014.4.1 (lin64) Build 1149489 Thu Feb 19 16:01:47 MST 2015
-| Date              : Tue Dec  1 23:22:05 2015
-| Host              : eecs-digital-28 running 64-bit Ubuntu 12.04.5 LTS
+| Date              : Fri Dec  4 00:09:47 2015
+| Host              : eecs-digital-35 running 64-bit Ubuntu 12.04.5 LTS
 | Command           : report_timing_summary -warn_on_violation -max_paths 10 -file main_timing_summary_routed.rpt -rpx main_timing_summary_routed.rpx
 | Design            : main
 | Device            : 7a100t-csg324
@@ -52,11 +52,13 @@ Table of Contents
 
 1. checking no_clock
 --------------------
- There are 39 register/latch pins with no clock driven by root clock pin: JB[7] (HIGH)
+ There are 66 register/latch pins with no clock driven by root clock pin: JB[7] (HIGH)
 
- There are 436 register/latch pins with no clock driven by root clock pin: clockgen/clock_25mhz_reg/C (HIGH)
+ There are 4 register/latch pins with no clock driven by root clock pin: car_controller/new_region_reg/C (HIGH)
 
- There are 38 register/latch pins with no clock (HIGH)
+ There are 770 register/latch pins with no clock driven by root clock pin: clockgen/clock_25mhz_reg/C (HIGH)
+
+ There are 114 register/latch pins with no clock (HIGH)
 
 
 2. checking constant_clock
@@ -71,21 +73,21 @@ Table of Contents
 
 4. checking unconstrained_internal_endpoints
 --------------------------------------------
- There are 2281 pins that are not constrained for maximum delay. (HIGH)
+ There are 5458 pins that are not constrained for maximum delay. (HIGH)
 
  There are 0 pins that are not constrained for maximum delay due to constant clock.
 
 
 5. checking no_input_delay
 --------------------------
- There are 27 input ports with no input delay specified. (HIGH)
+ There are 31 input ports with no input delay specified. (HIGH)
 
  There are 0 input ports with no input delay but user has a false path constraint.
 
 
 6. checking no_output_delay
 ---------------------------
- There are 35 ports with no output delay specified. (HIGH)
+ There are 41 ports with no output delay specified. (HIGH)
 
  There are 0 ports with no output delay but user has a false path constraint
 
@@ -135,7 +137,7 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-      8.860        0.000                      0                    2        0.266        0.000                      0                    2        4.500        0.000                       0                     3  
+      8.860        0.000                      0                    2        0.276        0.000                      0                    2        4.500        0.000                       0                     3  
 
 
 All user specified timing constraints are met.
@@ -158,7 +160,7 @@ sys_clk_pin  {0.000 5.000}      10.000          100.000
 
 Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
 -----             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-sys_clk_pin         8.860        0.000                      0                    2        0.266        0.000                      0                    2        4.500        0.000                       0                     3  
+sys_clk_pin         8.860        0.000                      0                    2        0.276        0.000                      0                    2        4.500        0.000                       0                     3  
 
 
 ------------------------------------------------------------------------------------------------
@@ -190,7 +192,7 @@ From Clock:  sys_clk_pin
   To Clock:  sys_clk_pin
 
 Setup :            0  Failing Endpoints,  Worst Slack        8.860ns,  Total Violation        0.000ns
-Hold  :            0  Failing Endpoints,  Worst Slack        0.266ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.276ns,  Total Violation        0.000ns
 PW    :            0  Failing Endpoints,  Worst Slack        4.500ns,  Total Violation        0.000ns
 ---------------------------------------------------------------------------------------------------
 
@@ -317,7 +319,7 @@ Slack (MET) :             8.894ns  (required time - arrival time)
 
 Min Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             0.266ns  (arrival time - required time)
+Slack (MET) :             0.276ns  (arrival time - required time)
   Source:                 clockgen/clock_25mhz_reg/C
                             (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            clockgen/clock_25mhz_reg/D
@@ -325,7 +327,7 @@ Slack (MET) :             0.266ns  (arrival time - required time)
   Path Group:             sys_clk_pin
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        0.357ns  (logic 0.186ns (52.048%)  route 0.171ns (47.952%))
+  Data Path Delay:        0.367ns  (logic 0.186ns (50.630%)  route 0.181ns (49.370%))
   Logic Levels:           1  (LUT2=1)
   Clock Path Skew:        0.000ns (DCD - SCD - CPR)
     Destination Clock Delay (DCD):    1.903ns
@@ -345,9 +347,9 @@ Slack (MET) :             0.266ns  (arrival time - required time)
     SLICE_X52Y96                                                      r  clockgen/clock_25mhz_reg/C
   -------------------------------------------------------------------    -------------------
     SLICE_X52Y96         FDRE (Prop_fdre_C_Q)         0.141     1.538 r  clockgen/clock_25mhz_reg/Q
-                         net (fo=2, routed)           0.171     1.710    clockgen/JC_IBUF[4]
-    SLICE_X52Y96         LUT2 (Prop_lut2_I1_O)        0.045     1.755 r  clockgen/clock_25mhz_i_1/O
-                         net (fo=1, routed)           0.000     1.755    clockgen/n_2_clock_25mhz_i_1
+                         net (fo=3, routed)           0.181     1.720    clockgen/JC_IBUF[4]
+    SLICE_X52Y96         LUT2 (Prop_lut2_I1_O)        0.045     1.765 r  clockgen/clock_25mhz_i_1/O
+                         net (fo=1, routed)           0.000     1.765    clockgen/n_2_clock_25mhz_i_1
     SLICE_X52Y96         FDRE                                         r  clockgen/clock_25mhz_reg/D
   -------------------------------------------------------------------    -------------------
 
@@ -364,9 +366,9 @@ Slack (MET) :             0.266ns  (arrival time - required time)
     SLICE_X52Y96         FDRE (Hold_fdre_C_D)         0.091     1.488    clockgen/clock_25mhz_reg
   -------------------------------------------------------------------
                          required time                         -1.488    
-                         arrival time                           1.755    
+                         arrival time                           1.765    
   -------------------------------------------------------------------
-                         slack                                  0.266    
+                         slack                                  0.276    
 
 Slack (MET) :             0.395ns  (arrival time - required time)
   Source:                 clockgen/counter_reg/C
