@@ -85,7 +85,7 @@ module region_manager(input wire clk,
         end
     end
     
-    always @(posedge new_region_request)
+    always @(tmp_next)
         begin
           out_car_region <= tmp_current;
           out_next_region <= tmp_next;

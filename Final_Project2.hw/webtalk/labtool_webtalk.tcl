@@ -1,6 +1,6 @@
 webtalk_init -webtalk_dir /afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.hw/webtalk/
 webtalk_register_client -client project
-webtalk_add_data -client project -key date_generated -value "Thu Dec  3 23:44:32 2015" -context "software_version_and_target_device"
+webtalk_add_data -client project -key date_generated -value "Fri Dec  4 17:09:19 2015" -context "software_version_and_target_device"
 webtalk_add_data -client project -key product_version -value "Vivado v2014.4.1 (64-bit)" -context "software_version_and_target_device"
 webtalk_add_data -client project -key build_version -value "1149489" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_platform -value "LIN64" -context "software_version_and_target_device"
@@ -14,7 +14,7 @@ webtalk_add_data -client project -key target_package -value "not_applicable" -co
 webtalk_add_data -client project -key target_speed -value "not_applicable" -context "software_version_and_target_device"
 webtalk_add_data -client project -key random_id -value "dbda99c8-e29a-4d9c-977e-1ae82770e799" -context "software_version_and_target_device"
 webtalk_add_data -client project -key project_id -value "34e54d67-d404-433e-8346-efa10684382e" -context "software_version_and_target_device"
-webtalk_add_data -client project -key project_iteration -value "10" -context "software_version_and_target_device"
+webtalk_add_data -client project -key project_iteration -value "11" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_name -value "Ubuntu" -context "user_environment"
 webtalk_add_data -client project -key os_release -value "Ubuntu 12.04.5 LTS" -context "user_environment"
 webtalk_add_data -client project -key cpu_name -value "Intel(R) Core(TM) i5-4690S CPU @ 3.20GHz" -context "user_environment"
@@ -22,8 +22,8 @@ webtalk_add_data -client project -key cpu_speed -value "800.000 MHz" -context "u
 webtalk_add_data -client project -key total_processors -value "1" -context "user_environment"
 webtalk_add_data -client project -key system_ram -value "8.000 GB" -context "user_environment"
 webtalk_register_client -client labtool
-webtalk_add_data -client labtool -key cable -value "Xilinx/DLC9LP/6000000" -context "labtool\\usage"
-webtalk_add_data -client labtool -key chain -value "" -context "labtool\\usage"
-webtalk_add_data -client labtool -key pgmcnt -value "00:00:00" -context "labtool\\usage"
-webtalk_transmit -clientid 3718301198 -regid "211027694_1777504441_210601152_408" -xml /afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.hw/webtalk/usage_statistics_ext_labtool.xml -html /afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.hw/webtalk/usage_statistics_ext_labtool.html -wdm /afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.hw/webtalk/usage_statistics_ext_labtool.wdm -intro "<H3>LABTOOL Usage Report</H3><BR>"
+webtalk_add_data -client labtool -key cable -value "Digilent/Nexys4DDR/15000000:Xilinx/DLC9LP/6000000" -context "labtool\\usage"
+webtalk_add_data -client labtool -key chain -value "13631093" -context "labtool\\usage"
+webtalk_add_data -client labtool -key pgmcnt -value "06:00:00" -context "labtool\\usage"
+webtalk_transmit -clientid 1654861834 -regid "211027694_1777504441_210601152_408" -xml /afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.hw/webtalk/usage_statistics_ext_labtool.xml -html /afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.hw/webtalk/usage_statistics_ext_labtool.html -wdm /afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.hw/webtalk/usage_statistics_ext_labtool.wdm -intro "<H3>LABTOOL Usage Report</H3><BR>"
 webtalk_terminate

@@ -78,7 +78,7 @@ module car_controller (input wire clk,
     parameter TRACK = 1;
     parameter INNER_TRACK = 2;
     
-    parameter CMD_DELAY = 24'd6250000;
+    parameter CMD_DELAY = 24'd5000000;
     parameter FWD_PULSE = 24'd800000; //d800000, 810000
     parameter LEFT_PULSE = 24'd2000000; //d1250000, 810000
     parameter RIGHT_PULSE = 24'd2150000; //d1400000, 810000

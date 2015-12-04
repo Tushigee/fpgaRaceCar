@@ -12,7 +12,6 @@ source main.tcl
 # set_param gui.test TreeTableDev
 # set_param xicom.use_bs_reader 1
 # debug::add_scope template.lib 1
-# set_msg_config -id {Common-41} -limit 4294967295
 # set_msg_config -id {HDL 9-1061} -limit 100000
 # set_msg_config -id {HDL 9-1654} -limit 100000
 # create_project -in_memory -part xc7a100tcsg324-3
@@ -56,7 +55,7 @@ WARNING: [Synth 8-976] region_dout has already been declared [/afs/athena.mit.ed
 WARNING: [Synth 8-2654] second declaration of region_dout ignored [/afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/new/main.v:192]
 INFO: [Synth 8-994] region_dout is declared here [/afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/new/main.v:190]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 917.098 ; gain = 152.723 ; free physical = 3696 ; free virtual = 13984
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 917.094 ; gain = 152.723 ; free physical = 5299 ; free virtual = 14716
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'main' [/afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/new/main.v:23]
 INFO: [Synth 8-638] synthesizing module 'clock_quarter_divider' [/afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/new/main.v:350]
@@ -64,8 +63,8 @@ INFO: [Synth 8-256] done synthesizing module 'clock_quarter_divider' (1#1) [/afs
 INFO: [Synth 8-638] synthesizing module 'display_8hex' [/afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/imports/sources_1/display_8hex.v:16]
 	Parameter bits bound to: 13 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'display_8hex' (2#1) [/afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/imports/sources_1/display_8hex.v:16]
-INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_0' [/afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.runs/synth_1/.Xil/Vivado-28823-eecs-digital-35/realtime/blk_mem_gen_0_stub.v:7]
-INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_0' (3#1) [/afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.runs/synth_1/.Xil/Vivado-28823-eecs-digital-35/realtime/blk_mem_gen_0_stub.v:7]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_0' [/afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.runs/synth_1/.Xil/Vivado-14175-eecs-digital-35/realtime/blk_mem_gen_0_stub.v:7]
+INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_0' (3#1) [/afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.runs/synth_1/.Xil/Vivado-14175-eecs-digital-35/realtime/blk_mem_gen_0_stub.v:7]
 INFO: [Synth 8-638] synthesizing module 'camera_read' [/afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/new/camera_read.v:23]
 	Parameter WAITING bound to: 0 - type: integer 
 	Parameter RECORD bound to: 1 - type: integer 
@@ -123,7 +122,7 @@ INFO: [Synth 8-638] synthesizing module 'car_controller' [/afs/athena.mit.edu/us
 	Parameter OUTER_TRACK bound to: 0 - type: integer 
 	Parameter TRACK bound to: 1 - type: integer 
 	Parameter INNER_TRACK bound to: 2 - type: integer 
-	Parameter CMD_DELAY bound to: 24'b010111110101111000010000 
+	Parameter CMD_DELAY bound to: 24'b010011000100101101000000 
 	Parameter FWD_PULSE bound to: 24'b000011000011010100000000 
 	Parameter LEFT_PULSE bound to: 24'b000111101000010010000000 
 	Parameter RIGHT_PULSE bound to: 24'b001000001100111001110000 
@@ -133,6 +132,7 @@ INFO: [Synth 8-638] synthesizing module 'car_controller' [/afs/athena.mit.edu/us
 INFO: [Synth 8-256] done synthesizing module 'car_controller' (12#1) [/afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/new/car_controller.v:45]
 INFO: [Synth 8-638] synthesizing module 'region_manager' [/afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/imports/sources_1/new/region_manager.v:23]
 INFO: [Synth 8-155] case statement is not full and has no default [/afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/imports/sources_1/new/region_manager.v:47]
+WARNING: [Synth 8-567] referenced signal 'tmp_current' should be on the sensitivity list [/afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/imports/sources_1/new/region_manager.v:88]
 INFO: [Synth 8-256] done synthesizing module 'region_manager' (13#1) [/afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/imports/sources_1/new/region_manager.v:23]
 INFO: [Synth 8-638] synthesizing module 'track_recognizer' [/afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/new/track_rec.v:467]
 INFO: [Synth 8-638] synthesizing module 'camera_read_mod' [/afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/new/track_rec.v:23]
@@ -202,7 +202,7 @@ WARNING: [Synth 8-3331] design main has unconnected port JC[5]
 WARNING: [Synth 8-3331] design main has unconnected port BTNL
 WARNING: [Synth 8-3331] design main has unconnected port BTNR
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 948.355 ; gain = 183.980 ; free physical = 3662 ; free virtual = 13952
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 948.352 ; gain = 183.980 ; free physical = 5266 ; free virtual = 14684
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -212,7 +212,7 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 948.355 ; gain = 183.980 ; free physical = 3662 ; free virtual = 13951
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 948.352 ; gain = 183.980 ; free physical = 5266 ; free virtual = 14684
 ---------------------------------------------------------------------------------
 Loading clock regions from /mit/6.111/xilinx-vivado/Vivado/2014.4/data/parts/xilinx/artix7/artix7/xc7a100t/ClockRegion.xml
 Loading clock buffers from /mit/6.111/xilinx-vivado/Vivado/2014.4/data/parts/xilinx/artix7/artix7/xc7a100t/ClockBuffers.xml
@@ -232,22 +232,22 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 1273.570 ; gain = 0.000 ; free physical = 3466 ; free virtual = 13755
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 1273.566 ; gain = 0.000 ; free physical = 5070 ; free virtual = 14488
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:13 . Memory (MB): peak = 1273.570 ; gain = 509.195 ; free physical = 3465 ; free virtual = 13755
+Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:12 . Memory (MB): peak = 1273.566 ; gain = 509.195 ; free physical = 5070 ; free virtual = 14488
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-3
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:13 . Memory (MB): peak = 1273.570 ; gain = 509.195 ; free physical = 3465 ; free virtual = 13755
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:12 . Memory (MB): peak = 1273.566 ; gain = 509.195 ; free physical = 5070 ; free virtual = 14488
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 1273.570 ; gain = 509.195 ; free physical = 3465 ; free virtual = 13755
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 1273.566 ; gain = 509.195 ; free physical = 5070 ; free virtual = 14488
 ---------------------------------------------------------------------------------
 ROM "FSM_state" won't be mapped to RAM because it is too sparse.
 ROM "timer0" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
@@ -277,7 +277,7 @@ WARNING: [Synth 8-3848] Net disp_b in module/entity track_recognizer does not ha
 WARNING: [Synth 8-3848] Net LED16_G in module/entity main does not have driver. [/afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/new/main.v:39]
 WARNING: [Synth 8-3848] Net LED16_R in module/entity main does not have driver. [/afs/athena.mit.edu/user/k/s/kschan/Documents/6.111/Final_Project2/Final_Project2.srcs/sources_1/new/main.v:39]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 1273.570 ; gain = 509.195 ; free physical = 3451 ; free virtual = 13740
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 1273.566 ; gain = 509.195 ; free physical = 5055 ; free virtual = 14473
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -315,7 +315,7 @@ Detailed RTL Component Info :
 	                6 Bit    Registers := 1     
 	                4 Bit    Registers := 11    
 	                3 Bit    Registers := 2     
-	                2 Bit    Registers := 13    
+	                2 Bit    Registers := 11    
 	                1 Bit    Registers := 33    
 +---Multipliers : 
 	                10x32  Multipliers := 1     
@@ -345,7 +345,7 @@ Detailed RTL Component Info :
 	  14 Input      4 Bit        Muxes := 2     
 	   4 Input      4 Bit        Muxes := 1     
 	   2 Input      3 Bit        Muxes := 2     
-	   4 Input      3 Bit        Muxes := 3     
+	   4 Input      3 Bit        Muxes := 4     
 	   7 Input      3 Bit        Muxes := 1     
 	   2 Input      2 Bit        Muxes := 7     
 	   3 Input      2 Bit        Muxes := 1     
@@ -514,7 +514,7 @@ Detailed RTL Component Info :
 	   2 Input     25 Bit        Muxes := 1     
 	   2 Input     23 Bit        Muxes := 1     
 	   2 Input      4 Bit        Muxes := 6     
-	   4 Input      3 Bit        Muxes := 2     
+	   4 Input      3 Bit        Muxes := 3     
 	   2 Input      3 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 10    
 	  10 Input      1 Bit        Muxes := 9     
@@ -522,7 +522,7 @@ Module region_manager
 Detailed RTL Component Info : 
 +---Registers : 
 	               18 Bit    Registers := 1     
-	                2 Bit    Registers := 4     
+	                2 Bit    Registers := 2     
 	                1 Bit    Registers := 2     
 +---Muxes : 
 	   5 Input     18 Bit        Muxes := 1     
@@ -620,7 +620,7 @@ BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
-Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 1273.570 ; gain = 509.195 ; free physical = 3451 ; free virtual = 13740
+Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 1273.566 ; gain = 509.195 ; free physical = 5055 ; free virtual = 14473
 ---------------------------------------------------------------------------------
 Start Cross Boundary Optimization
 ---------------------------------------------------------------------------------
@@ -666,9 +666,9 @@ WARNING: [Synth 8-3331] design main has unconnected port JC[5]
 WARNING: [Synth 8-3331] design main has unconnected port BTNL
 WARNING: [Synth 8-3331] design main has unconnected port BTNR
 ---------------------------------------------------------------------------------
-Finished Cross Boundary Optimization : Time (s): cpu = 00:00:11 ; elapsed = 00:00:15 . Memory (MB): peak = 1273.570 ; gain = 509.195 ; free physical = 3451 ; free virtual = 13740
+Finished Cross Boundary Optimization : Time (s): cpu = 00:00:11 ; elapsed = 00:00:15 . Memory (MB): peak = 1273.566 ; gain = 509.195 ; free physical = 5055 ; free virtual = 14473
 ---------------------------------------------------------------------------------
-Finished Parallel Reinference  : Time (s): cpu = 00:00:11 ; elapsed = 00:00:15 . Memory (MB): peak = 1273.570 ; gain = 509.195 ; free physical = 3451 ; free virtual = 13740
+Finished Parallel Reinference  : Time (s): cpu = 00:00:11 ; elapsed = 00:00:15 . Memory (MB): peak = 1273.566 ; gain = 509.195 ; free physical = 5055 ; free virtual = 14473
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -724,9 +724,9 @@ WARNING: [Synth 8-3332] Sequential element (\pulse_length_reg[23] ) is unused an
 WARNING: [Synth 8-3332] Sequential element (\pulse_length_reg[18] ) is unused and will be removed from module car_controller.
 WARNING: [Synth 8-3332] Sequential element (\pulse_length_reg[17] ) is unused and will be removed from module car_controller.
 WARNING: [Synth 8-3332] Sequential element (\pulse_length_reg[11] ) is unused and will be removed from module car_controller.
-WARNING: [Synth 8-3332] Sequential element (\pulse_length_reg[8] ) is unused and will be removed from module car_controller.
+WARNING: [Synth 8-3332] Sequential element (\pulse_length_reg[7] ) is unused and will be removed from module car_controller.
+WARNING: [Synth 8-3332] Sequential element (\pulse_length_reg[6] ) is unused and will be removed from module car_controller.
 WARNING: [Synth 8-3332] Sequential element (\pulse_length_reg[5] ) is unused and will be removed from module car_controller.
-WARNING: [Synth 8-3332] Sequential element (\pulse_length_reg[4] ) is unused and will be removed from module car_controller.
 WARNING: [Synth 8-3332] Sequential element (\pulse_length_reg[3] ) is unused and will be removed from module car_controller.
 WARNING: [Synth 8-3332] Sequential element (\pulse_length_reg[2] ) is unused and will be removed from module car_controller.
 WARNING: [Synth 8-3332] Sequential element (\pulse_length_reg[1] ) is unused and will be removed from module car_controller.
@@ -770,19 +770,19 @@ Start Area Optimization
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (track_recognition/i_18/\track_tagger0/x_reg[10] )
 WARNING: [Synth 8-3332] Sequential element (\track_tagger0/x_reg[10] ) is unused and will be removed from module track_recognizer.
 ---------------------------------------------------------------------------------
-Finished Area Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:17 . Memory (MB): peak = 1273.574 ; gain = 509.199 ; free physical = 3435 ; free virtual = 13725
+Finished Area Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:17 . Memory (MB): peak = 1273.570 ; gain = 509.199 ; free physical = 5040 ; free virtual = 14459
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Area Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:17 . Memory (MB): peak = 1273.574 ; gain = 509.199 ; free physical = 3435 ; free virtual = 13725
+Finished Area Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:17 . Memory (MB): peak = 1273.570 ; gain = 509.199 ; free physical = 5040 ; free virtual = 14459
 ---------------------------------------------------------------------------------
-Finished Parallel Area Optimization  : Time (s): cpu = 00:00:14 ; elapsed = 00:00:17 . Memory (MB): peak = 1273.574 ; gain = 509.199 ; free physical = 3435 ; free virtual = 13725
+Finished Parallel Area Optimization  : Time (s): cpu = 00:00:13 ; elapsed = 00:00:17 . Memory (MB): peak = 1273.570 ; gain = 509.199 ; free physical = 5040 ; free virtual = 14459
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
 | |RTL Partition |Replication |Instances |
 +-+--------------+------------+----------+
 +-+--------------+------------+----------+
-Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:14 ; elapsed = 00:00:17 . Memory (MB): peak = 1273.574 ; gain = 509.199 ; free physical = 3435 ; free virtual = 13725
+Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:13 ; elapsed = 00:00:17 . Memory (MB): peak = 1273.570 ; gain = 509.199 ; free physical = 5040 ; free virtual = 14459
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
@@ -790,10 +790,10 @@ Start Timing Optimization
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:26 . Memory (MB): peak = 1304.566 ; gain = 540.191 ; free physical = 3336 ; free virtual = 13624
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:25 . Memory (MB): peak = 1304.562 ; gain = 540.191 ; free physical = 4943 ; free virtual = 14361
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:26 . Memory (MB): peak = 1305.566 ; gain = 541.191 ; free physical = 3335 ; free virtual = 13623
+Finished Timing Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:25 . Memory (MB): peak = 1305.562 ; gain = 541.191 ; free physical = 4942 ; free virtual = 14360
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -810,7 +810,7 @@ WARNING: [Synth 8-3332] Sequential element (\camera1/vsync_prev_reg ) is unused 
 WARNING: [Synth 8-3332] Sequential element (\location_heading/last_vsync_disp_reg ) is unused and will be removed from module main.
 INFO: [Synth 8-4480] The timing for the instance \camera1/OV7670_config/rom1/dout_reg  (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:23 ; elapsed = 00:00:27 . Memory (MB): peak = 1327.809 ; gain = 563.434 ; free physical = 3311 ; free virtual = 13600
+Finished Technology Mapping : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 1327.812 ; gain = 563.441 ; free physical = 4918 ; free virtual = 14336
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -834,7 +834,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:23 ; elapsed = 00:00:27 . Memory (MB): peak = 1327.809 ; gain = 563.434 ; free physical = 3311 ; free virtual = 13600
+Finished IO Insertion : Time (s): cpu = 00:00:23 ; elapsed = 00:00:27 . Memory (MB): peak = 1327.812 ; gain = 563.441 ; free physical = 4918 ; free virtual = 14336
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -847,7 +847,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:23 ; elapsed = 00:00:27 . Memory (MB): peak = 1327.809 ; gain = 563.434 ; free physical = 3311 ; free virtual = 13600
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:23 ; elapsed = 00:00:27 . Memory (MB): peak = 1327.812 ; gain = 563.441 ; free physical = 4918 ; free virtual = 14336
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -859,7 +859,7 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:23 ; elapsed = 00:00:27 . Memory (MB): peak = 1327.809 ; gain = 563.434 ; free physical = 3311 ; free virtual = 13600
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:23 ; elapsed = 00:00:27 . Memory (MB): peak = 1327.812 ; gain = 563.441 ; free physical = 4918 ; free virtual = 14336
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RAM, DSP and Shift Register Reporting
@@ -891,14 +891,14 @@ Report Cell Usage:
 |7     |DSP48E1_1        |     1|
 |8     |DSP48E1_2        |     1|
 |9     |INV              |     4|
-|10    |LUT1             |   184|
-|11    |LUT2             |   251|
-|12    |LUT3             |   178|
-|13    |LUT4             |   240|
-|14    |LUT5             |   168|
+|10    |LUT1             |   183|
+|11    |LUT2             |   280|
+|12    |LUT3             |   175|
+|13    |LUT4             |   239|
+|14    |LUT5             |   165|
 |15    |LUT6             |   307|
 |16    |RAMB18E1         |     1|
-|17    |FDRE             |   670|
+|17    |FDRE             |   666|
 |18    |FDSE             |    14|
 |19    |IBUF             |    34|
 |20    |OBUF             |    58|
@@ -909,18 +909,18 @@ Report Instance Areas:
 +------+-----------------------+----------------------------+------+
 |      |Instance               |Module                      |Cells |
 +------+-----------------------+----------------------------+------+
-|1     |top                    |                            |  2325|
+|1     |top                    |                            |  2342|
 |2     |  camera1              |camera_read                 |   416|
 |3     |    OV7670_config      |camera_configure            |   336|
 |4     |      SCCB1            |SCCB_interface              |   186|
 |5     |      config_1         |OV7670_config               |   136|
 |6     |      rom1             |OV7670_config_rom           |    14|
-|7     |  car_controller       |car_controller              |   137|
+|7     |  car_controller       |car_controller              |   158|
 |8     |  clockgen             |clock_quarter_divider       |     4|
 |9     |  display              |display_8hex                |    56|
 |10    |  dot_tracker          |com_finder                  |   445|
 |11    |  location_heading     |location_heading_calculator |   281|
-|12    |  region_manager       |region_manager              |    72|
+|12    |  region_manager       |region_manager              |    68|
 |13    |  track_recognition    |track_recognizer            |   507|
 |14    |    camera_track_recog |camera_read_mod             |    97|
 |15    |    track_filter       |filter                      |   157|
@@ -929,11 +929,11 @@ Report Instance Areas:
 |18    |  vga1                 |vga                         |   170|
 +------+-----------------------+----------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:23 ; elapsed = 00:00:27 . Memory (MB): peak = 1327.809 ; gain = 563.434 ; free physical = 3311 ; free virtual = 13600
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:23 ; elapsed = 00:00:27 . Memory (MB): peak = 1327.812 ; gain = 563.441 ; free physical = 4918 ; free virtual = 14336
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 79 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1327.809 ; gain = 137.473 ; free physical = 3311 ; free virtual = 13600
-Synthesis Optimization Complete : Time (s): cpu = 00:00:23 ; elapsed = 00:00:27 . Memory (MB): peak = 1327.809 ; gain = 563.434 ; free physical = 3311 ; free virtual = 13600
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1327.812 ; gain = 137.480 ; free physical = 4918 ; free virtual = 14336
+Synthesis Optimization Complete : Time (s): cpu = 00:00:23 ; elapsed = 00:00:27 . Memory (MB): peak = 1327.812 ; gain = 563.441 ; free physical = 4918 ; free virtual = 14336
 INFO: [Project 1-571] Translating synthesized netlist
 WARNING: [Netlist 29-345] The value of SIM_DEVICE on instance 'camera1/OV7670_config/rom1/dout_reg' of type 'RAMB18E1' is 'VIRTEX6'; it is being changed to match the current FPGA architecture, '7SERIES'. For functional simulation to match hardware behavior, the value of SIM_DEVICE should be changed in the source netlist or constraint file.
 INFO: [Netlist 29-17] Analyzing 168 Unisim elements for replacement
@@ -947,10 +947,10 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   INV => LUT1: 4 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-69 Infos, 106 Warnings, 0 Critical Warnings and 0 Errors encountered.
+69 Infos, 107 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:23 ; elapsed = 00:00:27 . Memory (MB): peak = 1327.812 ; gain = 462.695 ; free physical = 3311 ; free virtual = 13600
+synth_design: Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 1327.816 ; gain = 462.703 ; free physical = 4918 ; free virtual = 14336
 # write_checkpoint -noxdef main.dcp
 # catch { report_utilization -file main_utilization_synth.rpt -pb main_utilization_synth.pb }
-report_utilization: Time (s): cpu = 00:00:00.14 ; elapsed = 00:00:00.19 . Memory (MB): peak = 1327.812 ; gain = 0.000 ; free physical = 3311 ; free virtual = 13600
-INFO: [Common 17-206] Exiting Vivado at Fri Dec  4 00:51:14 2015...
+report_utilization: Time (s): cpu = 00:00:00.14 ; elapsed = 00:00:00.17 . Memory (MB): peak = 1327.816 ; gain = 0.000 ; free physical = 4917 ; free virtual = 14335
+INFO: [Common 17-206] Exiting Vivado at Fri Dec  4 17:05:19 2015...
