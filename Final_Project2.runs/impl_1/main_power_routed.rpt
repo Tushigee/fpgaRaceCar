@@ -1,7 +1,7 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2014.4.1 (lin64) Build 1149489 Thu Feb 19 16:01:47 MST 2015
-| Date             : Fri Dec  4 00:09:47 2015
+| Date             : Fri Dec  4 00:52:11 2015
 | Host             : eecs-digital-35 running 64-bit Ubuntu 12.04.5 LTS
 | Command          : report_power -file main_power_routed.rpt -pb main_power_summary_routed.pb
 | Design           : main
@@ -30,8 +30,8 @@ Table of Contents
 ----------
 
 +--------------------------+-------+
-| Total On-Chip Power (W)  | 0.151 |
-| Dynamic (W)              | 0.044 |
+| Total On-Chip Power (W)  | 0.153 |
+| Dynamic (W)              | 0.046 |
 | Device Static (W)        | 0.107 |
 | Effective TJA (C/W)      | 4.6   |
 | Max Ambient (C)          | 99.3  |
@@ -50,19 +50,19 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |    <0.001 |        3 |       --- |             --- |
-| Slice Logic    |     0.003 |     3212 |       --- |             --- |
-|   LUT as Logic |     0.003 |     1539 |     63400 |            2.42 |
+| Slice Logic    |     0.004 |     3222 |       --- |             --- |
+|   LUT as Logic |     0.004 |     1547 |     63400 |            2.44 |
 |   CARRY4       |    <0.001 |      126 |     15850 |            0.79 |
-|   Register     |    <0.001 |      727 |    126800 |            0.57 |
-|   BUFG         |    <0.001 |        3 |        32 |            9.37 |
+|   Register     |    <0.001 |      726 |    126800 |            0.57 |
 |   F7/F8 Muxes  |    <0.001 |      140 |     63400 |            0.22 |
+|   BUFG         |    <0.001 |        3 |        32 |            9.37 |
 |   Others       |     0.000 |      381 |       --- |             --- |
-| Signals        |     0.006 |     2809 |       --- |             --- |
-| Block RAM      |     0.002 |      113 |       135 |           83.70 |
+| Signals        |     0.007 |     2818 |       --- |             --- |
+| Block RAM      |     0.001 |      113 |       135 |           83.70 |
 | DSPs           |     0.002 |        7 |       240 |            2.91 |
 | I/O            |     0.031 |       96 |       210 |           45.71 |
 | Static Power   |     0.107 |          |           |                 |
-| Total          |     0.151 |          |           |                 |
+| Total          |     0.153 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -72,7 +72,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.030 |       0.013 |      0.017 |
+| Vccint    |       1.000 |     0.031 |       0.015 |      0.017 |
 | Vccaux    |       1.800 |     0.019 |       0.001 |      0.018 |
 | Vcco33    |       3.300 |     0.013 |       0.009 |      0.004 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -141,7 +141,7 @@ Table of Contents
 +---------------------------------------+-----------+
 | Name                                  | Power (W) |
 +---------------------------------------+-----------+
-| main                                  |     0.044 |
+| main                                  |     0.046 |
 |   camera1                             |     0.001 |
 |     OV7670_config                     |     0.001 |
 |       SCCB1                           |    <0.001 |
@@ -317,12 +317,12 @@ Table of Contents
 |             ramloop[9].ram.r          |     0.000 |
 |               prim_noinit.ram         |     0.000 |
 |   region_manager                      |    <0.001 |
-|   track_bram                          |     0.001 |
-|     U0                                |     0.001 |
-|       inst_blk_mem_gen                |     0.001 |
-|         gnativebmg.native_blk_mem_gen |     0.001 |
-|           valid.cstr                  |     0.001 |
-|             has_mux_b.B               |    <0.001 |
+|   track_bram                          |     0.002 |
+|     U0                                |     0.002 |
+|       inst_blk_mem_gen                |     0.002 |
+|         gnativebmg.native_blk_mem_gen |     0.002 |
+|           valid.cstr                  |     0.002 |
+|             has_mux_b.B               |     0.001 |
 |             ramloop[0].ram.r          |    <0.001 |
 |               prim_noinit.ram         |    <0.001 |
 |             ramloop[10].ram.r         |    <0.001 |
@@ -399,10 +399,10 @@ Table of Contents
 |               prim_noinit.ram         |    <0.001 |
 |             ramloop[9].ram.r          |    <0.001 |
 |               prim_noinit.ram         |    <0.001 |
-|   track_recognition                   |     0.002 |
+|   track_recognition                   |     0.003 |
 |     camera_track_recog                |    <0.001 |
-|     track_filter                      |    <0.001 |
-|     track_reg                         |     0.001 |
+|     track_filter                      |     0.001 |
+|     track_reg                         |    <0.001 |
 |     track_tagger0                     |    <0.001 |
 |   vga1                                |    <0.001 |
 +---------------------------------------+-----------+

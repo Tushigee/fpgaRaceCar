@@ -349,7 +349,7 @@ module track_tagger (input clock_25mhz,
                 assign bram_read_addr = (x + y*640) >> 1;
                 
                 wire isBlack, isWhite;
-                assign isBlack = (bram_dout[7:4] == 4'hF | bram_dout[3:0] == 4'hF);
+                assign isBlack = (bram_dout[7:4] == 4'h0 | bram_dout[3:0] == 4'h0);
                 assign isOutside = (bram_dout[7:4] == 4'b1010 | bram_dout[3:0] == 4'b1010 | x <= 11);
                 assign isWhite  =  (~isBlack & ~isOutside);
                        

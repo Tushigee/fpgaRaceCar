@@ -78,7 +78,7 @@ module car_controller (input wire clk,
     parameter TRACK = 1;
     parameter INNER_TRACK = 2;
     
-    parameter CMD_DELAY = 24'd25000000;
+    parameter CMD_DELAY = 24'd6250000;
     parameter FWD_PULSE = 24'd800000; //d800000, 810000
     parameter LEFT_PULSE = 24'd2000000; //d1250000, 810000
     parameter RIGHT_PULSE = 24'd2150000; //d1400000, 810000
@@ -122,7 +122,7 @@ module car_controller (input wire clk,
                                         begin
                                             case(next_region)
                                                 OUTER_TRACK: state <= AUTO_R;
-                                                TRACK: state <= AUTO_F;
+                                                TRACK: state <= AUTO_R;
                                                 INNER_TRACK: state <= AUTO_L;
                                                 default: state <= NEXT_REGION;
                                             endcase
@@ -131,7 +131,7 @@ module car_controller (input wire clk,
                                         begin
                                             case(next_region)
                                                 OUTER_TRACK: state <= AUTO_R;
-                                                TRACK: state <= AUTO_F;
+                                                TRACK: state <= AUTO_R;
                                                 INNER_TRACK: state <= AUTO_L;
                                                 default: state <= NEXT_REGION;
                                             endcase
@@ -140,7 +140,7 @@ module car_controller (input wire clk,
                                         begin 
                                             case(next_region)
                                                 OUTER_TRACK: state <= AUTO_R;
-                                                TRACK: state <= AUTO_F;
+                                                TRACK: state <= AUTO_L;
                                                 INNER_TRACK: state <= AUTO_L;
                                                 default: state <= NEXT_REGION;
                                             endcase

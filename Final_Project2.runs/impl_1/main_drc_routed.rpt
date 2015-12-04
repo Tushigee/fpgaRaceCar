@@ -1,7 +1,7 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2014.4.1 (lin64) Build 1149489 Thu Feb 19 16:01:47 MST 2015
-| Date         : Fri Dec  4 00:09:46 2015
+| Date         : Fri Dec  4 00:52:09 2015
 | Host         : eecs-digital-35 running 64-bit Ubuntu 12.04.5 LTS
 | Command      : report_drc
 --------------------------------------------------------------------------------------
@@ -39,7 +39,7 @@ Related violations: <none>
 
 CKLD-2#1 Warning
 Clock Net has direct IO Driver  
-Clock net n_1_n_0_1456_BUFG_inst is directly driven by an IO rather than a Clock Buffer. Driver(s): n_0_1456_BUFG_inst_i_1/O2000
+Clock net n_1_n_0_1458_BUFG_inst is directly driven by an IO rather than a Clock Buffer. Driver(s): n_0_1458_BUFG_inst_i_1/O2000
 Related violations: <none>
 
 DPIP-1#1 Warning
@@ -123,8 +123,8 @@ A LUT track_recognition/camera_track_recog/track_bram_i_1 is driving clock pin o
     track_bram/U0/inst_blk_mem_gen/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram {RAMB36E1}
     track_bram/U0/inst_blk_mem_gen/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram {RAMB36E1}
     track_bram/U0/inst_blk_mem_gen/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram {RAMB36E1}
-    track_bram/U0/inst_blk_mem_gen/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[13].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram {RAMB36E1}
     track_bram/U0/inst_blk_mem_gen/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[12].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram {RAMB36E1}
+    track_bram/U0/inst_blk_mem_gen/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[14].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram {RAMB36E1}
 
 Related violations: <none>
 
