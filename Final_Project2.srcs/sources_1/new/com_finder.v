@@ -51,8 +51,8 @@ module com_finder(
             com_x2 <= 0;
             com_y2 <= 0;
         end else if (first_byte) begin
-            if (camera_dout[7:4] == 4'hF & ((vcount>(com_y1 + 20))|(vcount<com_y1)|(hcount<(com_x1-10))|(hcount>(com_x1+10)))
-                & ((vcount>(com_y2+20))|(vcount<com_y2)|(hcount<(com_x2-10))|(hcount>(com_x2+10)))) begin  //white pixel and far enough away from previous com
+            if (camera_dout[7:4] == 4'hF & ((vcount>(com_y1 + 16))|(vcount<com_y1)|(hcount<(com_x1-8))|(hcount>(com_x1+8)))
+                & ((vcount>(com_y2+16))|(vcount<com_y2)|(hcount<(com_x2-8))|(hcount>(com_x2+8)))) begin  //white pixel and far enough away from previous com
                 if (com_x1 == 0) begin
                     com_x1 <= hcount;
                     com_y1 <= vcount;
@@ -63,8 +63,8 @@ module com_finder(
             end
 
         end else if (~first_byte) begin
-            if (camera_dout[3:0] == 4'hF & ((vcount>(com_y1 + 20))|(vcount<com_y1)|(hcount<(com_x1-10))|(hcount>(com_x1+10)))
-            & ((vcount>(com_y2+20))|(vcount<com_y2)|(hcount<(com_x2-10))|(hcount>(com_x2+10)))) begin  //white pixel and far enough away from previous com
+            if (camera_dout[3:0] == 4'hF & ((vcount>(com_y1 + 16))|(vcount<com_y1)|(hcount<(com_x1-8))|(hcount>(com_x1+8)))
+                & ((vcount>(com_y2+16))|(vcount<com_y2)|(hcount<(com_x2-8))|(hcount>(com_x2+8)))) begin  //white pixel and far enough away from previous com
                 if (com_x1 == 0) begin
                     com_x1 <= hcount;
                     com_y1 <= vcount;

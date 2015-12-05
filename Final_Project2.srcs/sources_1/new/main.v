@@ -52,7 +52,7 @@ module main(
     display_8hex display(.clk(clock_25mhz), .data(data), .seg(segments), .strobe(AN));    
     assign SEG[6:0] = segments;
     assign SEG[7] = 1'b1;
-    assign data = {26'b0 ,2'b0,next_region, 2'b0,car_region};
+    assign data = {24'b0 ,2'b0,next_region, 2'b0,car_region};
 
     wire SIOD;
     wire SIOC;
@@ -106,7 +106,7 @@ module main(
     
     camera_read camera1(.clock_25mhz(clock_25mhz), .start(BTNC), .camera_data(camera_data),
                         .PCLK(PCLK), .VSYNC(VSYNC), .HREF(HREF), .bram_addr(camera_addra),
-                        .bram_din(camera_din), .bram_we(camera_we), .threshold_on(SW[5]),
+                        .bram_din(camera_din), .bram_we(camera_we), .threshold_on(1'b1),
                         .threshold(BW_THRESHOLD), .SIOC(SIOC), .SIOD(SIOD));
     
     wire [9:0] hcount;
@@ -154,8 +154,8 @@ module main(
                             .left_in(left_ctrl), // button that controls left turns
                             .right_in(right_ctrl), // button that controls right turns
                             .toggle_autonomous(toggle_autonomous), // enables autonomous driving
-                            .car_region(car_region), //
-                            .next_region(next_region), //
+                            .car_region(next_region), //
+                            .next_region(car_region), //
                             .foward_out(JD[0]), // output that controls foward motion
                             .backward_out(JD[1]), // output that controls backward motion
                             .left_out(JD[2]), // output that controls left turns
@@ -189,7 +189,6 @@ module main(
     wire [17:0] region_read_addr;
     wire [7:0]  region_din, region_dout;
     wire region_we;
-    wire [7:0] region_dout;
     
     blk_mem_gen_0 region_bram(
         // Port A - Write
@@ -241,6 +240,8 @@ module main(
          .done(rec_track_done) 
           );
     
+    reg drive = 0;
+    
     always @(posedge clock_25mhz) begin
         // Display VGA module if software switch is turned on
         if (SW[0]) begin 
@@ -263,7 +264,8 @@ module main(
                 disp_b <= camera_dout[3:0];
             end
             
-        end else if (SW[3]) begin
+        end else if ((SW[3]&drive) | BTND) begin
+            drive <= 1;
             first_byte <= ~first_byte;
             if(at_display_area) camera_addrb <= ((vcount-35)*640 + hcount-142)>>1;
             else camera_addrb <= 0;
@@ -286,7 +288,8 @@ module main(
                 disp_g <= track_data[7:4];
                 disp_b <= track_data[7:4];
             end
-        end else if (SW[4]) begin
+        end else if ((~SW[3]&~drive) | BTNU) begin
+            drive <= 0;
             if (rec_track_done) begin
                 first_byte <= ~first_byte;
                 track_read_addr_disp <= ((vcount-35)*640 + hcount-142)>>1;

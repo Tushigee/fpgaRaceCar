@@ -37,6 +37,7 @@ module location_heading_calculator(
     reg [10:0] sum_y;
     reg [9:0] last_x, last_y;
     reg last_vsync_disp;
+    reg moving_right, moving_down;
     
     always @(posedge clock) begin
         last_vsync_disp <= vsync_disp;
@@ -50,31 +51,35 @@ module location_heading_calculator(
             sum_y <= last_com_y1 + last_com_y2;
             current_y <= sum_y >> 1;
             
-            if (last_x < current_x - 1) begin   //moving right
+            if ((last_x < current_x - 1)|(moving_right&~(last_x > current_x))) begin   //moving right
+                moving_right <= 1;
                 if (last_com_x1 > last_com_x2)  //com1 leading
-                    next_x <= current_x+last_com_x1+last_com_x1-last_com_x2-last_com_x2;
+                    next_x <= current_x+last_com_x1+last_com_x1+last_com_x1+last_com_x1+last_com_x1+last_com_x1-last_com_x2-last_com_x2-last_com_x2-last_com_x2-last_com_x2-last_com_x2;
                 else    //com2 leading
-                    next_x <= current_x+last_com_x2+last_com_x2-last_com_x1-last_com_x1;
-            end else if (last_x > current_x + 1) begin  //moving left
+                    next_x <= current_x+last_com_x2+last_com_x2+last_com_x2+last_com_x2+last_com_x2+last_com_x2-last_com_x1-last_com_x1-last_com_x1-last_com_x1-last_com_x1-last_com_x1;
+            end else if ((last_x > current_x + 1)|(~moving_right&~(last_x < current_x))) begin  //moving left
+                moving_right <= 0;
                 if (last_com_x1 > last_com_x2)  //com2 leading
-                    next_x <= current_x+last_com_x2+last_com_x2-last_com_x1-last_com_x1;
+                    next_x <= current_x+last_com_x2+last_com_x2+last_com_x2+last_com_x2+last_com_x2+last_com_x2-last_com_x1-last_com_x1-last_com_x1-last_com_x1-last_com_x1-last_com_x1;
                 else    //com1 leading
-                    next_x <= current_x+last_com_x1+last_com_x1-last_com_x2-last_com_x2;
+                    next_x <= current_x+last_com_x1+last_com_x1+last_com_x1+last_com_x1+last_com_x1+last_com_x1-last_com_x2-last_com_x2-last_com_x2-last_com_x2-last_com_x2-last_com_x2;
             end else
-                next_x <= current_x;
+                next_x <= next_x;
             
-            if (last_y < current_y - 1) begin   //moving down
+            if ((last_y < current_y - 1)|(moving_down&~(last_y > current_y))) begin   //moving down
+                moving_down <= 1;
                 if (last_com_y1 > last_com_y2)  //com1 leading
-                    next_y <= current_y+last_com_y1+last_com_y1-last_com_y2-last_com_y2;
+                    next_y <= current_y+last_com_y1+last_com_y1+last_com_y1+last_com_y1+last_com_y1+last_com_y1-last_com_y2-last_com_y2-last_com_y2-last_com_y2-last_com_y2-last_com_y2;
                 else    //com2 leading
-                    next_y <= current_y+last_com_y2+last_com_y2-last_com_y1-last_com_y1;
-            end else if (last_y > current_y + 1) begin  //moving up
+                    next_y <= current_y+last_com_y2+last_com_y2+last_com_y2+last_com_y2+last_com_y2+last_com_y2-last_com_y1-last_com_y1-last_com_y1-last_com_y1-last_com_y1-last_com_y1;
+            end else if ((last_y > current_y + 1)|(~moving_down&~(last_y < current_y))) begin  //moving up
+                moving_down <= 0;
                 if (last_com_y1 > last_com_y2)  //com2 leading
-                    next_y <= current_y+last_com_y2+last_com_y2-last_com_y1-last_com_y1;
+                    next_y <= current_y+last_com_y2+last_com_y2+last_com_y2+last_com_y2+last_com_y2+last_com_y2-last_com_y1-last_com_y1-last_com_y1-last_com_y1-last_com_y1-last_com_y1;
                 else    //com1 leading
-                    next_y <= current_y+last_com_y1+last_com_y1-last_com_y2-last_com_y2;
+                    next_y <= current_y+last_com_y1+last_com_y1+last_com_y1+last_com_y1+last_com_y1+last_com_y1-last_com_y2-last_com_y2-last_com_y2-last_com_y2-last_com_y2-last_com_y2;
             end else
-                next_y <= current_y;
+                next_y <= next_y;
         end
     end
     
