@@ -44,7 +44,7 @@ module com_finder(
             last_com_x1 <= com_x1-144;
             last_com_y1 <= com_y1-35;
             com_x1 <= 0;
-            com_y1 <= 0;
+            com_y1 <=0;
             
             last_com_x2 <= com_x2-144;
             last_com_y2 <= com_y2-35;

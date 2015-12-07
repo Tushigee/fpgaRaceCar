@@ -1,7 +1,7 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2014.4.1 (lin64) Build 1149489 Thu Feb 19 16:01:47 MST 2015
-| Date             : Sat Dec  5 18:49:05 2015
+| Date             : Sun Dec  6 20:35:46 2015
 | Host             : eecs-digital-35 running 64-bit Ubuntu 12.04.5 LTS
 | Command          : report_power -file main_power_routed.rpt -pb main_power_summary_routed.pb
 | Design           : main
@@ -30,7 +30,7 @@ Table of Contents
 ----------
 
 +--------------------------+-------+
-| Total On-Chip Power (W)  | 0.155 |
+| Total On-Chip Power (W)  | 0.156 |
 | Dynamic (W)              | 0.048 |
 | Device Static (W)        | 0.107 |
 | Effective TJA (C/W)      | 4.6   |
@@ -50,19 +50,19 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |    <0.001 |        3 |       --- |             --- |
-| Slice Logic    |     0.004 |     3583 |       --- |             --- |
-|   LUT as Logic |     0.004 |     1797 |     63400 |            2.83 |
-|   CARRY4       |    <0.001 |      182 |     15850 |            1.14 |
-|   Register     |    <0.001 |      716 |    126800 |            0.56 |
+| Slice Logic    |     0.004 |     3364 |       --- |             --- |
+|   LUT as Logic |     0.004 |     1669 |     63400 |            2.63 |
+|   CARRY4       |    <0.001 |      141 |     15850 |            0.88 |
+|   Register     |    <0.001 |      734 |    126800 |            0.57 |
 |   F7/F8 Muxes  |    <0.001 |      140 |     63400 |            0.22 |
 |   BUFG         |    <0.001 |        3 |        32 |            9.37 |
 |   Others       |     0.000 |      383 |       --- |             --- |
-| Signals        |     0.007 |     3113 |       --- |             --- |
+| Signals        |     0.008 |     2956 |       --- |             --- |
 | Block RAM      |     0.001 |      113 |       135 |           83.70 |
 | DSPs           |     0.002 |        7 |       240 |            2.91 |
-| I/O            |     0.033 |       96 |       210 |           45.71 |
+| I/O            |     0.033 |       97 |       210 |           46.19 |
 | Static Power   |     0.107 |          |           |                 |
-| Total          |     0.155 |          |           |                 |
+| Total          |     0.156 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -72,7 +72,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.031 |       0.015 |      0.017 |
+| Vccint    |       1.000 |     0.032 |       0.015 |      0.017 |
 | Vccaux    |       1.800 |     0.019 |       0.001 |      0.018 |
 | Vcco33    |       3.300 |     0.013 |       0.009 |      0.004 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -322,7 +322,7 @@ Table of Contents
 |       inst_blk_mem_gen                |     0.002 |
 |         gnativebmg.native_blk_mem_gen |     0.002 |
 |           valid.cstr                  |     0.002 |
-|             has_mux_b.B               |     0.002 |
+|             has_mux_b.B               |     0.001 |
 |             ramloop[0].ram.r          |    <0.001 |
 |               prim_noinit.ram         |    <0.001 |
 |             ramloop[10].ram.r         |    <0.001 |
@@ -401,7 +401,7 @@ Table of Contents
 |               prim_noinit.ram         |    <0.001 |
 |   track_recognition                   |     0.003 |
 |     camera_track_recog                |    <0.001 |
-|     track_filter                      |     0.001 |
+|     track_filter                      |     0.002 |
 |     track_reg                         |    <0.001 |
 |     track_tagger0                     |    <0.001 |
 |   vga1                                |    <0.001 |

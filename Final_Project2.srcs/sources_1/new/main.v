@@ -120,6 +120,7 @@ module main(
     
     wire [9:0] last_com_x1, last_com_x2;
     wire [9:0] last_com_y1, last_com_y2;
+    wire [9:0] leading_x, leading_y;
 
     com_finder dot_tracker(.clock(clock_25mhz), .first_byte(first_byte), .hcount(hcount), .vcount(vcount),
                             .vsync_disp(vsync_disp), .camera_dout(camera_dout), .last_com_x1(last_com_x1),
@@ -130,8 +131,8 @@ module main(
     
     location_heading_calculator location_heading(.clock(clock_25mhz), .vsync_disp(vsync_disp),
             .last_com_x1(last_com_x1), .last_com_y1(last_com_y1), .last_com_x2(last_com_x2),
-            .last_com_y2(last_com_y2), .current_x(current_x), .current_y(current_y),
-            .next_x(next_x), .next_y(next_y));
+            .last_com_y2(last_com_y2), .button(BTNR), .current_x(current_x), .current_y(current_y),
+            .next_x(next_x), .next_y(next_y), .leading_x(leading_x), .leading_y(leading_y));
             
     //CAR CONTROLLER STUFF//
     wire foward_ctrl = 0;
@@ -154,8 +155,8 @@ module main(
                             .left_in(left_ctrl), // button that controls left turns
                             .right_in(right_ctrl), // button that controls right turns
                             .toggle_autonomous(toggle_autonomous), // enables autonomous driving
-                            .car_region(next_region), //
-                            .next_region(car_region), //
+                            .car_region(car_region), //
+                            .next_region(next_region), //
                             .foward_out(JD[0]), // output that controls foward motion
                             .backward_out(JD[1]), // output that controls backward motion
                             .left_out(JD[2]), // output that controls left turns
@@ -202,8 +203,8 @@ module main(
     
     region_manager region_manager(.clk(clock_25mhz), .current_x(current_x), .current_y(current_y), .next_x(next_x),
                                     .next_y(next_y), .region_data(region_dout), .new_region_request(new_region_request),
-                                    .reset(reset), .region_addr(region_read_addr), .out_car_region(car_region),
-                                    .out_next_region(next_region));
+                                    .reset(reset), .region_addr(region_read_addr), .out_car_region(next_region),
+                                    .out_next_region(car_region));
                                     
 //assign region_read_addr = track_read_addr_disp; // WARNING: REMOVE
 
@@ -282,7 +283,11 @@ module main(
             end else if ((hcount == next_x+144)|(vcount == next_y + 35)) begin
                 disp_r <= 0;
                 disp_g <= 0;
-                disp_b <= 4'hF;     
+                disp_b <= 4'hF;
+            end else if ((hcount == leading_x+144) & (vcount == leading_y + 35)) begin
+                disp_r <= 4'hF;
+                disp_g <= 0;
+                disp_b <= 0;
             end else begin
                 disp_r <= track_data[7:4];
                 disp_g <= track_data[7:4];
