@@ -40,16 +40,17 @@ module location_heading_calculator(
     reg [10:0] sum_y;
     reg [9:0] last_x, last_y;
     reg [9:0] leading_x, leading_y, trailing_x, trailing_y = 0;
+    reg [10:0] last_predicted_x, last_predicted_y;
 
     reg last_vsync_disp;
     
     reg state = 0;
     
     wire [9:0] x_diff1, y_diff1, x_diff2, y_diff2;
-    assign x_diff1 = (leading_x > last_com_x1)?(leading_x-last_com_x1):(last_com_x1-leading_x);
-    assign y_diff1 = (leading_y > last_com_y1)?(leading_y-last_com_y1):(last_com_y1-leading_y);
-    assign x_diff2 = (leading_x > last_com_x2)?(leading_x-last_com_x2):(last_com_x2-leading_x);
-    assign y_diff2 = (leading_y > last_com_y2)?(leading_y-last_com_y2):(last_com_y2-leading_y);
+    assign x_diff1 = (last_predicted_x > last_com_x1)?(last_predicted_x-last_com_x1):(last_com_x1-last_predicted_x);
+    assign y_diff1 = (last_predicted_y > last_com_y1)?(last_predicted_y-last_com_y1):(last_com_y1-last_predicted_y);
+    assign x_diff2 = (last_predicted_x > last_com_x2)?(last_predicted_x-last_com_x2):(last_com_x2-last_predicted_x);
+    assign y_diff2 = (last_predicted_y > last_com_y2)?(last_predicted_y-last_com_y2):(last_com_y2-last_predicted_y);
     
     always @(posedge clock) begin
         last_vsync_disp <= vsync_disp;
@@ -59,6 +60,9 @@ module location_heading_calculator(
             
             sum_y <= last_com_y1 + last_com_y2;
             current_y <= sum_y >> 1;
+            
+            last_predicted_x <= (next_x[10] == 1)? 0:next_x;
+            last_predicted_y <= (next_y[10] == 1)? 0:next_y;
             
             if (button) begin
                 if (last_com_x1 < last_com_x2) begin    //leading point is the leftmost
@@ -72,12 +76,12 @@ module location_heading_calculator(
                     trailing_x <= last_com_x1;
                     trailing_y <= last_com_y1;
                 end
-//            end else if (last_com_x2 == 0 & last_com_y2 == 0) begin //lost sight of at least one LED
-//                leading_x <= leading_x;
-//                leading_y <= leading_y;
-//                trailing_x <= trailing_x;
-//                trailing_y <= trailing_y;
-//                current_x <= 700;   //return an invalid location so that we turn right
+            end else if ((last_com_x2 > 639) & (last_com_y2 > 479) == 0) begin //lost sight of at least one LED
+                leading_x <= leading_x;
+                leading_y <= leading_y;
+                trailing_x <= trailing_x;
+                trailing_y <= trailing_y;
+                current_x <= 700;   //return an invalid location so that we turn right
             end else begin
                 next_x <= current_x + leading_x+leading_x+leading_x+leading_x+leading_x+leading_x-trailing_x-trailing_x-trailing_x-trailing_x-trailing_x-trailing_x;
                 next_y <= current_y + leading_y+leading_y+leading_y+leading_y+leading_y+leading_y-trailing_y-trailing_y-trailing_y-trailing_y-trailing_y-trailing_y;

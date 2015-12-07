@@ -1,7 +1,7 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2014.4.1 (lin64) Build 1149489 Thu Feb 19 16:01:47 MST 2015
-| Date         : Sun Dec  6 20:35:22 2015
+| Date         : Sun Dec  6 22:17:55 2015
 | Host         : eecs-digital-35 running 64-bit Ubuntu 12.04.5 LTS
 | Command      : report_control_sets -verbose -file main_control_sets_placed.rpt
 | Design       : main
@@ -22,8 +22,8 @@ Table of Contents
 +-------------------------------------------------------------------+-------+
 |                               Status                              | Count |
 +-------------------------------------------------------------------+-------+
-| Number of unique control sets                                     |    41 |
-| Minimum Number of register sites lost to control set restrictions |   162 |
+| Number of unique control sets                                     |    45 |
+| Minimum Number of register sites lost to control set restrictions |   172 |
 +-------------------------------------------------------------------+-------+
 
 
@@ -33,12 +33,12 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |             122 |           58 |
+| No           | No                    | No                     |             125 |           56 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |              33 |           19 |
-| Yes          | No                    | No                     |             327 |          106 |
+| No           | Yes                   | No                     |              30 |           20 |
+| Yes          | No                    | No                     |             317 |           99 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |             252 |           77 |
+| Yes          | Yes                   | No                     |             284 |           87 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -49,46 +49,50 @@ Table of Contents
 |     Clock Signal     |                          Enable Signal                         |                   Set/Reset Signal                  | Slice Load Count | Bel Load Count |
 +----------------------+----------------------------------------------------------------+-----------------------------------------------------+------------------+----------------+
 |  CLK100MHZ_IBUF_BUFG |                                                                |                                                     |                1 |              2 |
-|  JC_IBUF_BUFG[4]     |                                                                | display/p_0_in[1]                                   |                2 |              4 |
 |  JC_IBUF_BUFG[4]     | camera1/OV7670_config/SCCB1/n_2_byte_index[3]_i_1              |                                                     |                1 |              4 |
 |  JC_IBUF_BUFG[4]     | camera1/OV7670_config/SCCB1/n_2_FSM_state[3]_i_1               |                                                     |                2 |              4 |
-|  JC_IBUF_BUFG[4]     | camera1/OV7670_config/SCCB1/n_2_FSM_return_state[3]_i_1        |                                                     |                3 |              4 |
+|  JC_IBUF_BUFG[4]     |                                                                | display/p_0_in[1]                                   |                3 |              4 |
+|  JC_IBUF_BUFG[4]     | camera1/OV7670_config/SCCB1/n_2_FSM_return_state[3]_i_1        |                                                     |                2 |              4 |
 |  JC_IBUF_BUFG[4]     |                                                                | track_recognition/camera_track_recog/SS[0]          |                3 |              5 |
-|  JC_IBUF_BUFG[4]     |                                                                | track_recognition/track_reg/O1                      |                4 |              6 |
+|  JC_IBUF_BUFG[4]     |                                                                | track_recognition/track_reg/O1                      |                5 |              6 |
 |  JC_IBUF_BUFG[4]     |                                                                | track_recognition/track_filter/SR[0]                |                4 |              7 |
 |  JC_IBUF_BUFG[4]     | camera1/OV7670_config/rom1/O4                                  | camera1/OV7670_config/config_1/n_2_timer[17]_i_1    |                2 |              7 |
-|  JC_IBUF_BUFG[4]     | camera1/OV7670_config/SCCB1/n_2_tx_byte[7]_i_1                 |                                                     |                3 |              8 |
+|  JC_IBUF_BUFG[4]     |                                                                | car_controller/reset                                |                5 |              8 |
+|  JC_IBUF_BUFG[4]     | camera1/OV7670_config/SCCB1/n_2_tx_byte[7]_i_1                 |                                                     |                2 |              8 |
+|  JC_IBUF_BUFG[4]     | camera1/OV7670_config/SCCB1/n_2_timer[8]_i_1                   |                                                     |                3 |              9 |
 |  JC_IBUF_BUFG[4]     | track_recognition/track_tagger0/n_2_x[9]_i_1__0                | track_recognition/track_reg/O1                      |                3 |              9 |
-|  JC_IBUF_BUFG[4]     | camera1/OV7670_config/SCCB1/n_2_timer[8]_i_1                   |                                                     |                4 |              9 |
-|  JC_IBUF_BUFG[4]     | vga1/n_2_vcount[9]_i_1                                         |                                                     |                5 |             10 |
-|  JC_IBUF_BUFG[4]     | track_recognition/track_filter/n_2_x[10]_i_1                   | track_recognition/camera_track_recog/SS[0]          |                2 |             10 |
+|  JC_IBUF_BUFG[4]     | track_recognition/track_filter/n_2_x[10]_i_1                   | track_recognition/camera_track_recog/SS[0]          |                3 |             10 |
 |  JC_IBUF_BUFG[4]     | track_recognition/track_reg/n_2_x[10]_i_1__0                   | track_recognition/track_filter/SR[0]                |                6 |             10 |
-|  JC_IBUF_BUFG[4]     | track_recognition/track_reg/n_2_y[10]_i_1__0                   | track_recognition/track_filter/SR[0]                |                3 |             11 |
-|  JC_IBUF_BUFG[4]     |                                                                | car_controller/reset                                |                6 |             11 |
-|  JC_IBUF_BUFG[4]     | track_recognition/track_tagger0/n_2_y[10]_i_1__1               | track_recognition/track_reg/O1                      |                3 |             11 |
+|  JC_IBUF_BUFG[4]     | vga1/n_2_vcount[9]_i_1                                         |                                                     |                4 |             10 |
+|  JC_IBUF_BUFG[4]     | vga1/O21                                                       | dot_tracker/SR[0]                                   |                4 |             10 |
+|  JC_IBUF_BUFG[4]     | track_recognition/track_tagger0/n_2_y[10]_i_1__1               | track_recognition/track_reg/O1                      |                2 |             11 |
+|  JC_IBUF_BUFG[4]     | track_recognition/track_reg/n_2_y[10]_i_1__0                   | track_recognition/track_filter/SR[0]                |                4 |             11 |
+|  JC_IBUF_BUFG[4]     | vga1/O21                                                       | location_heading/n_2_last_predicted_y[10]_i_1       |                3 |             11 |
+|  JC_IBUF_BUFG[4]     | vga1/O21                                                       | location_heading/n_2_last_predicted_x[10]_i_1       |                5 |             11 |
 |  JC_IBUF_BUFG[4]     | track_recognition/track_filter/n_2_y[10]_i_1                   | track_recognition/camera_track_recog/SS[0]          |                3 |             11 |
-|  JC_IBUF_BUFG[4]     | n_2_disp_r[3]_i_1                                              |                                                     |                4 |             12 |
-|  JC_IBUF_BUFG[4]     | car_controller/n_2_pulse_length[22]_i_1                        |                                                     |                4 |             14 |
-|  JC_IBUF_BUFG[4]     | camera1/OV7670_config/config_1/n_2_SCCB_interface_data[7]_i_1  |                                                     |                3 |             16 |
+|  JC_IBUF_BUFG[4]     | n_2_disp_r[3]_i_1                                              |                                                     |                6 |             12 |
+|  JC_IBUF_BUFG[4]     | car_controller/n_2_pulse_length[23]_i_1                        |                                                     |                5 |             14 |
 |  JC_IBUF_BUFG[4]     | camera1/OV7670_config/SCCB1/n_2_latched_data[7]_i_1            |                                                     |                3 |             16 |
+|  JC_IBUF_BUFG[4]     | camera1/OV7670_config/config_1/n_2_SCCB_interface_data[7]_i_1  |                                                     |                4 |             16 |
 |  JC_IBUF_BUFG[4]     | camera1/OV7670_config/rom1/E[0]                                |                                                     |                4 |             16 |
-|  n_0_1592_BUFG       | camera1/n_2_bram_addr[17]_i_2                                  | camera1/n_2_bram_addr[17]_i_1__0                    |                5 |             17 |
-|  JC_IBUF_BUFG[4]     | n_2_camera_addrb[17]_i_2                                       | vga1/O25                                            |                5 |             18 |
-|  JC_IBUF_BUFG[4]     | track_recognition/track_tagger0/n_2_bram_write_addr[17]_i_1__1 |                                                     |                8 |             18 |
-|  JC_IBUF_BUFG[4]     | track_recognition/track_filter/n_2_bram_write_addr[17]_i_1     |                                                     |                5 |             18 |
-|  n_0_1592_BUFG       | track_recognition/camera_track_recog/n_2_bram_addr[17]_i_1     | BTNU_IBUF                                           |                3 |             18 |
-|  JC_IBUF_BUFG[4]     | track_recognition/track_reg/n_2_bram_write_addr[17]_i_1__0     |                                                     |                8 |             18 |
-|  JC_IBUF_BUFG[4]     | region_manager/n_2_region_addr[17]_i_2                         | region_manager/n_2_region_addr[17]_i_1              |                5 |             18 |
+|  n_0_1608_BUFG       | camera1/n_2_bram_addr[17]_i_2                                  | camera1/n_2_bram_addr[17]_i_1__0                    |                5 |             17 |
+|  JC_IBUF_BUFG[4]     | track_recognition/track_reg/n_2_bram_write_addr[17]_i_1__0     |                                                     |                9 |             18 |
+|  JC_IBUF_BUFG[4]     | n_2_camera_addrb[17]_i_2                                       | vga1/O22                                            |                4 |             18 |
 |  JC_IBUF_BUFG[4]     | track_recognition/track_tagger0/E[0]                           |                                                     |                6 |             18 |
-|  n_0_1592_BUFG       |                                                                |                                                     |                8 |             19 |
-|  JC_IBUF_BUFG[4]     | vga1/I37[0]                                                    | vga1/E[0]                                           |               10 |             20 |
-|  JC_IBUF_BUFG[4]     | dot_tracker/n_2_com_x2[9]_i_1                                  | vga1/E[0]                                           |                7 |             20 |
-|  JC_IBUF_BUFG[4]     | vga1/I32[0]                                                    |                                                     |                6 |             22 |
-|  JC_IBUF_BUFG[4]     | camera1/OV7670_config/SCCB1/n_2_timer[8]_i_1                   | camera1/OV7670_config/SCCB1/n_2_timer[31]_i_1       |                5 |             23 |
+|  n_0_1608_BUFG       | track_recognition/camera_track_recog/n_2_bram_addr[17]_i_1     | BTNU_IBUF                                           |                3 |             18 |
+|  JC_IBUF_BUFG[4]     | region_manager/n_2_region_addr[17]_i_2                         | region_manager/n_2_region_addr[17]_i_1              |                5 |             18 |
+|  JC_IBUF_BUFG[4]     | track_recognition/track_tagger0/n_2_bram_write_addr[17]_i_1__1 |                                                     |                6 |             18 |
+|  JC_IBUF_BUFG[4]     | track_recognition/track_filter/n_2_bram_write_addr[17]_i_1     |                                                     |                4 |             18 |
+|  n_0_1608_BUFG       |                                                                |                                                     |                8 |             19 |
+|  JC_IBUF_BUFG[4]     | dot_tracker/n_2_com_x2[9]_i_1                                  | vga1/O21                                            |                8 |             20 |
+|  JC_IBUF_BUFG[4]     | vga1/I38[0]                                                    | vga1/O21                                            |                8 |             20 |
+|  JC_IBUF_BUFG[4]     | dot_tracker/E[0]                                               |                                                     |                6 |             22 |
+|  JC_IBUF_BUFG[4]     | camera1/OV7670_config/SCCB1/n_2_timer[8]_i_1                   | camera1/OV7670_config/SCCB1/n_2_timer[31]_i_1       |                4 |             23 |
 |  JC_IBUF_BUFG[4]     | camera1/OV7670_config/rom1/O4                                  | camera1/OV7670_config/config_1/n_2_timer[31]_i_1__0 |                8 |             24 |
 |  JC_IBUF_BUFG[4]     | car_controller/n_2_pulse_count[24]_i_2                         | car_controller/n_2_pulse_count[24]_i_1              |                7 |             25 |
-|  JC_IBUF_BUFG[4]     |                                                                |                                                     |               49 |            101 |
-|  JC_IBUF_BUFG[4]     | vga1/E[0]                                                      |                                                     |               37 |            120 |
+|  JC_IBUF_BUFG[4]     | vga1/E[0]                                                      |                                                     |               10 |             40 |
+|  JC_IBUF_BUFG[4]     | vga1/O21                                                       |                                                     |               22 |             70 |
+|  JC_IBUF_BUFG[4]     |                                                                |                                                     |               47 |            104 |
 +----------------------+----------------------------------------------------------------+-----------------------------------------------------+------------------+----------------+
 
 

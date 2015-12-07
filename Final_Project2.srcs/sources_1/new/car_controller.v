@@ -84,7 +84,7 @@ module car_controller (input wire clk,
     parameter RIGHT_PULSE = 24'd2150000; //d1400000, 810000
     parameter PRE_LEFT_PULSE = 24'd2000000; //d2000000, 810000
     parameter PRE_RIGHT_PULSE = 24'd2150000; //d2150000, 810000
-    parameter FWD_DELAY = 24'd8000000; //d2150000, 810000
+    parameter FWD_DELAY = 24'd10000000; //d2150000, 810000
 	
 	reg [24:0] pulse_length;
 	reg [24:0] pulse_count;
@@ -122,7 +122,7 @@ module car_controller (input wire clk,
                                         begin
                                             case(next_region)
                                                 OUTER_TRACK: state <= AUTO_R;
-                                                TRACK: state <= AUTO_L;
+                                                TRACK: state <= AUTO_F;
                                                 INNER_TRACK: state <= AUTO_L;
                                                 default: state <= NEXT_REGION;
                                             endcase
@@ -140,7 +140,7 @@ module car_controller (input wire clk,
                                         begin 
                                             case(next_region)
                                                 OUTER_TRACK: state <= AUTO_R;
-                                                TRACK: state <= AUTO_R;
+                                                TRACK: state <= AUTO_F;
                                                 INNER_TRACK: state <= AUTO_L;
                                                 default: state <= NEXT_REGION;
                                             endcase

@@ -47,7 +47,8 @@ module region_manager(input wire clk,
             case(state)
                 0: begin
                     if(current_x > 639 || current_y > 479) begin
-                        tmp_current <= 0;
+                        // tmp_current <= 0;
+                        tmp_next <= 0;
                         valid_coordinate <= 0;
                         state <= 2;
                     end else begin
@@ -66,7 +67,8 @@ module region_manager(input wire clk,
                     end
                     
                     if(next_x > 639 || next_x[10] == 1 || next_y > 479 || next_y[10] == 1) begin
-                        tmp_next <= 0;
+                        // tmp_next <= 0;
+                        tmp_current <= 0;
                         state <= 0;
                     end else begin
                         region_addr <= (next_x + next_y*640) >> 1;

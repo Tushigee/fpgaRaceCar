@@ -1,7 +1,7 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version      : Vivado v.2014.4.1 (lin64) Build 1149489 Thu Feb 19 16:01:47 MST 2015
-| Date              : Sun Dec  6 20:35:45 2015
+| Date              : Sun Dec  6 22:18:18 2015
 | Host              : eecs-digital-35 running 64-bit Ubuntu 12.04.5 LTS
 | Command           : report_timing_summary -warn_on_violation -max_paths 10 -file main_timing_summary_routed.rpt -rpx main_timing_summary_routed.rpx
 | Design            : main
@@ -54,7 +54,7 @@ Table of Contents
 --------------------
  There are 54 register/latch pins with no clock driven by root clock pin: JB[7] (HIGH)
 
- There are 793 register/latch pins with no clock driven by root clock pin: clockgen/clock_25mhz_reg/C (HIGH)
+ There are 815 register/latch pins with no clock driven by root clock pin: clockgen/clock_25mhz_reg/C (HIGH)
 
  There are 114 register/latch pins with no clock (HIGH)
 
@@ -71,7 +71,7 @@ Table of Contents
 
 4. checking unconstrained_internal_endpoints
 --------------------------------------------
- There are 5513 pins that are not constrained for maximum delay. (HIGH)
+ There are 5548 pins that are not constrained for maximum delay. (HIGH)
 
  There are 0 pins that are not constrained for maximum delay due to constant clock.
 
@@ -135,7 +135,7 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-      8.860        0.000                      0                    2        0.278        0.000                      0                    2        4.500        0.000                       0                     3  
+      8.860        0.000                      0                    2        0.276        0.000                      0                    2        4.500        0.000                       0                     3  
 
 
 All user specified timing constraints are met.
@@ -158,7 +158,7 @@ sys_clk_pin  {0.000 5.000}      10.000          100.000
 
 Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
 -----             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-sys_clk_pin         8.860        0.000                      0                    2        0.278        0.000                      0                    2        4.500        0.000                       0                     3  
+sys_clk_pin         8.860        0.000                      0                    2        0.276        0.000                      0                    2        4.500        0.000                       0                     3  
 
 
 ------------------------------------------------------------------------------------------------
@@ -190,7 +190,7 @@ From Clock:  sys_clk_pin
   To Clock:  sys_clk_pin
 
 Setup :            0  Failing Endpoints,  Worst Slack        8.860ns,  Total Violation        0.000ns
-Hold  :            0  Failing Endpoints,  Worst Slack        0.278ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.276ns,  Total Violation        0.000ns
 PW    :            0  Failing Endpoints,  Worst Slack        4.500ns,  Total Violation        0.000ns
 ---------------------------------------------------------------------------------------------------
 
@@ -317,7 +317,7 @@ Slack (MET) :             8.894ns  (required time - arrival time)
 
 Min Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             0.278ns  (arrival time - required time)
+Slack (MET) :             0.276ns  (arrival time - required time)
   Source:                 clockgen/clock_25mhz_reg/C
                             (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            clockgen/clock_25mhz_reg/D
@@ -325,7 +325,7 @@ Slack (MET) :             0.278ns  (arrival time - required time)
   Path Group:             sys_clk_pin
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        0.369ns  (logic 0.186ns (50.452%)  route 0.183ns (49.548%))
+  Data Path Delay:        0.367ns  (logic 0.186ns (50.630%)  route 0.181ns (49.370%))
   Logic Levels:           1  (LUT2=1)
   Clock Path Skew:        0.000ns (DCD - SCD - CPR)
     Destination Clock Delay (DCD):    1.903ns
@@ -345,9 +345,9 @@ Slack (MET) :             0.278ns  (arrival time - required time)
     SLICE_X52Y96                                                      r  clockgen/clock_25mhz_reg/C
   -------------------------------------------------------------------    -------------------
     SLICE_X52Y96         FDRE (Prop_fdre_C_Q)         0.141     1.538 r  clockgen/clock_25mhz_reg/Q
-                         net (fo=3, routed)           0.183     1.721    clockgen/JC_IBUF[4]
-    SLICE_X52Y96         LUT2 (Prop_lut2_I1_O)        0.045     1.766 r  clockgen/clock_25mhz_i_1/O
-                         net (fo=1, routed)           0.000     1.766    clockgen/n_2_clock_25mhz_i_1
+                         net (fo=3, routed)           0.181     1.720    clockgen/JC_IBUF[4]
+    SLICE_X52Y96         LUT2 (Prop_lut2_I1_O)        0.045     1.765 r  clockgen/clock_25mhz_i_1/O
+                         net (fo=1, routed)           0.000     1.765    clockgen/n_2_clock_25mhz_i_1
     SLICE_X52Y96         FDRE                                         r  clockgen/clock_25mhz_reg/D
   -------------------------------------------------------------------    -------------------
 
@@ -364,9 +364,9 @@ Slack (MET) :             0.278ns  (arrival time - required time)
     SLICE_X52Y96         FDRE (Hold_fdre_C_D)         0.091     1.488    clockgen/clock_25mhz_reg
   -------------------------------------------------------------------
                          required time                         -1.488    
-                         arrival time                           1.766    
+                         arrival time                           1.765    
   -------------------------------------------------------------------
-                         slack                                  0.278    
+                         slack                                  0.276    
 
 Slack (MET) :             0.395ns  (arrival time - required time)
   Source:                 clockgen/counter_reg/C
