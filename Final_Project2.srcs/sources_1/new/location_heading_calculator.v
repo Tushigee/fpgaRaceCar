@@ -33,7 +33,8 @@ module location_heading_calculator(
     output reg [10:0] next_x,
     output reg [10:0] next_y,
     output reg [9:0] leading_x,
-    output reg [9:0] leading_y
+    output reg [9:0] leading_y,
+    output reg lost_led
     );
     
     reg [10:0] sum_x;
@@ -55,6 +56,7 @@ module location_heading_calculator(
     always @(posedge clock) begin
         last_vsync_disp <= vsync_disp;
         if(vsync_disp == 0 & last_vsync_disp == 1) begin
+            lost_led <= 0;
             sum_x <= last_com_x1 + last_com_x2;
             current_x <= sum_x >> 1;
             
@@ -76,12 +78,12 @@ module location_heading_calculator(
                     trailing_x <= last_com_x1;
                     trailing_y <= last_com_y1;
                 end
-            end else if ((last_com_x2 > 639) & (last_com_y2 > 479) == 0) begin //lost sight of at least one LED
+            end else if ((last_com_x2 > 800) & (last_com_y2 > 800) == 0) begin //lost sight of at least one LED
                 leading_x <= leading_x;
                 leading_y <= leading_y;
                 trailing_x <= trailing_x;
                 trailing_y <= trailing_y;
-                current_x <= 700;   //return an invalid location so that we turn right
+                lost_led <= 1;   //return an invalid location so that we turn right
             end else begin
                 next_x <= current_x + leading_x+leading_x+leading_x+leading_x+leading_x+leading_x-trailing_x-trailing_x-trailing_x-trailing_x-trailing_x-trailing_x;
                 next_y <= current_y + leading_y+leading_y+leading_y+leading_y+leading_y+leading_y-trailing_y-trailing_y-trailing_y-trailing_y-trailing_y-trailing_y;

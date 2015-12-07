@@ -28,6 +28,7 @@ module region_manager(input wire clk,
                         input wire [7:0] region_data,
                         input wire new_region_request,
                         input wire reset,
+                        input wire lost_led,
                         output reg [17:0] region_addr,
                         output reg [1:0] out_car_region,
                         output reg [1:0] out_next_region);
@@ -87,10 +88,17 @@ module region_manager(input wire clk,
         end
     end
     
-    always @(tmp_next)
+    always @(tmp_next || lost_led)
         begin
-          out_car_region <= tmp_current;
-          out_next_region <= tmp_next;
+            if(lost_led) begin
+                out_car_region <= 0;
+                out_next_region <= 0;
+            end else begin
+                out_car_region <= tmp_current;
+                out_next_region <= tmp_next;
+            end
+          //out_car_region <= tmp_current;
+          //out_next_region <= tmp_next;
         end
 
 endmodule

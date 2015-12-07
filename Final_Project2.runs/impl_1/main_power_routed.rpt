@@ -1,7 +1,7 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2014.4.1 (lin64) Build 1149489 Thu Feb 19 16:01:47 MST 2015
-| Date             : Sun Dec  6 22:18:18 2015
+| Date             : Sun Dec  6 22:45:43 2015
 | Host             : eecs-digital-35 running 64-bit Ubuntu 12.04.5 LTS
 | Command          : report_power -file main_power_routed.rpt -pb main_power_summary_routed.pb
 | Design           : main
@@ -31,7 +31,7 @@ Table of Contents
 
 +--------------------------+-------+
 | Total On-Chip Power (W)  | 0.154 |
-| Dynamic (W)              | 0.046 |
+| Dynamic (W)              | 0.047 |
 | Device Static (W)        | 0.107 |
 | Effective TJA (C/W)      | 4.6   |
 | Max Ambient (C)          | 99.3  |
@@ -50,14 +50,14 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |    <0.001 |        3 |       --- |             --- |
-| Slice Logic    |     0.004 |     3392 |       --- |             --- |
-|   LUT as Logic |     0.004 |     1675 |     63400 |            2.64 |
+| Slice Logic    |     0.004 |     3396 |       --- |             --- |
+|   LUT as Logic |     0.004 |     1677 |     63400 |            2.64 |
 |   CARRY4       |    <0.001 |      141 |     15850 |            0.88 |
-|   Register     |    <0.001 |      756 |    126800 |            0.59 |
+|   Register     |    <0.001 |      757 |    126800 |            0.59 |
 |   F7/F8 Muxes  |    <0.001 |      140 |     63400 |            0.22 |
 |   BUFG         |    <0.001 |        3 |        32 |            9.37 |
 |   Others       |     0.000 |      383 |       --- |             --- |
-| Signals        |     0.007 |     2984 |       --- |             --- |
+| Signals        |     0.007 |     2988 |       --- |             --- |
 | Block RAM      |     0.001 |      113 |       135 |           83.70 |
 | DSPs           |     0.002 |        7 |       240 |            2.91 |
 | I/O            |     0.032 |       97 |       210 |           46.19 |
@@ -141,7 +141,7 @@ Table of Contents
 +---------------------------------------+-----------+
 | Name                                  | Power (W) |
 +---------------------------------------+-----------+
-| main                                  |     0.046 |
+| main                                  |     0.047 |
 |   camera1                             |     0.001 |
 |     OV7670_config                     |     0.001 |
 |       SCCB1                           |    <0.001 |
@@ -401,7 +401,7 @@ Table of Contents
 |               prim_noinit.ram         |    <0.001 |
 |   track_recognition                   |     0.003 |
 |     camera_track_recog                |    <0.001 |
-|     track_filter                      |     0.001 |
+|     track_filter                      |     0.002 |
 |     track_reg                         |    <0.001 |
 |     track_tagger0                     |    <0.001 |
 |   vga1                                |    <0.001 |

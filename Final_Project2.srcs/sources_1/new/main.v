@@ -129,10 +129,12 @@ module main(
     wire [9:0] current_x, current_y;
     wire [10:0] next_x, next_y;
     
+    wire lost_led;
+    
     location_heading_calculator location_heading(.clock(clock_25mhz), .vsync_disp(vsync_disp),
             .last_com_x1(last_com_x1), .last_com_y1(last_com_y1), .last_com_x2(last_com_x2),
             .last_com_y2(last_com_y2), .button(BTNR), .current_x(current_x), .current_y(current_y),
-            .next_x(next_x), .next_y(next_y), .leading_x(leading_x), .leading_y(leading_y));
+            .next_x(next_x), .next_y(next_y), .leading_x(leading_x), .leading_y(leading_y), .lost_led(lost_led));
             
     //CAR CONTROLLER STUFF//
     wire foward_ctrl = 0;
@@ -203,7 +205,7 @@ module main(
     
     region_manager region_manager(.clk(clock_25mhz), .current_x(current_x), .current_y(current_y), .next_x(next_x),
                                     .next_y(next_y), .region_data(region_dout), .new_region_request(new_region_request),
-                                    .reset(reset), .region_addr(region_read_addr), .out_car_region(next_region),
+                                    .reset(reset), .lost_led(lost_led), .region_addr(region_read_addr), .out_car_region(next_region),
                                     .out_next_region(car_region));
                                     
 //assign region_read_addr = track_read_addr_disp; // WARNING: REMOVE
