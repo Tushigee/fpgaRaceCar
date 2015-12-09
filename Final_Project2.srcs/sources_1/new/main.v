@@ -201,7 +201,7 @@ module main(
         );
 
     //REGION REPORTING//
-    //INSERT BRAM HERE ALONG WITH RELEVANT BRAMSHIT//
+    //INSERT BRAM HERE ALONG WITH RELEVANT BRAM VALUES//
     
     region_manager region_manager(.clk(clock_25mhz), .current_x(current_x), .current_y(current_y), .next_x(next_x),
                                     .next_y(next_y), .region_data(region_dout), .new_region_request(new_region_request),
@@ -300,45 +300,10 @@ module main(
             if (rec_track_done) begin
                 first_byte <= ~first_byte;
                 track_read_addr_disp <= ((vcount-35)*640 + hcount-142)>>1;
-                // Show Recognized track
-                
-//                disp_r <= region_dout[7:4];
-//                disp_g <= region_dout[7:4];
-//                disp_b <= region_dout[7:4];
-                
-//                  if (region_dout[7:4] == 0) begin
-//                       disp_r <= 4'hF; 
-//                       disp_g <= 0;
-//                       disp_b <= 0;
-//                   end else if (region_dout[7:4] == 1) begin
-//                       disp_r <= 0; 
-//                       disp_g <= 4'hF;
-//                       disp_b <= 0;
-//                   end else if (region_dout[7:4] == 2) begin
-//                       disp_r <= 0; 
-//                       disp_g <= 0;
-//                       disp_b <= 4'hF;
-//                   end
-//               end
-                                
+               
                 disp_r <= track_data[7:4];
                 disp_g <= track_data[7:4];
                 disp_b <= track_data[7:4];
-                
-//                if ((hcount == last_com_x1+144 & vcount == last_com_y1+35)|(hcount == last_com_x2+144 & vcount == last_com_y2+35)) begin
-//                    disp_r <= 4'hF;
-//                    disp_g <= 4'hF;
-//                    disp_b <= 4'hF;
-//                end else if ((hcount == current_x + 144)|(vcount == current_y + 35)) begin
-//                    disp_r <= 0;
-//                    disp_g <= 4'hF;
-//                    disp_b <= 0;
-//                end else if ((hcount == next_x+144)|(vcount == next_y + 35)) begin
-//                    disp_r <= 0;
-//                    disp_g <= 0;
-//                    disp_b <= 4'hF;    
-//                end 
-   
             
             end else begin
                 disp_r <= 0;
