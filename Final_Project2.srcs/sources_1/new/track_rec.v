@@ -491,7 +491,6 @@ module track_recognizer(input clock_25mhz,
         );
         
         wire neg_camera_done;
-        // wire itirator_done;
         assign  neg_camera_done = ~camera_done;
 
         wire filter_done;
@@ -508,8 +507,6 @@ module track_recognizer(input clock_25mhz,
         assign neg_filter_done = (~filter_done);
         
         wire track_reg_done;
-        
-        
         track_regionizer track_reg (.clock_25mhz(clock_25mhz),
                           .reset(neg_filter_done),
                           .bram_dout(bram_read_out),
