@@ -33,13 +33,11 @@ module camera_read_mod(
     input threshold_on,
     input [7:0] threshold,
     input single_frame,
-//    output SIOC,
-//    output SIOD,
     output reg done = 0
     );
     
     wire config_done;
-    // camera_configure OV7670_config(.clk(clock_25mhz), .start(start), .sioc(SIOC), .siod(SIOD), .done(config_done));
+    
     
     reg [1:0] byte_counter = 0;
     reg [3:0] intense_byte, intense_byte1;
@@ -411,58 +409,6 @@ module track_tagger (input clock_25mhz,
                 end 
 endmodule
 
-//module track_query(input clock_25mhz,
-//                   input [7:0] bram_dout,
-//                   output [17:0] bram_read_addr,
-                   
-//                   input start_answer,
-//                   input [10:0] x, y, 
-//                   output answer_ready,
-//                   output reg [1:0] answer);
-    
-//    localparam WAIT   = 0;
-//    localparam ANSWER = 1;
-    
-//    localparam OUTSIDE_TRACK = 8'b10101010;
-//    localparam INDEED_TRACK  = 8'hFF;
-//    localparam INSIDE_TRACK  = 8'h00;
-    
-//    localparam OUTSIDE = 0;
-//    localparam TRACK   = 1;
-//    localparam INSIDE  = 2 ;
-    
-//    reg status = WAIT;
-    
-//    assign bram_read_addr = (x + y*640) >> 1;
-//    reg counter;
-    
-//    always @(posedge clock_25mhz) begin
-//       case(status)
-//            WAIT: begin
-//                answer_ready <= 0;
-//                if (start_answer) begin
-//                    status <= ANSWER;
-//                    counter <= 1;
-//                end 
-//            end 
-//            ANSWER: begin
-//                counter <= ~counter; 
-//                if (counter == 0) begin
-//                    state <= WAIT;
-//                    answer_ready <= 1;
-//                    if (x >= 11) begin 
-//                        if (bram_dout == OUTSIDE_TRACK) answer <= OUTSIDE;
-//                        else if (bram_dout == INDEED_TRACK) answer <= TRACK;
-//                        else answer <= INSIDE;
-//                    end else begin
-//                        answer <= OUTSIDE;
-//                    end
-//                end 
-//            end
-//       endcase
-//    end                    
-
-//endmodule 
 
 module track_recognizer(input clock_25mhz, 
                    input start,
@@ -518,13 +464,10 @@ module track_recognizer(input clock_25mhz,
         
         // wire bram_we;
         wire bram_we_camera;
-        wire bram_we_filter;  // no write needed for now
+        wire bram_we_filter;  
         wire bram_we_region;
         wire bram_we_tagger;
         
-        // wire [7:0]  bram_read_out;
-    
-        // wire bram_write_clock;
         
         // Instintiating BRAM for 
         
@@ -545,8 +488,6 @@ module track_recognizer(input clock_25mhz,
             .threshold_on(1'b1), .threshold(threshold),
             .single_frame(1'b1),  // Only takes single frame
             .done(camera_done) // Asserted whenever entire frame is finished
-//            .SIOC(SIOC),            
-//            .SIOD(SIOD)
         );
         
         wire neg_camera_done;
@@ -565,7 +506,6 @@ module track_recognizer(input clock_25mhz,
         );
         wire neg_filter_done;
         assign neg_filter_done = (~filter_done);
-        //assign neg_filter_done = 1'b1;
         
         wire track_reg_done;
         
@@ -596,67 +536,4 @@ module track_recognizer(input clock_25mhz,
                       .done(track_tagger_done)
                       );
         
-//        wire [10:0] coordinate;
-//        assign coordinate = (x+y) >> 1;
-    
-//         always @(posedge clock_25mhz) begin
-//             if (start_answer == 1) begin
-                
-//             end
-//         end
-//           localparam WAITING = 0;
-//           localparam RECORDING = 0;
-//           localparam DONE = 0;
-           
-//           reg vsync_prev;
-//           reg state;
-           
-//           always @(posedge clock_25mhz) begin
-//                vsync_prev <= VSYNC;
-//                if (start) begin
-//                    status <= WAITING;
-//                    camera_done <= 0;     
-//                end else begin 
-//                    case (state)
-//                        WAITING: begin
-//                             if (VSYNC == 0 & vsync_prev == 1 ) status <= RECORDING;
-//                        end
-//                        RECORDING:
-//                             if (VSYNC == 0 & vsync_prev == 1) status <= DONE;
-//                        DONE:   
-//                            camera_done <= 1;
-//                    endcase
-//                end
-                      
-//           end     
-    
-//         reg first_byte = 1;
-//         reg [17:0] bram_read_addr_disp = 0;
-//         always @(posedge clock_25mhz) begin
-//            if (track_reg_done == 1'b1) begin
-//                first_byte <= ~first_byte;
-//                        bram_read_addr_disp <= ((vcount-35)*640 + hcount-144)>>1;
-//                        if (first_byte == 1) begin
-//                            if (bram_read_out[7:4] == 4'b1010) begin
-//                                disp_r <= 4'hF; 
-//                                disp_g <= 0;
-//                                disp_b <= 0;
-//                            end else begin
-//                                disp_r <= bram_read_out[7:4]; 
-//                                disp_g <= bram_read_out[7:4];
-//                                disp_b <= bram_read_out[7:4];
-//                            end 
-//                        end else if (first_byte == 0) begin
-//                            if (bram_read_out[3:0] == 4'b1010 | hcount < 12) begin
-//                                disp_r <= 4'hF; 
-//                                disp_g <= 0;
-//                                disp_b <= 0;
-//                            end else begin
-//                                disp_r <= bram_read_out[3:0]; 
-//                                disp_g <= bram_read_out[3:0];
-//                                disp_b <= bram_read_out[3:0];
-//                            end 
-//                        end
-//            end 
-//         end 
     endmodule
